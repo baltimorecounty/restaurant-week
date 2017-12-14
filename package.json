@@ -4,8 +4,8 @@
   "description": "Baltimore County Restaurant Week Prototype Site",
   "main": "index.js",
   "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1",
-	"start": "http-server"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/baltimorecounty/restaurant-week/issues"
   },
-  "homepage": "https://github.com/baltimorecounty/restaurant-week#readme"
+  "homepage": "https://github.com/baltimorecounty/restaurant-week#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
