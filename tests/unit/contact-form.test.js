@@ -7,7 +7,7 @@ describe('Restaurant Week', () => {
 
 	describe('Contact Form', () => {
 		it('should load the Baltcogo app', () => {
-			expect(true).toBe(true);
+			
 		});
 	});
 });
