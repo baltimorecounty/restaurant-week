@@ -4,18 +4,13 @@ const chai = require('chai');
 const expect = chai.expect;
 const By = webdriver.By;
 const until = webdriver.until;
-const constants = require('./utils/constants');
-const devValues = constants.devValues;
-const testUrl = constants.testUrl;
-const Reporter = require('./utils/reporter');
+const testUrl = 'http://172.28.1.245:8080/contact.html';
 let driver;
-let reporter;
 
 describe('Restaurant Week', () => {
 	describe('Contact Form', () => {
 		before(() => {
 			driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
-			reporter = new Reporter(driver);
 		});
 
 		beforeEach(() => {
