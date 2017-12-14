@@ -18,6 +18,24 @@
   },
   "homepage": "https://github.com/baltimorecounty/restaurant-week#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-coveralls": "^0.1.4",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-folders": "^1.1.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-strip-code": "^0.1.4",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.5",
+    "node-sass": "^4.7.2",
+    "run-sequence": "^2.2.0"
+  },
+  "dependencies": {
+    "jshint-stylish": "^2.2.1"
   }
 }
