@@ -4,8 +4,9 @@
   "description": "Baltimore County Restaurant Week Prototype Site",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server"
+	"start": "http-server",
+	"test": "karma start karma.conf.js",
+	"automated-tests": "gulp && mocha tests/automated/*.test.js --timeout 10000"
   },
   "repository": {
     "type": "git",
