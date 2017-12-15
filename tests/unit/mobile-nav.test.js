@@ -28,8 +28,8 @@ describe('Restaurant Week', () => {
 			});
 
 			it(`should have the close icon class${selectors.closeIcon}) if the mobile nav is expanded`, (done) => {
+				$(selectors.hamburgerIcon).click();
 				setTimeout(() => {
-					$(selectors.hamburgerIcon).click();
 					var hasCloseMenuClass = $(selectors.mobileNavBtn).hasClass(selectors.closeIcon);
 					expect(hasCloseMenuClass).to.be.eql(true);
 					done();
