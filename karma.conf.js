@@ -12,6 +12,7 @@ module.exports = config => {
 
     // list of files / patterns to load in the browser
     files: [
+	  "tests/lib/bc-utils.min.js",
       "node_modules/jquery/dist/jquery.min.js",
       "js/*.js",
       "tests/unit/*.test.js",
