@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server",
-    "test": "karma start karma.conf.js",
+	"test": "karma start karma.conf.js --single-run",
+	"test-watch": "karma start karma.conf.js",
     "automated-tests": "gulp && mocha tests/automated/*.test.js --timeout 10000"
   },
   "repository": {
