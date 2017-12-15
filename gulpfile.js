@@ -135,7 +135,7 @@ gulp.task('move-fonts', () => gulp.src('fonts/**.*')
 gulp.task('move-html', () => gulp.src('mockups/html/*.html')
 	.pipe(gulp.dest(`${DIST_FOLDER}`)));
 
-gulp.task('code-coverage', () => gulp.src('/coverage/**/lcov.info')
+gulp.task('code-coverage', () => gulp.src('tests/coverage/**/lcov.info')
 	.pipe(coveralls()));
 
 gulp.task('rewrite', () => {
