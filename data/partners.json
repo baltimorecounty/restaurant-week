@@ -1,0 +1,41 @@
+{
+	"partners": [{
+		"title": "Link to the Baltimore County Chamber of Commerce website",
+		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/z/f/partners-bccc.png",
+		"alt": "Baltimore County Chamber of Commerce logo"
+	}, {
+		"title": "Link to the Baltimore County Tourism website",
+		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/u/j/partners-baltco.gif",
+		"alt": "Baltimore County Tourism logo"
+	}, {
+		"title": "Visit the Restaurant Reputations website.",
+		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/v/v/restaurant_reputations_logo.png",
+		"alt": "RestaurantReputations.com logo"
+	}, {
+		"imgSrc": "//www.baltimorecountyrestaurantweek.comundefined"
+	}, {
+		"imgSrc": "//www.baltimorecountyrestaurantweek.comundefined"
+	}, {
+		"title": "View the DuClaw brewing co website.",
+		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/b/n/du-claw_logo.png",
+		"alt": "DuClaw Brewing Co logo"
+	}, {
+		"imgSrc": "//www.baltimorecountyrestaurantweek.comundefined"
+	}, {
+		"title": "Visit the Citypeek website.",
+		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/l/a/partners-citypeek.jpg",
+		"alt": "Citypeek logo"
+	}, {
+		"title": "Link to Downtown Diane's website",
+		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/n/f/parners-downtown-diane.png",
+		"alt": "Downtown Diane logo"
+	}, {
+		"title": "Link to The Restaurant Association of Maryland's Dine Out, Maryland website",
+		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/h/i/md_restaurant_association.png",
+		"alt": "Maryland Restaurant Association Logo"
+	}, {
+		"title": "Link to the Lanterna Distributors INC website",
+		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/n/n/lanterna_logo.png",
+		"alt": "Lanterna Distributors Inc Logo"
+	}]
+}
