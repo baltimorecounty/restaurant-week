@@ -1,13 +1,16 @@
 {
 	"partners": [{
+		"website": "http://www.baltcountycc.com/",
 		"title": "Link to the Baltimore County Chamber of Commerce website",
 		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/z/f/partners-bccc.png",
 		"alt": "Baltimore County Chamber of Commerce logo"
 	}, {
+		"website": "http://www.enjoybaltimorecounty.com/",
 		"title": "Link to the Baltimore County Tourism website",
 		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/u/j/partners-baltco.gif",
 		"alt": "Baltimore County Tourism logo"
 	}, {
+		"website": "http://restaurantreputations.com/",
 		"title": "Visit the Restaurant Reputations website.",
 		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/v/v/restaurant_reputations_logo.png",
 		"alt": "RestaurantReputations.com logo"
@@ -16,24 +19,29 @@
 	}, {
 		"imgSrc": "//www.baltimorecountyrestaurantweek.comundefined"
 	}, {
+		"website": "https://duclaw.com/",
 		"title": "View the DuClaw brewing co website.",
 		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/b/n/du-claw_logo.png",
 		"alt": "DuClaw Brewing Co logo"
 	}, {
 		"imgSrc": "//www.baltimorecountyrestaurantweek.comundefined"
 	}, {
+		"website": "http://www.citypeek.com/",
 		"title": "Visit the Citypeek website.",
 		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/l/a/partners-citypeek.jpg",
 		"alt": "Citypeek logo"
 	}, {
+		"website": "http://www.downtowndiane.net/",
 		"title": "Link to Downtown Diane's website",
 		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/n/f/parners-downtown-diane.png",
 		"alt": "Downtown Diane logo"
 	}, {
+		"website": "http://www.marylandrestaurants.com/RAM2015/Dining_Guide/RAM2015/Dining_Guide/DG_Search.aspx?hkey=a820cb0a-ac67-4dfa-b753-864fbec904bd",
 		"title": "Link to The Restaurant Association of Maryland's Dine Out, Maryland website",
 		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/h/i/md_restaurant_association.png",
 		"alt": "Maryland Restaurant Association Logo"
 	}, {
+		"website": "http://www.lanternawines.com/",
 		"title": "Link to the Lanterna Distributors INC website",
 		"imgSrc": "//www.baltimorecountyrestaurantweek.com/sebin/n/n/lanterna_logo.png",
 		"alt": "Lanterna Distributors Inc Logo"
