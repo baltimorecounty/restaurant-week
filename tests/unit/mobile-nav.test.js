@@ -1,21 +1,24 @@
 /* eslint-env jasmine */
-
+jasmine.getFixtures().fixturesPath = '../fixtures';
 
 describe('Restaurant Week', () => {
 		const activeAndMobileClass = 'active mobile';
 		const selectors = {
-			hamburgerIcon = 'fa-bars',
-			closeIcon = 'fa-times',
-			mobileNavBtn = '.mobile-nav-btn',
-			navigationList = '.navigation-list'
+			hamburgerIcon: 'fa-bars',
+			closeIcon: 'fa-times',
+			mobileNavBtn: '.mobile-nav-btn',
+			navigationList: '.navigation-list'
 		};
-
-		beforeEach(() => {
-			
+		
+		beforeEach((done) => {
+			loadFixtures('mobile-nav.fixture.html');
+			// don't need to pass in options, defaults are fine
+			restaurantWeek.mobileNav.init();
 		});
 	
 		describe('Mobile Navigation Button', () => {
 			it(`should have the hamburger menu class(${selectors.hamburgerIcon}) on page load`, (done) => {
+				
 				var hasHamburgerMenuClass = $(selectors.mobileNavBtn).hasClass(selectors.hamburgerIcon);
 				expect(hasHamburgerMenuClass).to.be.eql(true);
 				done();
