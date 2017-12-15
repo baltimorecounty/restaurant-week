@@ -11,7 +11,16 @@ module.exports = config => {
     frameworks: ["jasmine-jquery", "jasmine"],
 
     // list of files / patterns to load in the browser
-    files: ["js/*.js", "tests/unit/*.test.js"],
+    files: [
+      "node_modules/jquery/dist/jquery.min.js",
+      "js/*.js",
+      "tests/unit/*.test.js",
+      {
+        pattern: "tests/fixtures/*.html",
+        included: false,
+        served: true
+      }
+    ],
 
     // list of files to exclude
     exclude: [],
@@ -59,6 +68,7 @@ module.exports = config => {
     concurrency: Infinity,
 
     plugins: [
+      "karma-jasmine-jquery",
       "karma-mocha-reporter",
       "karma-chrome-launcher",
       "karma-jasmine",
