@@ -14,8 +14,6 @@ function getrestaurantData(index) {
 	var address1 = $restaurant.find('p:eq(0)').text();
 	var address2 = $restaurant.find('p:eq(1)').text();
 	
-	console.log(title)
-
 	var data = {
 		address1: address1,
 		address2: address2,
