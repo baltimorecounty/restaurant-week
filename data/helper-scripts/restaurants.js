@@ -3,7 +3,7 @@ var restaurantList = [];
 
 function getrestaurantData(index) {
 	var $restaurant = $($restaurants[index]);
-	var $link = $restaurant.find('a');
+	var $link = $restaurant.find('a:eq(1)');
 	var linkDestination = $link.attr('href');
 	var title = $link.attr('title');
 	var $restaurantImg = $restaurant.find('img');
@@ -17,14 +17,14 @@ function getrestaurantData(index) {
 	console.log(title)
 
 	var data = {
-		website: linkDestination,
-		title: title,
-		imgSrc: `//www.baltimorecountyrestaurantweek.com${img}`,
-		alt: alt,
-		name: name,
-		phone: phone,
 		address1: address1,
-		address2: address2
+		address2: address2,
+		imageSrc: `//www.baltimorecountyrestaurantweek.com${img}`,
+		imageAlt: alt,
+		linkToWebsite: linkDestination,
+		linkTitle: title,
+		name: name,
+		phone: phone
 	};
 
 	restaurantList.push(data);

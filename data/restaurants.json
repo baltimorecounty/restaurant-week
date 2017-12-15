@@ -1,191 +1,192 @@
 {
   "restaurants": [
     {
-      "website": "http://www.barrettsgrill.com/home",
-      "title": "Link to Barrett's Grill website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/x/c/logo-barretts.jpg",
-      "alt": "Barrett's Grill logo",
-      "name": "Barrett's Grill",
-      "phone": " (410) 527-0999",
       "address1": "118 Shawan Road, Suite D",
-      "address2": "Hunt Valley, Maryland 21030"
+      "address2": "Hunt Valley, Maryland 21030",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/x/c/logo-barretts.jpg",
+      "imageAlt": "Barrett's Grill logo",
+      "linkToWebsite": "http://www.barrettsgrill.com/home",
+      "linkTitle": "Link to Barrett's Grill website",
+      "name": "Barrett's Grill",
+      "phone": " (410) 527-0999"
     },
     {
-      "website": "http://www.bluestoneonline.net/",
-      "title": "Link to Bluestone website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/m/n/logo-bluestone.gif",
-      "alt": "Bluestone logo",
-      "name": "BlueStone",
-      "phone": " (410) 561-1100",
       "address1": "11 West Aylesbury Road",
-      "address2": "Timonium, Maryland 21093"
+      "address2": "Timonium, Maryland 21093",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/m/n/logo-bluestone.gif",
+      "imageAlt": "Bluestone logo",
+      "linkToWebsite": "http://www.bluestoneonline.net/",
+      "linkTitle": "Link to Bluestone website",
+      "name": "BlueStone",
+      "phone": " (410) 561-1100"
     },
     {
-      "website": "http://friendlyfarm.net/",
-      "title": "Link to Friendly Farm website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/f/t/logo-friendly-farm.jpg",
-      "alt": "Friendly Farm logo",
-      "name": "Friendly Farm",
-      "phone": " (410) 239-7400",
       "address1": "17434 Foreston Road",
-      "address2": "Upperco, Maryland 21155"
+      "address2": "Upperco, Maryland 21155",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/f/t/logo-friendly-farm.jpg",
+      "imageAlt": "Friendly Farm logo",
+      "linkToWebsite": "http://friendlyfarm.net/",
+      "linkTitle": "Link to Friendly Farm website",
+      "name": "Friendly Farm",
+      "phone": " (410) 239-7400"
     },
     {
-      "website": "http://www.glyndongrill.com/home",
-      "title": "Link to Glyndon Grill website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/q/x/logo-glyndon-grill.gif",
-      "alt": "Glyndon Grill logo",
-      "name": "Glyndon Grill",
-      "phone": " (443) 881-4183",
       "address1": "4844 Butler Road",
-      "address2": "Glyndon, Maryland 21071"
+      "address2": "Glyndon, Maryland 21071",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/q/x/logo-glyndon-grill.gif",
+      "imageAlt": "Glyndon Grill logo",
+      "linkToWebsite": "http://www.glyndongrill.com/home",
+      "linkTitle": "Link to Glyndon Grill website",
+      "name": "Glyndon Grill",
+      "phone": " (443) 881-4183"
     },
     {
-      "website": "http://jimmysfamousseafood.com/",
-      "title": "Link to Jimmy's Famous Seafood website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/x/j/logo-jimmys-seafood.jpg",
-      "alt": "Jimmy's Famous Seafood logo",
-      "name": "Jimmy's Famous Seafood",
-      "phone": " (410) 633-4040",
       "address1": "6526 Holabird Avenue",
-      "address2": "Baltimore, Maryland 21224"
+      "address2": "Baltimore, Maryland 21224",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/x/j/logo-jimmys-seafood.jpg",
+      "imageAlt": "Jimmy's Famous Seafood logo",
+      "linkToWebsite": "http://jimmysfamousseafood.com/",
+      "linkTitle": "Link to Jimmy's Famous Seafood website",
+      "name": "Jimmy's Famous Seafood",
+      "phone": " (410) 633-4040"
     },
     {
-      "website": "http://www.lafoodmarketa.com/#restaurant",
-      "title": "Link to La Food Marketa website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/v/z/logo-la-food-marketa.jpg",
-      "alt": "La Food Marketa logo",
-      "name": "La Food Marketa",
-      "phone": " (410) 415-0606",
       "address1": "2620 Quarry Lake Drive",
-      "address2": "Baltimore, Maryland 21209"
+      "address2": "Baltimore, Maryland 21209",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/v/z/logo-la-food-marketa.jpg",
+      "imageAlt": "La Food Marketa logo",
+      "linkToWebsite": "http://www.lafoodmarketa.com/#restaurant",
+      "linkTitle": "Link to La Food Marketa website",
+      "name": "La Food Marketa",
+      "phone": " (410) 415-0606"
     },
     {
-      "website": "http://www.liberatores.com/perry-hall/about-perry-hall.html",
-      "title": "Link to Liberatore's Perry Hall website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/r/r/logo-liberatores-perryhall.jpg",
-      "alt": "Liberatore's Perry Hall logo",
-      "name": "Liberatore's – Perry Hall",
-      "phone": " (410) 529-4567",
       "address1": "5005 Honeygo Center Drive",
-      "address2": "Perry Hall, Maryland 21128"
+      "address2": "Perry Hall, Maryland 21128",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/r/r/logo-liberatores-perryhall.jpg",
+      "imageAlt": "Liberatore's Perry Hall logo",
+      "linkToWebsite":
+        "http://www.liberatores.com/perry-hall/about-perry-hall.html",
+      "linkTitle": "Link to Liberatore's Perry Hall website",
+      "name": "Liberatore's – Perry Hall",
+      "phone": " (410) 529-4567"
     },
     {
-      "website": "http://libsgrill.com/",
-      "title": "Link to Lib's Grill website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/y/j/logo-libs-grill.gif",
-      "alt": "Lib's Grill logo",
-      "name": "Lib's Grill",
-      "phone": " (410) 513-7133 ",
       "address1": "5009 Honeygo Center Drive, Suite 101",
-      "address2": "Perry Hall, Maryland 21128"
+      "address2": "Perry Hall, Maryland 21128",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/y/j/logo-libs-grill.gif",
+      "imageAlt": "Lib's Grill logo",
+      "linkToWebsite": "http://libsgrill.com/",
+      "linkTitle": "Link to Lib's Grill website",
+      "name": "Lib's Grill",
+      "phone": " (410) 513-7133 "
     },
     {
-      "website": "http://www.linwoods.com/",
-      "title": "Link to Linwoods website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/g/u/logo-linwoods.gif",
-      "alt": "Linwoods logo",
-      "name": "Linwoods",
-      "phone": " (410) 356-3030",
       "address1": "25 Crossroads Drive",
-      "address2": "Owings Mills, Maryland 21117"
+      "address2": "Owings Mills, Maryland 21117",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/g/u/logo-linwoods.gif",
+      "imageAlt": "Linwoods logo",
+      "linkToWebsite": "http://www.linwoods.com/",
+      "linkTitle": "Link to Linwoods website",
+      "name": "Linwoods",
+      "phone": " (410) 356-3030"
     },
     {
-      "website": "http://www.miltoninn.com/",
-      "title": "Link to the Milton Inn website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/o/w/logo-the-milton-inn.gif",
-      "alt": "Milton Inn logo",
-      "name": "The Milton Inn",
-      "phone": "(410) 771-4366",
       "address1": "14833 York Road",
-      "address2": "Sparks, Maryland 21152"
+      "address2": "Sparks, Maryland 21152",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/o/w/logo-the-milton-inn.gif",
+      "imageAlt": "Milton Inn logo",
+      "linkToWebsite": "http://www.miltoninn.com/",
+      "linkTitle": "Link to the Milton Inn website",
+      "name": "The Milton Inn",
+      "phone": "(410) 771-4366"
     },
     {
-      "website": "http://www.mothersgrille.com/timonium/",
-      "title": "Link to Mother's North Grille website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/n/n/logo-mothers-north-grille.jpg",
-      "alt": "Mother's North Grille logo",
-      "name": "Mother's North Grille",
-      "phone": " (443) 991-5256",
       "address1": "2450 Broad Avenue",
-      "address2": "Timonium, Maryland 21093"
+      "address2": "Timonium, Maryland 21093",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/n/n/logo-mothers-north-grille.jpg",
+      "imageAlt": "Mother's North Grille logo",
+      "linkToWebsite": "http://www.mothersgrille.com/timonium/",
+      "linkTitle": "Link to Mother's North Grille website",
+      "name": "Mother's North Grille",
+      "phone": " (443) 991-5256"
     },
     {
-      "website": "http://www.theoregongrille.com/",
-      "title": "Link to The Oregon Grille website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/w/o/logo-the-oregon-grille.gif",
-      "alt": "The Oregon Grille logo",
-      "name": "The Oregon Grille",
-      "phone": "(410) 771-0505",
       "address1": "1201 Shawan Road",
-      "address2": "Cockeysville, Maryland 21030"
+      "address2": "Cockeysville, Maryland 21030",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/w/o/logo-the-oregon-grille.gif",
+      "imageAlt": "The Oregon Grille logo",
+      "linkToWebsite": "http://www.theoregongrille.com/",
+      "linkTitle": "Link to The Oregon Grille website",
+      "name": "The Oregon Grille",
+      "phone": "(410) 771-0505"
     },
     {
-      "website": "http://pizzajohns.info/",
-      "title": "Link to Pizza Johns website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/z/h/logo-pizza-johns.jpg",
-      "alt": "Pizza Johns logo",
-      "name": "Pizza John's",
-      "phone": "(410) 687-7733",
       "address1": "113 Back River Neck Road",
-      "address2": "Baltimore, Maryland 21221"
+      "address2": "Baltimore, Maryland 21221",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/z/h/logo-pizza-johns.jpg",
+      "imageAlt": "Pizza Johns logo",
+      "linkToWebsite": "http://pizzajohns.info/",
+      "linkTitle": "Link to Pizza Johns website",
+      "name": "Pizza John's",
+      "phone": "(410) 687-7733"
     },
     {
-      "website": "https://www.thepointtowson.com/",
-      "title": "Link to The Point Towsons website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/v/b/the_point-logo.jpg",
-      "alt": "The Point logo",
-      "name": "The Point in Towson",
-      "phone": "(443) 463-9949",
       "address1": "523 York Road",
-      "address2": "Towson, MD 21204"
+      "address2": "Towson, MD 21204",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/v/b/the_point-logo.jpg",
+      "imageAlt": "The Point logo",
+      "linkToWebsite": "https://www.thepointtowson.com/",
+      "linkTitle": "Link to The Point Towsons website",
+      "name": "The Point in Towson",
+      "phone": "(443) 463-9949"
     },
     {
-      "website": "http://www.riverwatchrestaurant.com/index.php",
-      "title": "Link to River Watch Restaurant website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/j/d/logo-river-watch.png",
-      "alt": "River Watch Restaurant logo",
-      "name": "River Watch Restaurant",
-      "phone": " (410) 687-1422",
       "address1": "207 Nanticoke Road",
-      "address2": "Essex, Maryland 21221"
+      "address2": "Essex, Maryland 21221",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/j/d/logo-river-watch.png",
+      "imageAlt": "River Watch Restaurant logo",
+      "linkToWebsite": "http://www.riverwatchrestaurant.com/index.php",
+      "linkTitle": "Link to River Watch Restaurant website",
+      "name": "River Watch Restaurant",
+      "phone": " (410) 687-1422"
     },
     {
-      "website": "http://www.ruthschris-pikesville.com/",
-      "title": "Link to Ruth's Chris Pikesville website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/z/z/logo-ruths-chris.jpg",
-      "alt": "Ruth's Chris Pikesville logo",
-      "name": "Ruth's Chris – Pikesville",
-      "phone": "(410) 837-0033",
       "address1": "1777 Reisterstown Road",
-      "address2": "Pikesville, Maryland 21208"
+      "address2": "Pikesville, Maryland 21208",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/z/z/logo-ruths-chris.jpg",
+      "imageAlt": "Ruth's Chris Pikesville logo",
+      "linkToWebsite": "http://www.ruthschris-pikesville.com/",
+      "linkTitle": "Link to Ruth's Chris Pikesville website",
+      "name": "Ruth's Chris – Pikesville",
+      "phone": "(410) 837-0033"
     },
     {
-      "website": "http://www.thevalleyinn.us/",
-      "title": "Link to the Valley Inn website",
-      "imgSrc":
-        "//www.baltimorecountyrestaurantweek.com/sebin/b/b/logo-the-valley-inn.jpg",
-      "alt": "The Valley Inn logo",
-      "name": "The Valley Inn",
-      "phone": " (410) 828-0002",
       "address1": "10501 Falls Road",
-      "address2": "Lutherville-Timonium, Maryland 21093"
+      "address2": "Lutherville-Timonium, Maryland 21093",
+      "imageSrc":
+        "//www.baltimorecountyrestaurantweek.com/sebin/b/b/logo-the-valley-inn.jpg",
+      "imageAlt": "The Valley Inn logo",
+      "linkToWebsite": "http://www.thevalleyinn.us/",
+      "linkTitle": "Link to the Valley Inn website",
+      "name": "The Valley Inn",
+      "phone": " (410) 828-0002"
     }
   ]
 }

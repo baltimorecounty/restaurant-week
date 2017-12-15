@@ -11,10 +11,10 @@ function getPartnerData(index) {
 	var alt = $partnerImg.attr('alt');
 	
 	var data = {
-		website: linkDestination,
-		title: title,
-		imgSrc: `//www.baltimorecountyrestaurantweek.com${img}`,
-		alt: alt
+		imageSrc: `//www.baltimorecountyrestaurantweek.com${img}`,
+		imageAlt: alt,
+		linkToWebsite: linkDestination,
+		linkTitle: title
 	};
 
 	partnerList.push(data);
