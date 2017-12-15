@@ -2,13 +2,13 @@
 
 
 describe('Restaurant Week', () => {
+		const activeAndMobileClass = 'active mobile';
 		const selectors = {
-			hamburgerIcon = '',
-			closeIcon = '',
+			hamburgerIcon = 'fa-bars',
+			closeIcon = 'fa-times',
 			mobileNavBtn = '.mobile-nav-btn',
 			navigationList = '.navigation-list'
 		};
-
 
 		beforeEach(() => {
 			
@@ -40,15 +40,24 @@ describe('Restaurant Week', () => {
 
 		describe('Mobile Navigation List', () => {
 			it('should NOT have active or mobile classes on page load', () => {
-				expect(false).to.be.eql(true);
+				var hasActiveAndMobileClass = $(selectors.navigationList).hasClass(activeAndMobileClass);
+				expect(hasActiveAndMobileClass).to.be.eql(false);
+				done();
 			});
 
 			it('should NOT have active or mobile classes on page load if the mobile nav is collapsed', () => {
-				expect(false).to.be.eql(true);
+				var hasActiveAndMobileClass = $(selectors.navigationList).hasClass(activeAndMobileClass);
+				expect(hasActiveAndMobileClass).to.be.eql(false);
+				done();
 			});
 
 			it('should have active or mobile classes if the mobile nav is expanded', () => {
-				expect(false).to.be.eql(true);
+				$(selectors.hamburgerIcon).click();
+				setTimeout(() => {
+					var hasActiveAndMobileClass = $(selectors.navigationList).hasClass(activeAndMobileClass);
+					expect(hasActiveAndMobileClass).to.be.eql(true);
+					done();
+				}, 500);
 			});
 		});
 	});
