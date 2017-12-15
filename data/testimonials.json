@@ -1,20 +1,31 @@
 {
-	"testimonials": [{
-		"headline": "Baltimore County Restaurant Week is my Fave :)",
-		"description": "Bacon ipsum dolor amet jowl sirloin swine biltong shoulder shank hamburger alcatra. Cupim shank prosciutto, sausage spare ribs shoulder ball tip kielbasa beef ribs. Brisket biltong fatback short ribs. Drumstick t-bone rump capicola ham, burgdoggen tail pork loin.",
-		"name": "Bob Belcher",
-		"title": "Head Burger Chef"
-	},
-	{
-		"headline": "Best burger I have ever had.",
-		"description": "Bacon ipsum dolor amet jowl sirloin swine biltong shoulder shank hamburger alcatra. Cupim shank prosciutto, sausage spare ribs shoulder ball tip kielbasa beef ribs. Brisket biltong fatback short ribs. Drumstick t-bone rump capicola ham, burgdoggen tail pork loin.",
-		"name": "Tina Belcher",
-		"title": "Student"
-	},
-	{
-		"headline": "What great deals!",
-		"description": "Bacon ipsum dolor amet jowl sirloin swine biltong shoulder shank hamburger alcatra. Cupim shank prosciutto, sausage spare ribs shoulder ball tip kielbasa beef ribs. Brisket biltong fatback short ribs. Drumstick t-bone rump capicola ham, burgdoggen tail pork loin.",
-		"name": "Gene Belcher",
-		"title": "Assistant to the Regional Burger Chef"
-	}]
+  "testimonials": [
+    {
+      "headline": "Baltimore County Restaurant Week is my Fave :)",
+      "description":
+        "Bacon ipsum dolor amet jowl sirloin swine biltong shoulder shank hamburger alcatra. Cupim shank prosciutto, sausage spare ribs shoulder ball tip kielbasa beef ribs. Brisket biltong fatback short ribs. Drumstick t-bone rump capicola ham, burgdoggen tail pork loin.",
+      "name": "Bob Belcher",
+      "title": "Head Burger Chef",
+      "imageSrc": "",
+      "imageAlt": ""
+    },
+    {
+      "headline": "Best burger I have ever had.",
+      "description":
+        "Bacon ipsum dolor amet jowl sirloin swine biltong shoulder shank hamburger alcatra. Cupim shank prosciutto, sausage spare ribs shoulder ball tip kielbasa beef ribs. Brisket biltong fatback short ribs. Drumstick t-bone rump capicola ham, burgdoggen tail pork loin.",
+      "name": "Tina Belcher",
+      "title": "Student",
+      "imageSrc": "",
+      "imageAlt": ""
+    },
+    {
+      "headline": "What great deals!",
+      "description":
+        "Bacon ipsum dolor amet jowl sirloin swine biltong shoulder shank hamburger alcatra. Cupim shank prosciutto, sausage spare ribs shoulder ball tip kielbasa beef ribs. Brisket biltong fatback short ribs. Drumstick t-bone rump capicola ham, burgdoggen tail pork loin.",
+      "name": "Gene Belcher",
+      "title": "Assistant to the Regional Burger Chef",
+      "imageSrc": "",
+      "imageAlt": ""
+    }
+  ]
 }
