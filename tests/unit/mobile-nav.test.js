@@ -21,8 +21,8 @@ describe('Restaurant Week', () => {
 				done();
 			});
 
-			it(`should have the hamburger menu class(${selectors.closeIcon}) if the mobile nav is collapsed`, (done) => {
-				var hasHamburgerMenuClass = $(selectors.mobileNavBtn).hasClass(selectors.closeIcon);
+			it(`should have the hamburger menu class(${selectors.hamburgerIcon}) if the mobile nav is collapsed`, (done) => {
+				var hasHamburgerMenuClass = $(selectors.mobileNavBtn).hasClass(selectors.hamburgerIcon);
 				expect(hasHamburgerMenuClass).to.be.eql(true);
 				done();
 			});
@@ -30,8 +30,8 @@ describe('Restaurant Week', () => {
 			it(`should have the close icon class${selectors.closeIcon}) if the mobile nav is expanded`, (done) => {
 				setTimeout(() => {
 					$(selectors.hamburgerIcon).click();
-					var hasHamburgerMenuClass = $(selectors.mobileNavBtn).hasClass(selectors.closeIcon);
-					expect(hasHamburgerMenuClass).to.be.eql(true);
+					var hasCloseMenuClass = $(selectors.mobileNavBtn).hasClass(selectors.closeIcon);
+					expect(hasCloseMenuClass).to.be.eql(true);
 					done();
 				}, 500);
 				
