@@ -118,36 +118,36 @@ function namespacer(t) {
     return r[t](e);
   }var r = { phoneNumber: t };return e;
 }();
-"use strict";
+'use strict';
 
-namespacer("restaurantWeek");
+namespacer('restaurantWeek');
 
 restaurantWeek.mobileNav = function ($) {
-  var self = {};
+	var self = {};
 
-  var init = function init(options) {
-    self.options = self.options || {};
-    self.options.mobileNavButtonSelector = self.options.mobileNavButtonSelector || ".mobile-nav-btn";
-    self.options.navigationListSelector = self.options.navigationListSelector || ".navigation-list";
+	var init = function init(options) {
+		self.options = options || {};
+		self.options.mobileNavButtonSelector = self.options.mobileNavButtonSelector || '.mobile-nav-btn';
+		self.options.navigationListSelector = self.options.navigationListSelector || '.navigation-list';
 
-    $(document).on("click", self.options.mobileNavButtonSelector, onMobileNavClick);
-  };
+		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
+	};
 
-  var onMobileNavClick = function onMobileNavClick(e) {
-    var $btn = $(e.currentTarget);
-    var $navList = $(self.options.navigationListSelector);
+	var onMobileNavClick = function onMobileNavClick(e) {
+		var $btn = $(e.currentTarget);
+		var $navList = $(self.options.navigationListSelector);
 
-    $btn.find("i").toggleClass("fa-bars").toggleClass("fa-times");
+		$btn.find('i').toggleClass('fa-bars').toggleClass('fa-times');
 
-    $navList.toggleClass("active mobile");
-  };
+		$navList.toggleClass('active mobile');
+	};
 
-  return {
-    init: init
-  };
+	return {
+		init: init
+	};
 }(jQuery);
 
-//On Document Ready
+// On Document Ready
 $(document).ready(function () {
-  restaurantWeek.mobileNav.init();
+	restaurantWeek.mobileNav.init();
 });
