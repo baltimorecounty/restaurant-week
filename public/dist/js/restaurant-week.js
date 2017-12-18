@@ -133,8 +133,8 @@ restaurantWeek.mobileNav = function ($) {
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
 	};
 
-	var onMobileNavClick = function onMobileNavClick(e) {
-		var $btn = $(e.currentTarget);
+	var onMobileNavClick = function onMobileNavClick(clickEvent) {
+		var $btn = $(clickEvent.currentTarget);
 		var $navList = $(self.options.navigationListSelector);
 
 		$btn.find('i').toggleClass('fa-bars').toggleClass('fa-times');
