@@ -11,8 +11,8 @@ restaurantWeek.mobileNav = (($) => {
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
 	};
 
-	const onMobileNavClick = (e) => {
-		const $btn = $(e.currentTarget);
+	const onMobileNavClick = (clickEvent) => {
+		const $btn = $(clickEvent.currentTarget);
 		const $navList = $(self.options.navigationListSelector);
 
 		$btn
