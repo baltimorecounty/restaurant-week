@@ -25,7 +25,7 @@ gulp.task('process-scss', () =>
 		.pipe(sass())
 		.pipe(cssnano({ autoprefixer: false, zindex: false }))
 		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest(`${DIST_FOLDER}/css`)),);
+		.pipe(gulp.dest(`${DIST_FOLDER}/css`)) );
 
 gulp.task(
 	'minify-js',
@@ -101,59 +101,59 @@ gulp.task('process-master-js', () =>
 	// )
 	// .pipe(jshint.reporter(stylish))
 		.pipe(babel({
-				presets: ['es2015'],
-			}),)
+			presets: ['es2015'],
+		}) )
 		.pipe(stripCode({
-				start_comment: 'test-code',
-				end_comment: 'end-test-code',
-			}),)
+			start_comment: 'test-code',
+			end_comment: 'end-test-code',
+		}) )
 		.pipe(concat('restaurant-week.js'))
-		.pipe(gulp.dest(`${DIST_FOLDER}/js`)),);
+		.pipe(gulp.dest(`${DIST_FOLDER}/js`)) );
 
 gulp.task('process-homepage-js', () =>
 	gulp
 		.src(['js/page-specific/homepage/*.js'])
 		.pipe(jshint({
-				esversion: 6,
-			}),)
+			esversion: 6,
+		}) )
 		.pipe(jshint.reporter(stylish))
 		.pipe(babel({
-				presets: ['es2015'],
-			}),)
+			presets: ['es2015'],
+		}) )
 		.pipe(stripCode({
-				start_comment: 'test-code',
-				end_comment: 'end-test-code',
-			}),)
+			start_comment: 'test-code',
+			end_comment: 'end-test-code',
+		}) )
 		.pipe(concat('homepage.js'))
-		.pipe(gulp.dest(`${DIST_FOLDER}/js`)),);
+		.pipe(gulp.dest(`${DIST_FOLDER}/js`)) );
 
 gulp.task('move-page-specific-js', () =>
 	gulp
 		.src('js/page-specific/**/*.js')
 		.pipe(jshint({
-				esversion: 6,
-			}),)
+			esversion: 6,
+		}) )
 		.pipe(jshint.reporter(stylish))
 		.pipe(babel({
-				presets: ['es2015'],
-			}),)
-		.pipe(gulp.dest(`${DIST_FOLDER}/js/page-specific`)),);
+			presets: ['es2015'],
+		}) )
+		.pipe(gulp.dest(`${DIST_FOLDER}/js/page-specific`)) );
 
 gulp.task('move-vendor-js', () => {
 	gulp.src('js/vendor/**/*.js').pipe(gulp.dest(`${DIST_FOLDER}/js`));
 });
 
 gulp.task('move-images', () =>
-	gulp.src('images/**/*').pipe(gulp.dest(`${DIST_FOLDER}/images`)),);
+	gulp.src('images/**/*').pipe(gulp.dest(`${DIST_FOLDER}/images`)) );
 
 gulp.task('move-fonts', () =>
-	gulp.src('fonts/**.*').pipe(gulp.dest(`${DIST_FOLDER}/fonts`)),);
+	gulp.src('fonts/**.*').pipe(gulp.dest(`${DIST_FOLDER}/fonts`)) );
 
 gulp.task('move-html', () =>
-	gulp.src('mockups/html/*.html').pipe(gulp.dest(`${DIST_FOLDER}`)),);
+	gulp.src('mockups/html/*.html').pipe(gulp.dest(`${DIST_FOLDER}`)) );
 
 gulp.task('code-coverage', () =>
-	gulp.src('tests/coverage/**/lcov.info').pipe(coveralls()),);
+	gulp.src('tests/coverage/**/lcov.info').pipe(coveralls()) );
 
 gulp.task('rewrite', () => {
 	gulp
@@ -165,19 +165,6 @@ gulp.task('rewrite', () => {
 gulp.task('move-data', () => {
 	gulp.src('data/**/*').pipe(gulp.dest(`${DIST_FOLDER}/data`));
 });
-
-// gulp.task('default', ['clean'], callback => runSequence([
-// 	'move-html',
-// 	'process-scss',
-// 	'minify-js',
-// 	'move-app-directive-templates',
-// 	'move-vendor-js',
-// 	'move-images',
-// 	'move-fonts',
-// 	'rewrite',
-// 	'move-data'
-// ], 'code-coverage', callback));
-
 
 gulp.task('default', ['clean'], callback =>
 	runSequence(
@@ -194,7 +181,7 @@ gulp.task('default', ['clean'], callback =>
 		],
 		'code-coverage',
 		callback,
-	),);
+	) );
 
 gulp.task('watcher', () => {
 	gulp.watch('**/*.html', ['default']);
