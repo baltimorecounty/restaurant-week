@@ -13,8 +13,6 @@ describe('Restaurant Week', function() {
 		beforeEach(() => {
 			jasmine.getFixtures().fixturesPath = basePath + '/tests/fixtures';
 			loadFixtures('mobile-nav.fixture.html');
-			// don't need to pass in options, defaults are fine
-			restaurantWeek.mobileNav.init();
 		});
 	
 		describe('Mobile Navigation Button', () => {
