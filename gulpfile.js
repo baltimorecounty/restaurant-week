@@ -213,7 +213,8 @@ gulp.task("default", ["clean"], callback =>
       "move-fonts",
       "rewrite",
       "move-data"
-    ],
+	],
+	'code-coverage',
     callback
   )
 );
