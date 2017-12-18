@@ -32,6 +32,6 @@ restaurantWeek.mobileNav = (($) => {
 })(jQuery);
 
 // On Document Ready
-// $(document).ready(() => {
-// 	restaurantWeek.mobileNav.init();
-// });
+$(document).ready(() => {
+	restaurantWeek.mobileNav.init();
+});
