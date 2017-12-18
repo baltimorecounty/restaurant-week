@@ -1,0 +1,13 @@
+<div class="restaurant-item">
+	<a href="{{restaurant.websiteUrl}}" title="{{restaurant.websiteUrlTitle}}">
+		<img src="{{restaurant.imageUrl}}" alt="{{restaurant.imageAlt}}" />
+	</a>
+	<a class="headline-link" href="{{restaurant.websiteUrl}}" title="{{restaurant.websiteUrlTitle}}">
+		<h2 class="restaurant-name">{{restaurant.name}}</h2>
+	</a>
+	<div class="restaurant-address">
+		<p>{{restaurant.address1}}</p>
+		<p ng-show="restaurant.address2.length">{{restaurant.address2}}</p>
+	</div>
+	<p class="restaurant-phone">{{restaurant.phone}}</p>
+</div>
