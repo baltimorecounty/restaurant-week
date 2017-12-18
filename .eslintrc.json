@@ -1,0 +1,11 @@
+{ 
+	"extends": [
+		"airbnb",
+		"baltimorecounty"
+	],
+	"globals": {
+		"restaurantWeek": true,
+		"describe": true,
+		"it": true
+	}
+}
