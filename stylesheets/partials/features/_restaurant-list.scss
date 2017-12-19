@@ -1,0 +1,58 @@
+.restaurant-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  &:after {
+	content: "";
+	flex: auto;
+  }
+}
+
+.restaurant-item {
+  margin-bottom: 40px;
+  text-align: center;
+  width: 33%;
+
+  h2,
+  p {
+    margin: 0;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .restaurant-image-wrapper {
+	  display: block;
+	  height: 125px;
+  }
+
+  .restaurant-name {
+    color: $primary-color;
+    font-family: $default-headline-font;
+    font-weight: 700;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  .headline-link {
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .restaurant-item {
+    width: 49%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .restaurant-item {
+    width: 100%;
+  }
+}

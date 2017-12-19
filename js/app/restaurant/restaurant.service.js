@@ -1,6 +1,6 @@
 ((app) => {
 	const restaurantService = (restaurantProvider) => {
-		const getRestaurants = async () => restaurantProvider.getRestaurants();
+		const getRestaurants = callback => restaurantProvider.getRestaurants(callback);
 
 		return {
 			getRestaurants,
@@ -8,5 +8,5 @@
 	};
 
 	app
-		.factory('restaurantService', ['restaurantProvider', restaurantService]);
+		.factory('restaurantService', ['restaurantMockProvider', restaurantService]);
 })(angular.module('restaurantWeekApp'));
