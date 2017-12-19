@@ -1,0 +1,25 @@
+.mobile-nav-btn {
+  background: none;
+  border: none;
+  display: none;
+}
+
+.mobile-nav-icon {
+  background: $secondary-color;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  padding-top: 8px;
+  width: 48px;
+  height: 48px;
+}
+
+@media screen and (max-width: 1000px) {
+  .mobile-nav-btn {
+    display: block;
+    margin: 0 15px;
+    padding-left: 15px;
+  }
+}

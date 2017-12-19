@@ -8,17 +8,27 @@ module.exports = config => {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ["jasmine"],
+    frameworks: ["jasmine-jquery", "jasmine"],
 
     // list of files / patterns to load in the browser
-    files: ["tests/unit/*.test.js"],
+    files: [
+	  "tests/lib/bc-utils.min.js",
+      "node_modules/jquery/dist/jquery.min.js",
+      "js/*.js",
+      "tests/unit/*.test.js",
+      {
+        pattern: "tests/fixtures/*.html",
+        included: false,
+        served: true
+      }
+    ],
 
     // list of files to exclude
     exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {},
+    preprocessors: {'js/*.js': ['coverage'] },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -59,6 +69,7 @@ module.exports = config => {
     concurrency: Infinity,
 
     plugins: [
+      "karma-jasmine-jquery",
       "karma-mocha-reporter",
       "karma-chrome-launcher",
       "karma-jasmine",
