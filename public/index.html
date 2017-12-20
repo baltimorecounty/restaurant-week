@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="dist/css/restaurant-week.min.css">
 </head>
 
-<body ng-app="restaurantWeekApp">
+<body ng-app="rwApp">
 	<header class="page-header">
 		<div class="logo">
 			<img src="http://www.baltimorecountyrestaurantweek.com/sebin/o/g/header-summer15.gif" alt="" />
@@ -40,7 +40,7 @@
 		</ul>
 	</header>
 	<div class="container bc-container">
-		<div class="restaurant-list-container" ng-controller="RestaurantListCtrl as restaurantListCtrl">
+		<div class="restaurant-list-container" ng-controller="rwApp.RestaurantListCtrl as restaurantListCtrl">
 			<restaurant-list 
 				class="restaurant-list" 
 				list="restaurantListCtrl.restaurantList"></restaurant-list>
