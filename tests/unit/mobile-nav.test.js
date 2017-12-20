@@ -1,5 +1,6 @@
-const basePath = window.__karma__ ? 'base' : ''; // eslint-disable-line no-underscore-dangle
 /* eslint-env jasmine */
+basePath = window.__karma__ ? 'base' : ''; // eslint-disable-line
+
 describe('Restaurant Week', () => {
 	const activeAndMobileClass = 'active mobile';
 	const selectors = {
