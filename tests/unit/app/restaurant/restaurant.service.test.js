@@ -1,28 +1,31 @@
+/* eslint no-undef: 0 */
 describe('Restaurant Service', () => {
-	let service;
-
 	beforeEach(() => {
 		bard.appModule('rwApp');
 		bard.inject('rwApp.restaurantService');
-
-		service = restaurantService;
 	});
 
 	describe('Restaurant Service', () => {
 		it('should exist', () => {
-			expect(service).toBeDefined();
+			expect(restaurantService).toBeDefined();
 		});
 
-		it('should return a list of restaurants', () => {
-			const list = service.getRestaurants();
-			const listIsValid = !!list && list.length > 0;
-			expect(listIsValid).toEqual(true);
-		});
+		describe('GET Restaurants', () => {
+			let list;
+			let listIsValid = false;
 
-		it('should return ', () => {
-			const list = service.getRestaurants();
-			const listIsValid = !!list && list.length > 0;
-			expect(listIsValid).toEqual(true);
+			beforeEach(() => {
+				list = restaurantService.getRestaurants();
+				listIsValid = !!list && list.length > 0;
+			});
+
+			it('should return a list of restaurants', () => {
+				expect(listIsValid).toEqual(true);
+			});
+
+			it('should return ', () => {
+				expect(listIsValid).toEqual(true);
+			});
 		});
 	});
 });
