@@ -11,5 +11,5 @@
 		return directive;
 	};
 
-	app.directive('restaurant', ['CONSTANTS', restaurantDirective]);
-})(angular.module('restaurantWeekApp'));
+	app.directive('restaurant', ['rwApp.CONSTANTS', restaurantDirective]);
+})(angular.module('rwApp'));

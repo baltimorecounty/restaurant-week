@@ -8,5 +8,5 @@
 	};
 
 	app
-		.factory('restaurantService', ['restaurantMockProvider', restaurantService]);
-})(angular.module('restaurantWeekApp'));
+		.factory('rwApp.restaurantService', ['rwApp.restaurantMockProvider', restaurantService]);
+})(angular.module('rwApp'));

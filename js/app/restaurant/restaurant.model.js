@@ -18,6 +18,6 @@
 		return Restaurant;
 	};
 
-	app.factory('RestaurantModel', RestaurantModel);
-})(angular.module('restaurantWeekApp'));
+	app.factory('rwApp.RestaurantModel', RestaurantModel);
+})(angular.module('rwApp'));
 
