@@ -1,4 +1,4 @@
 (() => {
 	angular
-		.module('restaurantWeekApp', []);
+		.module('rwApp', []);
 })();
