@@ -1,8 +1,13 @@
 /* eslint no-undef: 0 */
 describe('Restaurant Service', () => {
+	let contants;
+	let endpoint;
+
 	beforeEach(() => {
 		bard.appModule('rwApp');
-		bard.inject('rwApp.restaurantService');
+		bard.inject('$http', '$httpBackend', '$q', '$rootScope', 'rwApp.restaurantService', 'rwApp.CONSTANTS');
+		constants = CONSTANTS;
+		endpoint = constants.urls.restaurantMockData;
 	});
 
 	describe('Restaurant Service', () => {
@@ -10,21 +15,27 @@ describe('Restaurant Service', () => {
 			expect(restaurantService).toBeDefined();
 		});
 
-		describe('GET Restaurants', () => {
-			let list;
-			let listIsValid = false;
+		describe('GetRestaurants', () => {
+			it('should hits the proper endpoint for getting restaurants as defined in the constants file', () => {
+				$httpBackend.when('GET', endpoint).respond(200, [{}]);
 
-			beforeEach(() => {
-				list = restaurantService.getRestaurants();
-				listIsValid = !!list && list.length > 0;
+				restaurantService.getRestaurants()
+					.then((data) => {
+						expect(!!data).toEqual(true);
+					});
+
+				$httpBackend.flush();
 			});
 
-			it('should return a list of restaurants', () => {
-				expect(listIsValid).toEqual(true);
-			});
+			it('should report an error if the server fails', () => {
+				$httpBackend.when('GET', endpoint).respond(500, { description: 'You fail' });
 
-			it('should return ', () => {
-				expect(listIsValid).toEqual(true);
+				restaurantService.getRestaurants()
+					.catch((err) => {
+						expect(err.data.description).toEqual('You fail');
+					});
+
+				$httpBackend.flush();
 			});
 		});
 	});
