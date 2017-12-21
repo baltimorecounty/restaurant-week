@@ -1,15 +1,21 @@
 ((app) => {
-	const restaurantListDirective = (constants) => {
+	const restaurantListDirective = ($location, constants) => {
 		const directive = {
 			restrict: 'E',
 			scope: {
 				list: '=',
 			},
 			templateUrl: constants.urls.templates.restaurantList,
+			link: (scope, element, attrs) => {
+				const locationSearch = $location.search();
+				if (locationSearch && locationSearch.q) {
+					scope.restaurantFilter = locationSearch.q; // eslint-disable-line no-param-reassign
+				}
+			},
 		};
 
 		return directive;
 	};
 
-	app.directive('restaurantList', ['rwApp.CONSTANTS', restaurantListDirective]);
+	app.directive('restaurantList', ['$location', 'rwApp.CONSTANTS', restaurantListDirective]);
 })(angular.module('rwApp'));
