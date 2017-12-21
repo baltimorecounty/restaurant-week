@@ -8,7 +8,7 @@ module.exports = (config) => {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['jasmine-jquery', 'jasmine', 'chai', 'sinon', 'chai-sinon'],
+		frameworks: ['jasmine-jquery', 'jasmine', 'jasmine-matchers', 'chai', 'sinon', 'chai-sinon'],
 
 		// list of files / patterns to load in the browser
 		files: [
@@ -102,6 +102,7 @@ module.exports = (config) => {
 			'karma-sinon',
 			'karma-chai',
 			'karma-chai-sinon',
+			'karma-jasmine-matchers',
 		],
 	});
 };
