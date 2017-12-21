@@ -17,7 +17,7 @@ describe('Restaurant Service', () => {
 
 		describe('GetRestaurants', () => {
 			it('should hits the proper endpoint for getting restaurants as defined in the constants file', () => {
-				$httpBackend.when('GET', endpoint).respond(200, [{}]);
+				$httpBackend.when('GET', endpoint).respond(200, { restaurants: [{}] });
 
 				restaurantService.getRestaurants()
 					.then((data) => {
