@@ -1,4 +1,17 @@
+<div class="restaurant-filter">
+	<h2 class="restaurant-filter-headline">Find a Restaurant</h2>
+	<input 
+		class="filter-input"
+		placeholder="Search for restaurant name, location, category and more..."
+		type="text" 
+		name="restaurant-list-filter" 
+		id="restaurant-list-filter" 
+		ng-model="restaurantFilter">
+</div>
 <restaurant 
 	class="restaurant-item" 
 	restaurant="restaurant" 
-	ng-repeat="restaurant in list"></restaurant>
+	ng-repeat="restaurant in filteredList = (list | filter:restaurantFilter)"></restaurant>
+<p 
+	class="restaurant-filter-no-results" 
+	ng-show="!filteredList.length">Sorry, no events match your search criteria. Please change your selections and try again.</p>
