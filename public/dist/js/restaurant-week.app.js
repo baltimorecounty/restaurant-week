@@ -1,7 +1,12 @@
 'use strict';
 
 (function () {
-	angular.module('rwApp', []);
+	angular.module('rwApp', []).config(function ($locationProvider) {
+		$locationProvider.html5Mode({
+			enabled: true,
+			requireBase: false
+		});
+	});
 })();
 'use strict';
 
@@ -181,23 +186,6 @@
 'use strict';
 
 (function (app) {
-	var restaurantListDirective = function restaurantListDirective(constants) {
-		var directive = {
-			restrict: 'E',
-			scope: {
-				list: '='
-			},
-			templateUrl: constants.urls.templates.restaurantList
-		};
-
-		return directive;
-	};
-
-	app.directive('restaurantList', ['rwApp.CONSTANTS', restaurantListDirective]);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
 	var restaurantDirective = function restaurantDirective(constants) {
 		var directive = {
 			restrict: 'E',
@@ -211,6 +199,29 @@
 	};
 
 	app.directive('restaurant', ['rwApp.CONSTANTS', restaurantDirective]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
+	var restaurantListDirective = function restaurantListDirective($location, constants) {
+		var directive = {
+			restrict: 'E',
+			scope: {
+				list: '='
+			},
+			templateUrl: constants.urls.templates.restaurantList,
+			link: function link(scope, element, attrs) {
+				var locationSearch = $location.search();
+				if (locationSearch && locationSearch.q) {
+					scope.restaurantFilter = locationSearch.q; // eslint-disable-line no-param-reassign
+				}
+			}
+		};
+
+		return directive;
+	};
+
+	app.directive('restaurantList', ['$location', 'rwApp.CONSTANTS', restaurantListDirective]);
 })(angular.module('rwApp'));
 'use strict';
 
