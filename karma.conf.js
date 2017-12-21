@@ -26,9 +26,9 @@ module.exports = (config) => {
 			'js/app/**/*.directive.js',
 			'js/app/**/*.controller.js',
 			'js/*.js',
-			'tests/unit/*.test.js',
-			'tests/unit/app/*.test.js',
-			'tests/unit/app/**/*.test.js',
+			'tests/unit/*.spec.js',
+			'tests/unit/app/*.spec.js',
+			'tests/unit/app/**/*.spec.js',
 			{
 				pattern: 'tests/fixtures/*.html',
 				included: false,
