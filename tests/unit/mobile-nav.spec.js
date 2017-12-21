@@ -18,29 +18,26 @@ describe('Restaurant Week', () => {
 
 	describe('Mobile Navigation Button', () => {
 		it(`should have the hamburger menu class (${selectors.hamburgerIcon}) on page load`, () => {
-			restaurantWeek.mobileNav.init();
-
 			const hasHamburgerMenuClass = $(selectors.mobileNavBtn)
 				.find(selectors.mobileNavIcon).hasClass(selectors.hamburgerIcon);
 			expect(hasHamburgerMenuClass).toEqual(true);
 		});
 
 		it(`should have the hamburger menu class (${selectors.hamburgerIcon}) if the mobile nav is collapsed`, () => {
-			restaurantWeek.mobileNav.init();
 			const hasHamburgerMenuClass = $(selectors.mobileNavBtn)
 				.find(selectors.mobileNavIcon).hasClass(selectors.hamburgerIcon);
 			expect(hasHamburgerMenuClass).toEqual(true);
 		});
 
-		it(`should have the close icon class (${selectors.closeIcon}) if the mobile nav is expanded`, () => {
-			restaurantWeek.mobileNav.init();
-			$(selectors.hamburgerIcon).click();
+		it(`should have the close icon class (${selectors.closeIcon}) if the mobile nav is expanded`, (done) => {
+			$(selectors.mobileNavBtn).click();
 			setTimeout(() => {
 				const hasCloseMenuClass =
 					$(selectors.mobileNavBtn).find(selectors.mobileNavIcon).hasClass(selectors.closeIcon);
 
 				expect(hasCloseMenuClass).toEqual(true);
-			}, 500);
+				done();
+			}, 1000);
 		});
 	});
 
