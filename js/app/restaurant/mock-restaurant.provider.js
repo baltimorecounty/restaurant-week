@@ -4,7 +4,7 @@
 ((app) => {
 	const restaurantMockProvider = ($http, $q, constants) => {
 		const handleResponseSuccess = (resp, deferred) => {
-			deferred.resolve(resp.data);
+			deferred.resolve(resp.data.restaurants);
 			return deferred.promise;
 		};
 
@@ -12,7 +12,6 @@
 			deferred.reject(err);
 			return deferred.promise;
 		};
-
 
 		const getRestaurants = () => {
 			const deferred = $q.defer();
