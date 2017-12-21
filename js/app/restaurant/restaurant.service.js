@@ -1,6 +1,6 @@
 ((app) => {
 	const restaurantService = (restaurantProvider) => {
-		const getRestaurants = callback => restaurantProvider.getRestaurants(callback);
+		const getRestaurants = () => restaurantProvider.getRestaurants();
 
 		return {
 			getRestaurants,
