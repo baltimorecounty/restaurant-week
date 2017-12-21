@@ -18,6 +18,7 @@ module.exports = (config) => {
 			'http://sinonjs.org/releases/sinon-1.9.0.js',
 			'tests/lib/bc-utils.min.js',
 			'node_modules/jquery/dist/jquery.min.js',
+			'https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js',
 			'js/app/*.js',
 			'js/app/**/*.constants.js',
 			'js/app/**/*.model.js',
