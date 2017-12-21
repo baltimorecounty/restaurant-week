@@ -8,6 +8,8 @@
 	<title>Baltimore County Restaurant Week</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/restaurant-week.min.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css">
 </head>
 
 <body ng-app="rwApp">
@@ -39,12 +41,38 @@
 			</li>
 		</ul>
 	</header>
+	<!-- DEMO ONLY -->
+	<style>
+		.effect1 {
+			-webkit-filter: grayscale(100%);
+			/* Safari 6.0 - 9.0 */
+			filter: grayscale(100%);
+		}
+
+		.effect2 {
+			-webkit-filter: blur(5px);
+			/* Safari 6.0 - 9.0 */
+			filter: blur(5px);
+		}
+
+		.effect3 {
+			-webkit-filter: hue-rotate(180deg);
+			filter: hue-rotate(180deg);
+		}
+	</style>
+	<!-- END DEMO ONLY -->
+	<div class="hero-unit">
+		<div class="image-section hero-carousel">
+			<!-- can contain a carousel or static image -->
+			<img class="hero-carousel-item" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
+			<img class="hero-carousel-item effect1" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
+			<img class="hero-carousel-item effect2" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
+			<img class="hero-carousel-item effect3" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
+		</div>
+	</div>
 	<div class="container bc-container">
 		<div class="restaurant-list-container" ng-controller="rwApp.RestaurantListCtrl as restaurantListCtrl">
-			
-			<restaurant-list 
-				class="restaurant-list" 
-				list="restaurantListCtrl.restaurantList"></restaurant-list>
+			<restaurant-list class="restaurant-list" list="restaurantListCtrl.restaurantList"></restaurant-list>
 		</div>
 	</div>
 
@@ -52,6 +80,7 @@
 	<!-- jQuery -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 	<script src="dist/js/restaurant-week.js"></script>
 	<script src="dist/js/restaurant-week.app.js"></script>
 </body>
