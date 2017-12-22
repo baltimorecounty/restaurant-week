@@ -7,6 +7,7 @@
 		};
 	};
 
-	app
-		.factory('rwApp.restaurantService', ['rwApp.restaurantMockProvider', restaurantService]);
+	restaurantService.$inject = ['rwApp.restaurantMockProvider'];
+
+	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
