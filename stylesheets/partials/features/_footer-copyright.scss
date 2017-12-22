@@ -1,4 +1,10 @@
 .copyright {
+  font-family: $default-body-font;
   font-weight: 100;
   margin: 0;
+}
+@media screen and (max-width: 875px) {
+	.copyright {
+		margin-bottom: 15px;
+	}
 }

@@ -19,7 +19,8 @@
     border-right: 2px solid white;
     a {
       padding: 0px 10px;
-      color: white;
+	  color: white;
+	  font-family: $default-body-font;
       font-size: 16px;
       font-weight: 700;
       text-decoration: underline;
@@ -31,7 +32,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 875px) {
   .page-footer .footer-content {
     display: block;
     text-align: center;
