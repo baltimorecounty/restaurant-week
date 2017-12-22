@@ -1,3 +1,5 @@
+'use strict';
+
 namespacer('restaurantWeek');
 
 restaurantWeek.mobileNav = (($) => {

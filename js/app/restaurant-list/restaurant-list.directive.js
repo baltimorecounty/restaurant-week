@@ -1,3 +1,5 @@
+'use strict';
+
 ((app) => {
 	const restaurantListDirective = ($location, constants) => {
 		const directive = {

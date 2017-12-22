@@ -1,3 +1,5 @@
+'use strict';
+
 ((app) => {
 	const RestaurantListCtrl = function RestaurantListCtrl($scope, dataService, restaurantService) {
 		const vm = this;

@@ -1,6 +1,9 @@
 /**
  * Returns Data from the html that is loaded on the page
  */
+
+'use strict';
+
 ((app) => {
 	const restaurantPageProvider = (RestaurantModel) => {
 		const getRestaurants = () => {

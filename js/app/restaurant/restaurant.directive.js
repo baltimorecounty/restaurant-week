@@ -1,3 +1,5 @@
+'use strict';
+
 ((app) => {
 	const restaurantDirective = (constants) => {
 		const directive = {

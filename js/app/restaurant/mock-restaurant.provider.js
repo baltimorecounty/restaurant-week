@@ -1,6 +1,9 @@
 /**
  * Provides data from a json file that was generated from the previous site
  */
+
+'use strict';
+
 ((app) => {
 	const restaurantMockProvider = ($http, $q, constants) => {
 		const handleResponseSuccess = (resp, deferred) => {

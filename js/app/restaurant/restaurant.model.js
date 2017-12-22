@@ -1,3 +1,5 @@
+'use strict';
+
 ((app) => {
 	const RestaurantModel = () => {
 		const Restaurant = (restaurant) => {

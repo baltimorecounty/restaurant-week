@@ -1,3 +1,5 @@
+'use strict';
+
 ((app) => {
 	const restaurantService = (restaurantProvider) => {
 		const getRestaurants = () => restaurantProvider.getRestaurants();
