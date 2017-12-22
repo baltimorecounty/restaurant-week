@@ -181,24 +181,9 @@
 		};
 	};
 
-	app.factory('rwApp.restaurantService', ['rwApp.restaurantMockProvider', restaurantService]);
-})(angular.module('rwApp'));
-'use strict';
+	restaurantService.$inject = ['rwApp.restaurantMockProvider'];
 
-(function (app) {
-	var restaurantDirective = function restaurantDirective(constants) {
-		var directive = {
-			restrict: 'E',
-			scope: {
-				restaurant: '='
-			},
-			templateUrl: constants.urls.templates.restaurant
-		};
-
-		return directive;
-	};
-
-	app.directive('restaurant', ['rwApp.CONSTANTS', restaurantDirective]);
+	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
 'use strict';
 
@@ -223,6 +208,23 @@
 	};
 
 	app.directive('restaurantList', ['$location', 'rwApp.CONSTANTS', restaurantListDirective]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
+	var restaurantDirective = function restaurantDirective(constants) {
+		var directive = {
+			restrict: 'E',
+			scope: {
+				restaurant: '='
+			},
+			templateUrl: constants.urls.templates.restaurant
+		};
+
+		return directive;
+	};
+
+	app.directive('restaurant', ['rwApp.CONSTANTS', restaurantDirective]);
 })(angular.module('rwApp'));
 'use strict';
 
