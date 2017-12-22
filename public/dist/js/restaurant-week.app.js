@@ -49,11 +49,12 @@
 
 	app.factory('rwApp.RestaurantModel', RestaurantModel);
 })(angular.module('rwApp'));
-'use strict';
-
 /**
  * Provides data from a json file that was generated from the previous site
  */
+
+'use strict';
+
 (function (app) {
 	var restaurantMockProvider = function restaurantMockProvider($http, $q, constants) {
 		var handleResponseSuccess = function handleResponseSuccess(resp, deferred) {
@@ -84,11 +85,12 @@
 
 	app.factory('rwApp.restaurantMockProvider', ['$http', '$q', 'rwApp.CONSTANTS', restaurantMockProvider]);
 })(angular.module('rwApp'));
-'use strict';
-
 /**
  * Returns Data from the html that is loaded on the page
  */
+
+'use strict';
+
 (function (app) {
 	var restaurantPageProvider = function restaurantPageProvider(RestaurantModel) {
 		var getRestaurants = function getRestaurants() {
