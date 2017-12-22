@@ -5,8 +5,8 @@
 				restaurant: 'dist/templates/restaurant/restaurant.template.html',
 				restaurantList: 'dist/templates/restaurant-list/restaurant-list.template.html',
 			},
-			apiRoot: '../../../dist/data',
-			restaurantMockData: '../../../dist/data/restaurants.json',
+			apiRoot: 'dist/data',
+			restaurantMockData: 'dist/data/restaurants.json',
 		},
 		dataProvider: 'restaurantMockProvider',
 	};
