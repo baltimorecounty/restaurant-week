@@ -1,11 +1,11 @@
 body {
 	color: $gray;
-	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	font-family: $default-body-font;
 	font-size: 16px;
 }
 
 .branding {
-	font-family: QuotesScript-Regular;
+	font-family: $default-headline-font;
 }
 
 .ligatures {
@@ -25,7 +25,7 @@ h1 {
 	font-size: 3.2em;
 	color: $primary-color;
 	font-weight: normal;
-	font-family: QuotesScript-Regular;
+	font-family: $default-headline-font;
 	font-variant-ligatures: none;
 }
 

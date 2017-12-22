@@ -6,7 +6,6 @@
 @import "partials/core/shadows";
 @import "partials/core/grid";
 
-
 @import "vendor/slick/slick";
 @import "vendor/slick/slick-theme";
 @import "vendor/slick/slick-adjustments";
@@ -17,15 +16,16 @@
 @import "partials/units/links";
 @import "partials/units/logo";
 
+@import "partials/features/page-header";
+@import "partials/features/mobile-nav";
+@import "partials/features/navigation-list";
 @import "partials/features/body";
 @import "partials/features/card";
 @import "partials/features/content";
 @import "partials/features/filters";
 @import "partials/features/hero-unit";
+@import "partials/features/footer";
 @import "partials/features/footer-copyright";
 @import "partials/features/restaurant-list";
 @import "partials/features/restaurant-filter";
 
-@import "partials/features/page-header";
-@import "partials/features/mobile-nav";
-@import "partials/features/navigation-list";
