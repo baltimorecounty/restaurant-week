@@ -1,0 +1,38 @@
+.filter-container {
+	background: $gray-lightest;
+}
+.restaurant-filter {
+	margin-bottom: 30px;
+	padding: 20px;
+	flex: 0 1 100%;
+	display: flex;
+	align-items: center;
+
+
+	.filter-input {
+		padding: 10px;
+		width: 75%;
+	}
+}
+.restaurant-filter-headline {
+	border-right: 1px solid $gray-light;
+	padding: 0 40px 0 0;
+	margin: 0 40px 0 0;
+}
+.restaurant-filter-no-results {
+	padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+	.restaurant-filter {
+		display: block;
+
+		.filter-input {
+			width: 100%;
+		}
+	}
+	.restaurant-filter-headline {
+		border: none;
+		margin-bottom: 10px;
+	}
+}

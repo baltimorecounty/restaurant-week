@@ -1,0 +1,7 @@
+<restaurant 
+	class="restaurant-item" 
+	restaurant="restaurant" 
+	ng-repeat="restaurant in filteredList = (list | filter:filtermodel)"></restaurant>
+<p 
+	class="restaurant-filter-no-results" 
+	ng-show="!filteredList.length">Sorry, no events match your search criteria. Please change your selections and try again.</p>

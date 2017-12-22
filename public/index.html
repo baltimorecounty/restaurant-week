@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="dist/css/restaurant-week.min.css">
 </head>
 
-<body>
+<body ng-app="rwApp">
 	<header class="page-header">
 		<div class="logo">
 			<img src="http://www.baltimorecountyrestaurantweek.com/sebin/o/g/header-summer15.gif" alt="" />
@@ -39,10 +39,63 @@
 			</li>
 		</ul>
 	</header>
+	<!-- DEMO ONLY -->
+	<style>
+		.effect1 {
+			-webkit-filter: grayscale(100%);
+			/* Safari 6.0 - 9.0 */
+			filter: grayscale(100%);
+		}
+
+		.effect2 {
+			-webkit-filter: blur(5px);
+			/* Safari 6.0 - 9.0 */
+			filter: blur(5px);
+		}
+
+		.effect3 {
+			-webkit-filter: hue-rotate(180deg);
+			filter: hue-rotate(180deg);
+		}
+	</style>
+	<!-- END DEMO ONLY -->
+	<div class="hero-unit">
+		<div class="image-section hero-carousel">
+			<!-- can contain a carousel or static image -->
+			<img class="hero-carousel-item" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
+			<img class="hero-carousel-item effect1" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
+			/>
+			<img class="hero-carousel-item effect2" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
+			/>
+			<img class="hero-carousel-item effect3" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
+			/>
+		</div>
+	</div>
+	<div ng-controller="rwApp.RestaurantListCtrl as restaurantListCtrl">
+		<div class="filter-container">
+			<div class="restaurant-filter container bc-container">
+				<h2 class="restaurant-filter-headline">Find a Restaurant</h2>
+				<input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
+				 id="restaurant-list-filter" ng-model="restaurantListCtrl.restaurantFilter">
+			</div>
+		</div>
+		<div class="container bc-container">
+			<div class="restaurant-list-container">
+				<restaurant-list 
+					class="restaurant-list" 
+					list="restaurantListCtrl.restaurantList"
+					filtermodel="restaurantListCtrl.restaurantFilter"></restaurant-list>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 	<script src="dist/js/restaurant-week.js"></script>
+	<script src="dist/js/restaurant-week.app.js"></script>
 </body>
 
 </html>
