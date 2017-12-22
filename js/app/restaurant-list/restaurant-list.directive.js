@@ -4,6 +4,7 @@
 			restrict: 'E',
 			scope: {
 				list: '=',
+				filtermodel: '=',
 			},
 			templateUrl: constants.urls.templates.restaurantList,
 			link: (scope, element, attrs) => {
