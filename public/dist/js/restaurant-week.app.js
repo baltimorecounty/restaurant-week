@@ -17,8 +17,8 @@
 				restaurant: 'dist/templates/restaurant/restaurant.template.html',
 				restaurantList: 'dist/templates/restaurant-list/restaurant-list.template.html'
 			},
-			apiRoot: '../../../dist/data',
-			restaurantMockData: '../../../dist/data/restaurants.json'
+			apiRoot: 'dist/data',
+			restaurantMockData: 'dist/data/restaurants.json'
 		},
 		dataProvider: 'restaurantMockProvider'
 	};
@@ -207,7 +207,8 @@
 		var directive = {
 			restrict: 'E',
 			scope: {
-				list: '='
+				list: '=',
+				filtermodel: '='
 			},
 			templateUrl: constants.urls.templates.restaurantList,
 			link: function link(scope, element, attrs) {
