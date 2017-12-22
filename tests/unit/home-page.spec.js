@@ -3,6 +3,7 @@ basePath = window.__karma__ ? 'base' : ''; // eslint-disable-line
 const selectors = {
 	heroCarouselSelector: '.hero-carousel',
 	heroUnitItemSelector: '.hero-carousel-item',
+	slickInitSelector: 'slick-initialized',
 };
 
 describe('Homepage Scripts', () => {
@@ -12,24 +13,29 @@ describe('Homepage Scripts', () => {
 			loadFixtures('homepage-heroUnit.fixture.html');
 		});
 
-		it('should exist', () => {
-			restaurantWeek.homePage.init();
-
-			const heroUnitExists = $(selectors.heroCarouselSelector).length > 0;
-			expect(heroUnitExists).toEqual(true);
-		});
-
-		it('should contain 1 or more items', () => {
-			const items = $(selectors.heroCarouselSelector).find(selectors.heroUnitItemSelector);
-			expect(items.length).toBeGreaterThanOrEqualTo(1);
-		});
-
-		it('should give the hero carousel a class of \'slick\'', (done) => {
+		it('should exist', (done) => {
 			setTimeout(() => {
-				const isInitialized = $(selectors.heroCarouselSelector).hasClass('slick-initialized');
-				expect(isInitialized).toEqual(true);
+				const heroUnitExists = $(selectors.heroCarouselSelector).length > 0;
+				expect(heroUnitExists).toEqual(true);
 				done();
 			}, 500);
+		});
+
+		it('should contain 1 or more items', (done) => {
+			setTimeout(() => {
+				const items = $(selectors.heroCarouselSelector).find(selectors.heroUnitItemSelector);
+				expect(items.length).toBeGreaterThanOrEqualTo(1);
+				done();
+			}, 500);
+		});
+
+		it(`should give the hero carousel a class of ${selectors.slickInitSelector}`, (done) => {
+			setTimeout(() => {
+				restaurantWeek.homePage.init();
+				const isInitialized = $(selectors.heroCarouselSelector).hasClass(selectors.slickInitSelector);
+				expect(isInitialized).toEqual(true);
+				done();
+			}, 1000);
 		});
 	});
 });
