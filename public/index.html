@@ -18,7 +18,7 @@
 		<button class="mobile-nav-btn" type="button">
 			<i class="fa fa-2x fa-bars mobile-nav-icon"></i>
 		</button>
-		<ul class="navigation-list">
+		<ul class="navigation-list header-navigation-list">
 			<li class="navigation-list-item">
 				<a href="index.html" title="">Home</a>
 			</li>
@@ -79,10 +79,15 @@
 				 id="restaurant-list-filter" ng-model="restaurantListCtrl.restaurantFilter">
 			</div>
 		</div>
-		<div class="container bc-container">
-			<div class="restaurant-list-container">
-				<restaurant-list class="restaurant-list" list="restaurantListCtrl.restaurantList" filtermodel="restaurantListCtrl.restaurantFilter"></restaurant-list>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="restaurant-list-container">
+						<restaurant-list class="restaurant-list" list="restaurantListCtrl.restaurantList" filtermodel="restaurantListCtrl.restaurantFilter"></restaurant-list>
+					</div>
+				</div>
 			</div>
+
 		</div>
 	</div>
 	<footer class="page-footer">
