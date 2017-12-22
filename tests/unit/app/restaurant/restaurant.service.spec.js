@@ -10,33 +10,31 @@ describe('Restaurant Service', () => {
 		endpoint = constants.urls.restaurantMockData;
 	});
 
-	describe('Restaurant Service', () => {
-		it('should exist', () => {
-			expect(restaurantService).toBeDefined();
+	it('should exist', () => {
+		expect(restaurantService).toBeDefined();
+	});
+
+	describe('GetRestaurants', () => {
+		it('should hits the proper endpoint for getting restaurants as defined in the constants file', () => {
+			$httpBackend.when('GET', endpoint).respond(200, { restaurants: [{}] });
+
+			restaurantService.getRestaurants()
+				.then((data) => {
+					expect(!!data).toEqual(true);
+				});
+
+			$httpBackend.flush();
 		});
 
-		describe('GetRestaurants', () => {
-			it('should hits the proper endpoint for getting restaurants as defined in the constants file', () => {
-				$httpBackend.when('GET', endpoint).respond(200, { restaurants: [{}] });
+		it('should report an error if the server fails', () => {
+			$httpBackend.when('GET', endpoint).respond(500, { description: 'You fail' });
 
-				restaurantService.getRestaurants()
-					.then((data) => {
-						expect(!!data).toEqual(true);
-					});
+			restaurantService.getRestaurants()
+				.catch((err) => {
+					expect(err.data.description).toEqual('You fail');
+				});
 
-				$httpBackend.flush();
-			});
-
-			it('should report an error if the server fails', () => {
-				$httpBackend.when('GET', endpoint).respond(500, { description: 'You fail' });
-
-				restaurantService.getRestaurants()
-					.catch((err) => {
-						expect(err.data.description).toEqual('You fail');
-					});
-
-				$httpBackend.flush();
-			});
+			$httpBackend.flush();
 		});
 	});
 });

@@ -82,7 +82,7 @@ describe('Restaurant List Controller', () => {
 		expect(restaurantListController.locations.length).toEqual(0);
 	});
 
-	describe('data initilization', () => {
+	describe('after initilization', () => {
 		beforeEach(() => {
 			$rootScope.$apply();
 		});
