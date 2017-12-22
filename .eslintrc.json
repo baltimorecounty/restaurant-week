@@ -3,6 +3,9 @@
 		"airbnb",
 		"baltimorecounty"
 	],
+	"rules": {
+        "strict": 0
+    },
 	"globals": {
 		"restaurantWeek": true,
 		"describe": true,
