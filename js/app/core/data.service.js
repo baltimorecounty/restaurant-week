@@ -1,3 +1,5 @@
+'use strict';
+
 ((app) => {
 	const dataService = ($http, $q, constants) => {
 		const { apiRoot } = constants.urls;
