@@ -8,8 +8,6 @@
 	<title>Baltimore County Restaurant Week</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/restaurant-week.min.css">
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css">
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css">
 </head>
 
 <body ng-app="rwApp">
@@ -65,14 +63,29 @@
 		<div class="image-section hero-carousel">
 			<!-- can contain a carousel or static image -->
 			<img class="hero-carousel-item" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
-			<img class="hero-carousel-item effect1" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
-			<img class="hero-carousel-item effect2" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
-			<img class="hero-carousel-item effect3" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
+			<img class="hero-carousel-item effect1" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
+			/>
+			<img class="hero-carousel-item effect2" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
+			/>
+			<img class="hero-carousel-item effect3" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
+			/>
 		</div>
 	</div>
-	<div class="container bc-container">
-		<div class="restaurant-list-container" ng-controller="rwApp.RestaurantListCtrl as restaurantListCtrl">
-			<restaurant-list class="restaurant-list" list="restaurantListCtrl.restaurantList"></restaurant-list>
+	<div ng-controller="rwApp.RestaurantListCtrl as restaurantListCtrl">
+		<div class="filter-container">
+			<div class="restaurant-filter container bc-container">
+				<h2 class="restaurant-filter-headline">Find a Restaurant</h2>
+				<input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
+				 id="restaurant-list-filter" ng-model="restaurantListCtrl.restaurantFilter">
+			</div>
+		</div>
+		<div class="container bc-container">
+			<div class="restaurant-list-container">
+				<restaurant-list 
+					class="restaurant-list" 
+					list="restaurantListCtrl.restaurantList"
+					filtermodel="restaurantListCtrl.restaurantFilter"></restaurant-list>
+			</div>
 		</div>
 	</div>
 
