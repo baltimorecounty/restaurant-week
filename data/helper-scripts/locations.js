@@ -1,7 +1,8 @@
+/* eslint-disable */
 /**
  * from the tourism site
  */
-
+(function($) {
 var locationsElms = $('#townName').find('option').toArray();
 var locations = [];
 
@@ -14,4 +15,5 @@ locationsElms.forEach((o) => {
 });
 
 console.log(JSON.stringify(locations));
+})(jQuery);
 
