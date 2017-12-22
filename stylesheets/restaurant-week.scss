@@ -1,10 +1,15 @@
-@import "vendor/bootstrap/bootstrap";
+@import "vendor/bootstrap/bootstrap"; /* This goes first so we can use the screen sizes in the core files */
 
 @import "partials/core/fonts";
 @import "partials/core/colors";
 @import "partials/core/flexbox";
 @import "partials/core/shadows";
 @import "partials/core/grid";
+
+
+@import "vendor/slick/slick";
+@import "vendor/slick/slick-theme";
+@import "vendor/slick/slick-adjustments";
 
 @import "partials/units/typography";
 @import "partials/units/navigation";
@@ -16,6 +21,7 @@
 @import "partials/features/card";
 @import "partials/features/content";
 @import "partials/features/filters";
+@import "partials/features/hero-unit";
 @import "partials/features/footer-copyright";
 @import "partials/features/restaurant-list";
 @import "partials/features/restaurant-filter";
