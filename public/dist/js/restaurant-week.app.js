@@ -190,23 +190,6 @@
 'use strict';
 
 (function (app) {
-	var restaurantDirective = function restaurantDirective(constants) {
-		var directive = {
-			restrict: 'E',
-			scope: {
-				restaurant: '='
-			},
-			templateUrl: constants.urls.templates.restaurant
-		};
-
-		return directive;
-	};
-
-	app.directive('restaurant', ['rwApp.CONSTANTS', restaurantDirective]);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
 	var restaurantListDirective = function restaurantListDirective($location, constants) {
 		var directive = {
 			restrict: 'E',
@@ -227,6 +210,23 @@
 	};
 
 	app.directive('restaurantList', ['$location', 'rwApp.CONSTANTS', restaurantListDirective]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
+	var restaurantDirective = function restaurantDirective(constants) {
+		var directive = {
+			restrict: 'E',
+			scope: {
+				restaurant: '='
+			},
+			templateUrl: constants.urls.templates.restaurant
+		};
+
+		return directive;
+	};
+
+	app.directive('restaurant', ['rwApp.CONSTANTS', restaurantDirective]);
 })(angular.module('rwApp'));
 'use strict';
 
