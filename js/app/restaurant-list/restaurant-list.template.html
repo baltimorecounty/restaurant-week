@@ -1,7 +1,16 @@
+<p 
+	class="restaurant-filter-message" 
+	ng-show="filteredList.length < list.length">Showing {{filteredList.length}} of {{list.length}} restaurants</p>
+
+<p 
+	class="restaurant-filter-message tag-list--inline" 
+	ng-show="filters.categories.length">Categories <span ng-repeat="category in filters.categories" class="tag">{{category}} <i class="fa fa-times" ng-click="clearFilter(category, 'categories')"></i></i></span></p>
+
 <restaurant 
 	class="restaurant-item" 
 	restaurant="restaurant" 
-	ng-repeat="restaurant in filteredList = (list | filter:filtermodel)"></restaurant>
+	ng-repeat="restaurant in filteredList = (list | filter:filtermodel | category:filters.categories:'categories')"></restaurant>
+
 <p 
 	class="restaurant-filter-no-results" 
 	ng-show="!filteredList.length">Sorry, no events match your search criteria. Please change your selections and try again.</p>
