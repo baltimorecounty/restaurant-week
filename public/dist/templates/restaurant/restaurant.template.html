@@ -10,4 +10,11 @@
 		<p ng-show="restaurant.addressLine2.length">{{restaurant.addressLine2}}</p>
 	</div>
 	<p class="restaurant-phone">{{restaurant.phone}}</p>
+	<div class="categories">
+		<ul class="tag-list">
+			<li ng-repeat="category in restaurant.categories">
+				<span class="tag" ng-click="filterCategory(category)">{{category}}</span>
+			</li>
+		</ul>
+	</div>
 </div>

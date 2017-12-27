@@ -9,7 +9,8 @@
       "websiteUrl": "http://www.barrettsgrill.com/home",
       "websiteUrlTitle": "Link to Barrett's Grill website",
       "name": "Barrett's Grill",
-      "phone": " (410) 527-0999"
+      "phone": " (410) 527-0999",
+      "categories": ["American"]
     },
     {
       "addressLine1": "11 West Aylesbury Road",
@@ -20,7 +21,8 @@
       "websiteUrl": "http://www.bluestoneonline.net/",
       "websiteUrlTitle": "Link to Bluestone website",
       "name": "BlueStone",
-      "phone": " (410) 561-1100"
+      "phone": " (410) 561-1100",
+      "categories": ["Fine Dining"]
     },
     {
       "addressLine1": "17434 Foreston Road",
@@ -31,7 +33,8 @@
       "websiteUrl": "http://friendlyfarm.net/",
       "websiteUrlTitle": "Link to Friendly Farm website",
       "name": "Friendly Farm",
-      "phone": " (410) 239-7400"
+      "phone": " (410) 239-7400",
+      "categories": ["Country Food", "Family Fare"]
     },
     {
       "addressLine1": "4844 Butler Road",
@@ -42,7 +45,8 @@
       "websiteUrl": "http://www.glyndongrill.com/home",
       "websiteUrlTitle": "Link to Glyndon Grill website",
       "name": "Glyndon Grill",
-      "phone": " (443) 881-4183"
+      "phone": " (443) 881-4183",
+      "categories": ["Fine Dining"]
     },
     {
       "addressLine1": "6526 Holabird Avenue",
@@ -53,7 +57,8 @@
       "websiteUrl": "http://jimmysfamousseafood.com/",
       "websiteUrlTitle": "Link to Jimmy's Famous Seafood website",
       "name": "Jimmy's Famous Seafood",
-      "phone": " (410) 633-4040"
+      "phone": " (410) 633-4040",
+      "categories": ["Seafood"]
     },
     {
       "addressLine1": "2620 Quarry Lake Drive",
@@ -61,10 +66,11 @@
       "imageUrl":
         "//www.baltimorecountyrestaurantweek.com/sebin/v/z/logo-la-food-marketa.jpg",
       "imageAlt": "La Food Marketa logo",
-      "websiteUrl": "http://www.lafoodmarketa.com/#restaurant",
+      "websiteUrl": "http://www.lafoodmarketa.com/",
       "websiteUrlTitle": "Link to La Food Marketa website",
       "name": "La Food Marketa",
-      "phone": " (410) 415-0606"
+      "phone": " (410) 415-0606",
+      "categories": ["Brunch"]
     },
     {
       "addressLine1": "5005 Honeygo Center Drive",
@@ -76,7 +82,8 @@
         "http://www.liberatores.com/perry-hall/about-perry-hall.html",
       "websiteUrlTitle": "Link to Liberatore's Perry Hall website",
       "name": "Liberatore's – Perry Hall",
-      "phone": " (410) 529-4567"
+      "phone": " (410) 529-4567",
+      "categories": ["Fine Dining"]
     },
     {
       "addressLine1": "5009 Honeygo Center Drive, Suite 101",
@@ -87,7 +94,8 @@
       "websiteUrl": "http://libsgrill.com/",
       "websiteUrlTitle": "Link to Lib's Grill website",
       "name": "Lib's Grill",
-      "phone": " (410) 513-7133 "
+      "phone": " (410) 513-7133 ",
+      "categories": ["Steaks", "Seafood"]
     },
     {
       "addressLine1": "25 Crossroads Drive",
@@ -98,7 +106,8 @@
       "websiteUrl": "http://www.linwoods.com/",
       "websiteUrlTitle": "Link to Linwoods website",
       "name": "Linwoods",
-      "phone": " (410) 356-3030"
+      "phone": " (410) 356-3030",
+      "categories": ["American", "Fine Dining"]
     },
     {
       "addressLine1": "14833 York Road",
@@ -109,7 +118,8 @@
       "websiteUrl": "http://www.miltoninn.com/",
       "websiteUrlTitle": "Link to the Milton Inn website",
       "name": "The Milton Inn",
-      "phone": "(410) 771-4366"
+      "phone": "(410) 771-4366",
+      "categories": ["Fine Dining"]
     },
     {
       "addressLine1": "2450 Broad Avenue",
@@ -120,7 +130,8 @@
       "websiteUrl": "http://www.mothersgrille.com/timonium/",
       "websiteUrlTitle": "Link to Mother's North Grille website",
       "name": "Mother's North Grille",
-      "phone": " (443) 991-5256"
+      "phone": " (443) 991-5256",
+      "categories": ["Bar / Lounge / Pub"]
     },
     {
       "addressLine1": "1201 Shawan Road",
@@ -131,7 +142,8 @@
       "websiteUrl": "http://www.theoregongrille.com/",
       "websiteUrlTitle": "Link to The Oregon Grille website",
       "name": "The Oregon Grille",
-      "phone": "(410) 771-0505"
+      "phone": "(410) 771-0505",
+      "categories": ["Fine Dining", "Steaks"]
     },
     {
       "addressLine1": "113 Back River Neck Road",
@@ -142,7 +154,8 @@
       "websiteUrl": "http://pizzajohns.info/",
       "websiteUrlTitle": "Link to Pizza Johns website",
       "name": "Pizza John's",
-      "phone": "(410) 687-7733"
+      "phone": "(410) 687-7733",
+      "categories": ["Italian", "Pizza"]
     },
     {
       "addressLine1": "523 York Road",
@@ -153,7 +166,8 @@
       "websiteUrl": "https://www.thepointtowson.com/",
       "websiteUrlTitle": "Link to The Point Towsons website",
       "name": "The Point in Towson",
-      "phone": "(443) 463-9949"
+      "phone": "(443) 463-9949",
+      "categories": ["American", "Bar / Lounge / Pub"]
     },
     {
       "addressLine1": "207 Nanticoke Road",
@@ -164,7 +178,8 @@
       "websiteUrl": "http://www.riverwatchrestaurant.com/index.php",
       "websiteUrlTitle": "Link to River Watch Restaurant website",
       "name": "River Watch Restaurant",
-      "phone": " (410) 687-1422"
+      "phone": " (410) 687-1422",
+      "categories": ["Bar / Lounge / Pub"]
     },
     {
       "addressLine1": "1777 Reisterstown Road",
@@ -175,7 +190,8 @@
       "websiteUrl": "http://www.ruthschris-pikesville.com/",
       "websiteUrlTitle": "Link to Ruth's Chris Pikesville website",
       "name": "Ruth's Chris – Pikesville",
-      "phone": "(410) 837-0033"
+      "phone": "(410) 837-0033",
+      "categories": ["Steaks"]
     },
     {
       "addressLine1": "10501 Falls Road",
@@ -186,7 +202,8 @@
       "websiteUrl": "http://www.thevalleyinn.us/",
       "websiteUrlTitle": "Link to the Valley Inn website",
       "name": "The Valley Inn",
-      "phone": " (410) 828-0002"
+      "phone": " (410) 828-0002",
+      "categories": ["Bar / Lounge / Pub", "Fine Dining"]
     }
   ]
 }

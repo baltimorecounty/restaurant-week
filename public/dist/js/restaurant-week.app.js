@@ -190,13 +190,54 @@
 'use strict';
 
 (function (app) {
+	var categoryFilter = function categoryFilter() {
+		var filterRestaurants = function filterRestaurants(restaurants, selectedItem, targetProperty) {
+			if (!selectedItem.length) {
+				return restaurants;
+			}
+			var filtered = [];
+
+			restaurants.forEach(function (restaurant) {
+				var numberOfMatches = 0;
+				for (var i = 0, len = selectedItem.length; i < len; i += 1) {
+					var category = selectedItem[i];
+
+					if (restaurant[targetProperty].indexOf(category) > -1) {
+						numberOfMatches += 1;
+
+						if (numberOfMatches === len) {
+							filtered.push(restaurant);
+							break;
+						}
+					}
+				}
+			});
+
+			return filtered;
+		};
+
+		return filterRestaurants;
+	};
+
+	app.filter('category', categoryFilter);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
 	var restaurantDirective = function restaurantDirective(constants) {
 		var directive = {
 			restrict: 'E',
 			scope: {
 				restaurant: '='
 			},
-			templateUrl: constants.urls.templates.restaurant
+			templateUrl: constants.urls.templates.restaurant,
+			link: function link(scope, element, attrs) {
+				scope.filterCategory = function (selectedCategory) {
+					scope.$parent.filterRestaurants({
+						categories: [selectedCategory]
+					});
+				};
+			}
 		};
 
 		return directive;
@@ -216,6 +257,39 @@
 			},
 			templateUrl: constants.urls.templates.restaurantList,
 			link: function link(scope, element, attrs) {
+				scope.filters = {
+					categories: ['American'],
+					locations: []
+				};
+
+				scope.filterRestaurants = function (filters) {
+					var categories = filters.categories || [];
+					var locations = filters.locations || [];
+
+					categories.forEach(function (category) {
+						if (scope.filters.categories.indexOf(category) === -1) {
+							scope.filters.categories.push(category);
+						}
+					});
+
+					locations.forEach(function (location) {
+						if (scope.filters.locations.indexOf(location) === -1) {
+							scope.filters.locations.push(location);
+						}
+					});
+				};
+
+				scope.clearFilter = function (name, type) {
+					scope.filters[type] = scope.filters[type].filter(function (filter) {
+						return filter !== name;
+					});
+				};
+
+				scope.clearFilters = function () {
+					scope.filters.categories = [];
+					scope.filters.locations = [];
+				};
+
 				var locationSearch = $location.search();
 				if (locationSearch && locationSearch.q) {
 					scope.restaurantFilter = locationSearch.q; // eslint-disable-line no-param-reassign
