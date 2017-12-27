@@ -53,6 +53,7 @@ gulp.task('process-app-js', () => {
 		'js/app/**/*.model.js',
 		'js/app/**/*.provider.js',
 		'js/app/**/*.service.js',
+		'js/app/**/*.filter.js',
 		'js/app/**/*.directive.js',
 		'js/app/**/*.controller.js',
 	];
