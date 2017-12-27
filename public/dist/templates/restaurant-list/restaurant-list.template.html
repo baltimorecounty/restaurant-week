@@ -4,11 +4,11 @@
 
 <p 
 	class="restaurant-filter-message tag-list--inline" 
-	ng-show="filters.categories.length">Categories <span ng-repeat="category in filters.categories" class="tag">{{category}} <i class="fa fa-times" ng-click="clearFilter(category, 'categories')"></i></i></span></p>
+	ng-show="filters.categories.length">Categories <span ng-repeat="category in filters.categories" class="tag" ng-click="clearFilter(category, 'categories')">{{category}} <i class="fa fa-times"></i></i></span></p>
 
 <p 
 	class="restaurant-filter-message tag-list--inline" 
-	ng-show="filters.location.length">Location <span class="tag">{{filters.location}} <i class="fa fa-times" ng-click="clearFilter(location, 'location')"></i></i></span></p>
+	ng-show="filters.location.length">Location <span class="tag" ng-click="clearFilter(location, 'location')">{{filters.location}} <i class="fa fa-times"></i></i></span></p>
 
 <restaurant 
 	class="restaurant-item" 
