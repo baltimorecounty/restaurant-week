@@ -1,0 +1,88 @@
+.content-card {
+  margin: 30px auto 60px 125px;
+  position: relative;
+
+  h2 {
+    margin: 0 0 5px 0;
+  }
+  p {
+    font-size: 1.2em;
+    font-weight: 100;
+    margin: 0;
+  }
+}
+
+.content-card-content {
+  background: $gray-lightest;
+  box-shadow: $default-box-shadow;
+  height: 100%;
+  padding: 20px 50px 40px 155px;
+}
+
+.content-card-image,
+.content-card-icon {
+  border: 7.5px solid $green;
+  border-radius: 50%;
+  box-shadow: 0px 2px 2.5px $gray-lightest;
+  box-shadow: rgba($gray-lightest, 0.8) 0 0 10px;
+  max-width: 250px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto auto auto -125px;
+
+  height: 235px;
+  width: 235px;
+
+  width: 100%;
+}
+
+.content-card-icon {
+  background: $secondary-color;
+  font-size: 150px;
+  padding: 33.75px 30px;
+  text-align: center;
+  width: 235px;
+}
+
+.content-card-icon:before {
+  color: white;
+}
+
+.signature-container {
+  margin-top: 25px;
+  .signature-name {
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .content-card-container {
+	  overflow: hidden;
+	  margin-left: -15px;
+	  margin-right: -15px;
+  }
+  .content-card {
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: center;
+	margin: 30px -15px;
+  }
+  .content-card-image,
+  .content-card-icon {
+    position: static;
+    margin: auto;
+    z-index: 99;
+  }
+  .content-card-content {
+    box-shadow: none;
+    box-shadow: 0px 2px 2.5px $gray-lightest;
+    margin: -50px 0 0;
+    padding: 50px 20px 20px 20px;
+    text-align: left;
+    width: 100%;
+  }
+}

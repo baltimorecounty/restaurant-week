@@ -81,7 +81,7 @@ gulp.task('move-app-directive-templates', () => {
 
 gulp.task('process-master-js', () =>
 	gulp
-		.src(['tests/lib/bc-utils.min.js', 'js/*.js', '!js/app/*'])
+		.src(['tests/lib/bc-utils.min.js', 'js/*.js', '!js/app/*', '!js/home-page.js'])
 		.pipe(babel({
 			presets: ['es2015'],
 		}))
@@ -94,10 +94,7 @@ gulp.task('process-master-js', () =>
 
 gulp.task('process-homepage-js', () =>
 	gulp
-		.src(['js/page-specific/homepage/*.js'])
-		.pipe(jshint({
-			esversion: 6,
-		}))
+		.src(['js/home-page.js'])
 		.pipe(jshint.reporter(stylish))
 		.pipe(babel({
 			presets: ['es2015'],
@@ -106,7 +103,7 @@ gulp.task('process-homepage-js', () =>
 			start_comment: 'test-code',
 			end_comment: 'end-test-code',
 		}))
-		.pipe(concat('homepage.js'))
+		.pipe(concat('restaurant-week.homepage.js'))
 		.pipe(gulp.dest(`${DIST_FOLDER}/js`)));
 
 gulp.task('move-page-specific-js', () =>

@@ -1,0 +1,109 @@
+.contact-form {
+  background: $gray-lightest;
+  box-shadow: $default-box-shadow;
+  margin-bottom: 30px;
+  padding: 15px 15px 0;
+
+  h3 {
+    font-size: 2.1em;
+  }
+}
+
+.form-group {
+  label,
+  input,
+  textarea {
+    display: block;
+    font-size: 16px;
+  }
+
+  label {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  button {
+    border: none;
+  }
+
+  input,
+  textarea {
+    border: 1px solid $gray-light;
+    margin-bottom: 15px;
+    padding: 10px 10px 10px 20px;
+    width: 100%;
+  }
+
+  input,
+  button {
+    border-radius: 100px;
+  }
+
+  label,
+  textarea {
+    font-family: $default-body-font;
+  }
+
+  textarea {
+    border-radius: 20px;
+    height: 125px;
+  }
+}
+
+.contact-form .headline,
+.contact-form .required-message {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.contact-form .required-message {
+  font-family: $default-body-font;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.submit-container {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 10px 10px;
+  transition: background 0.2s ease;
+}
+.btn-primary {
+  background: $primary-color;
+  color: white;
+
+  &:hover {
+    background: $secondary-color;
+  }
+}
+.btn-long {
+  font-size: 22px;
+  padding: 12.5px 90px;
+}
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder {
+  /* Chrome/Opera/Safari */
+  color: $gray-lightest;
+}
+
+.form-group button:focus, 
+.form-group input:focus,
+.form-group textarea:focus {
+	outline: none;
+  	box-shadow: 0px 0px 2px blue;
+}
+
+@media screen and (max-width: $container-sm) {
+	.contact-form {
+		margin-left: -15px;
+		margin-right: -15px;
+		padding: 15px 30px;
+	}
+}
