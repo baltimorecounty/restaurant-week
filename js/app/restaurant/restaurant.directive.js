@@ -14,6 +14,12 @@
 						categories: [selectedCategory],
 					});
 				};
+
+				scope.filterLocation = (selectedLocation) => {
+					scope.$parent.filterRestaurants({
+						location: selectedLocation,
+					});
+				};
 			},
 		};
 
