@@ -8,6 +8,13 @@
 				restaurant: '=',
 			},
 			templateUrl: constants.urls.templates.restaurant,
+			link: (scope, element, attrs) => {
+				scope.filterCategory = (selectedCategory) => {
+					scope.$parent.filterRestaurants({
+						categories: [selectedCategory],
+					});
+				};
+			},
 		};
 
 		return directive;
