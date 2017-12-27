@@ -12,12 +12,13 @@
 			link: (scope, element, attrs) => {
 				scope.filters = {
 					categories: [],
-					locations: [],
+					location: '',
 				};
 
 				scope.filterRestaurants = (filters) => {
-					const categories = filters.categories || [];
-					const locations = filters.locations || [];
+					const categories = filters.categories || scope.filters.categories;
+					scope.filters.location = filters.location || scope.filters.location;
+
 
 					categories.forEach((category) => {
 						if (scope.filters.categories.indexOf(category) === -1) {
@@ -25,20 +26,19 @@
 						}
 					});
 
-					locations.forEach((location) => {
-						if (scope.filters.locations.indexOf(location) === -1) {
-							scope.filters.locations.push(location);
-						}
-					});
 				};
 
 				scope.clearFilter = (name, type) => {
+					if (typeof scope.filters[type] === 'string') {
+						scope.filters[type] = '';
+						return;
+					}
 					scope.filters[type] = scope.filters[type].filter(filter => filter !== name);
 				};
 
 				scope.clearFilters = () => {
 					scope.filters.categories = [];
-					scope.filters.locations = [];
+					scope.filters.locations = '';
 				};
 
 				const locationSearch = $location.search();
