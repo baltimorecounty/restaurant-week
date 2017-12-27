@@ -20,3 +20,15 @@
     font-weight: 100;
   }
 }
+
+@media screen and (max-width: $screen-sm) {
+  .notification-banner {
+    position: static;
+  }
+  .title {
+    font-size: 1.5em;
+  }
+  .sub-title {
+    font-size: 1.2em;
+  }
+}
