@@ -1,0 +1,22 @@
+.notification-banner {
+  background: $primary-color;
+  padding: 15px 0;
+  text-align: center;
+
+  .title,
+  .sub-title {
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title {
+    font-family: $default-headline-font;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .sub-title {
+    font-family: $default-body-font;
+    font-weight: 100;
+  }
+}
