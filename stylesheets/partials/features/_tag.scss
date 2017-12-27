@@ -6,11 +6,19 @@
 	li {
 		display: inline-block;
 		margin-right: 15px;
+
+		&:last-child {
+			margin: 0;
+		}
 	}
 }
 
 .tag-list--inline .tag {
 	margin-right: 10px;
+
+	&:last-child {
+		margin: 0;
+	}
 }
 
 .tag {

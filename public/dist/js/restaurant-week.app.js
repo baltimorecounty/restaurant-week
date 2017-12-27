@@ -258,7 +258,7 @@
 			templateUrl: constants.urls.templates.restaurantList,
 			link: function link(scope, element, attrs) {
 				scope.filters = {
-					categories: ['American'],
+					categories: [],
 					locations: []
 				};
 
