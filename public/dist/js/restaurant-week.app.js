@@ -57,7 +57,19 @@
 
 (function (app) {
 	var restaurantMockProvider = function restaurantMockProvider($http, $q, constants) {
+		var addLocation = function addLocation(restaurants) {
+			restaurants.forEach(function (restaurant) {
+				var restaurantParts = restaurant.addressLine2.split(',');
+				var zip = restaurantParts[1] && restaurantParts[1].indexOf(' ') > -1 ? restaurantParts[1].trim().split(' ')[1] : '';
+
+				restaurant.town = restaurantParts[0] ? restaurantParts[0].trim() : '';
+				restaurant.state = 'Maryland';
+				restaurant.zip = zip;
+			});
+		};
+
 		var handleResponseSuccess = function handleResponseSuccess(resp, deferred) {
+			addLocation(resp.data.restaurants);
 			deferred.resolve(resp.data.restaurants);
 			return deferred.promise;
 		};
@@ -237,6 +249,12 @@
 						categories: [selectedCategory]
 					});
 				};
+
+				scope.filterLocation = function (selectedLocation) {
+					scope.$parent.filterRestaurants({
+						location: selectedLocation
+					});
+				};
 			}
 		};
 
@@ -259,27 +277,25 @@
 			link: function link(scope, element, attrs) {
 				scope.filters = {
 					categories: [],
-					locations: []
+					location: ''
 				};
 
 				scope.filterRestaurants = function (filters) {
-					var categories = filters.categories || [];
-					var locations = filters.locations || [];
+					var categories = filters.categories || scope.filters.categories;
+					scope.filters.location = filters.location || scope.filters.location;
 
 					categories.forEach(function (category) {
 						if (scope.filters.categories.indexOf(category) === -1) {
 							scope.filters.categories.push(category);
 						}
 					});
-
-					locations.forEach(function (location) {
-						if (scope.filters.locations.indexOf(location) === -1) {
-							scope.filters.locations.push(location);
-						}
-					});
 				};
 
 				scope.clearFilter = function (name, type) {
+					if (typeof scope.filters[type] === 'string') {
+						scope.filters[type] = '';
+						return;
+					}
 					scope.filters[type] = scope.filters[type].filter(function (filter) {
 						return filter !== name;
 					});
@@ -287,7 +303,7 @@
 
 				scope.clearFilters = function () {
 					scope.filters.categories = [];
-					scope.filters.locations = [];
+					scope.filters.locations = '';
 				};
 
 				var locationSearch = $location.search();

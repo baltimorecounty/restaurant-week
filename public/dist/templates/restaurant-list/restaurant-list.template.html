@@ -1,15 +1,19 @@
 <p 
 	class="restaurant-filter-message" 
-	ng-show="filteredList.length < list.length">Showing {{filteredList.length}} of {{list.length}} restaurants</p>
+	ng-show="filteredList.length < list.length">Showing {{filteredList.length}} of {{list.length}} restaurants <span ng-show="filtermodel.length">for the search term "{{filtermodel}}"</span></p>
 
 <p 
 	class="restaurant-filter-message tag-list--inline" 
 	ng-show="filters.categories.length">Categories <span ng-repeat="category in filters.categories" class="tag">{{category}} <i class="fa fa-times" ng-click="clearFilter(category, 'categories')"></i></i></span></p>
 
+<p 
+	class="restaurant-filter-message tag-list--inline" 
+	ng-show="filters.location.length">Location <span class="tag">{{filters.location}} <i class="fa fa-times" ng-click="clearFilter(location, 'location')"></i></i></span></p>
+
 <restaurant 
 	class="restaurant-item" 
 	restaurant="restaurant" 
-	ng-repeat="restaurant in filteredList = (list | filter:filtermodel | category:filters.categories:'categories')"></restaurant>
+	ng-repeat="restaurant in filteredList = (list | filter:filtermodel | category:filters.categories:'categories' | filter: { town: filters.location } )"></restaurant>
 
 <p 
 	class="restaurant-filter-no-results" 

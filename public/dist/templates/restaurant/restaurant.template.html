@@ -7,7 +7,8 @@
 	</a>
 	<div class="restaurant-address">
 		<p>{{restaurant.addressLine1}}</p>
-		<p ng-show="restaurant.addressLine2.length">{{restaurant.addressLine2}}</p>
+		<p ng-show="restaurant.addressLine2.length">
+			<span class="location-filter-btn" ng-click="filterLocation(restaurant.town)">{{restaurant.town}}</span>, {{restaurant.state}} {{restaurant.zip}}</p>
 	</div>
 	<p class="restaurant-phone">{{restaurant.phone}}</p>
 	<div class="categories">
