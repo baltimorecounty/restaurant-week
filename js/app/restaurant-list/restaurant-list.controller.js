@@ -7,6 +7,7 @@
 		vm.categories = [];
 		vm.locations = [];
 
+
 		// set the list of restaurants
 		restaurantService.getRestaurants()
 			.then((list) => {
