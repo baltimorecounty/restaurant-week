@@ -6,7 +6,20 @@
 
 ((app) => {
 	const restaurantMockProvider = ($http, $q, constants) => {
+		const addLocation = (restaurants) => {
+			restaurants.forEach((restaurant) => {
+				const restaurantParts = restaurant.addressLine2.split(',');
+				const zip = restaurantParts[1] && restaurantParts[1].indexOf(' ') > -1 ? restaurantParts[1].trim().split(' ')[1] : '';
+
+				restaurant.town = restaurantParts[0] ? restaurantParts[0].trim() : '';
+				restaurant.state = 'Maryland';
+				restaurant.zip = zip;
+
+			});
+		};
+
 		const handleResponseSuccess = (resp, deferred) => {
+			addLocation(resp.data.restaurants);
 			deferred.resolve(resp.data.restaurants);
 			return deferred.promise;
 		};
