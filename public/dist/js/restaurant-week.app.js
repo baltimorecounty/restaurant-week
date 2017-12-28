@@ -313,7 +313,7 @@
 
 (function (app) {
 	var RestaurantListCtrl = function RestaurantListCtrl($scope, $location) {
-		var vm = $scope;
+		var vm = this;
 
 		vm.filters = {
 			categories: [],
@@ -343,7 +343,7 @@
 
 		vm.clearFilters = function () {
 			vm.filters.categories = [];
-			vm.filters.locations = '';
+			vm.filters.location = '';
 		};
 
 		var locationSearch = $location.search();
