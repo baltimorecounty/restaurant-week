@@ -69,8 +69,13 @@
 		};
 
 		var handleResponseSuccess = function handleResponseSuccess(resp, deferred) {
-			addLocation(resp.data.restaurants);
-			deferred.resolve(resp.data.restaurants);
+			if (resp.data && resp.data.restaurants) {
+				addLocation(resp.data.restaurants);
+				deferred.resolve(resp.data.restaurants);
+			} else {
+				deferred.reject('Did not receive a list of restaurants');
+			}
+
 			return deferred.promise;
 		};
 
@@ -245,13 +250,13 @@
 			templateUrl: constants.urls.templates.restaurant,
 			link: function link(scope, element, attrs) {
 				scope.filterCategory = function (selectedCategory) {
-					scope.$parent.filterRestaurants({
+					scope.$parent.$parent.restaurantList.filterRestaurants({
 						categories: [selectedCategory]
 					});
 				};
 
 				scope.filterLocation = function (selectedLocation) {
-					scope.$parent.filterRestaurants({
+					scope.$parent.$parent.restaurantList.filterRestaurants({
 						location: selectedLocation
 					});
 				};
@@ -274,7 +279,9 @@
 				filtermodel: '='
 			},
 			templateUrl: constants.urls.templates.restaurantList,
-			controller: 'rwApp.RestaurantListCtrl'
+			controller: 'rwApp.RestaurantListCtrl',
+			controllerAs: 'restaurantList',
+			bindToController: true
 		};
 
 		return directive;

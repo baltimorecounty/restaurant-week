@@ -1,19 +1,19 @@
 <p 
 	class="restaurant-filter-message" 
-	ng-show="filteredList.length < list.length">Showing {{filteredList.length}} of {{list.length}} restaurants <span ng-show="filtermodel.length">for the search term "{{filtermodel}}"</span></p>
+	ng-show="filteredList.length < restaurantList.list.length">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants <span ng-show="restaurantList.filtermodel.length">for the search term "{{restaurantList.filtermodel}}"</span></p>
 
 <p 
 	class="restaurant-filter-message tag-list--inline" 
-	ng-show="filters.categories.length">Categories <span ng-repeat="category in filters.categories" class="tag" ng-click="clearFilter(category, 'categories')">{{category}} <i class="fa fa-times"></i></i></span></p>
+	ng-show="restaurantList.filters.categories.length">Categories <span ng-repeat="category in restaurantList.filters.categories" class="tag" ng-click="restaurantList.clearFilter(category, 'categories')">{{category}} <i class="fa fa-times"></i></i></span></p>
 
 <p 
 	class="restaurant-filter-message tag-list--inline" 
-	ng-show="filters.location.length">Location <span class="tag" ng-click="clearFilter(location, 'location')">{{filters.location}} <i class="fa fa-times"></i></i></span></p>
+	ng-show="restaurantList.filters.location.length">Location <span class="tag" ng-click="restaurantList.clearFilter(location, 'location')">{{restaurantList.filters.location}} <i class="fa fa-times"></i></i></span></p>
 
 <restaurant 
 	class="restaurant-item" 
 	restaurant="restaurant" 
-	ng-repeat="restaurant in filteredList = (list | filter:filtermodel | category:filters.categories:'categories' | filter: { town: filters.location } )"></restaurant>
+	ng-repeat="restaurant in filteredList = (restaurantList.list | filter:restaurantList.filtermodel | category:restaurantList.filters.categories:'categories' | filter: { town: restaurantList.filters.location } )"></restaurant>
 
 <p 
 	class="restaurant-filter-no-results" 
