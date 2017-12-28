@@ -1,32 +1,44 @@
 'use strict';
 
 ((app) => {
-	const RestaurantListCtrl = function RestaurantListCtrl($scope, dataService, restaurantService) {
-		const vm = this;
-		vm.restaurantList = [];
-		vm.categories = [];
-		vm.locations = [];
+	const RestaurantListCtrl = function RestaurantListCtrl($scope, $location) {
+		const vm = $scope;
+
+		vm.filters = {
+			categories: [],
+			location: '',
+		};
+
+		vm.filterRestaurants = (filters) => {
+			const categories = filters.categories || vm.filters.categories;
+			vm.filters.location = filters.location || vm.filters.location;
 
 
-		// set the list of restaurants
-		restaurantService.getRestaurants()
-			.then((list) => {
-				vm.restaurantList = list;
+			categories.forEach((category) => {
+				if (vm.filters.categories.indexOf(category) === -1) {
+					vm.filters.categories.push(category);
+				}
 			});
+		};
 
-		// add categories for use with filter
-		dataService.getCategories()
-			.then((categories) => {
-				vm.categories = categories;
-			});
+		vm.clearFilter = (name, type) => {
+			if (typeof vm.filters[type] === 'string') {
+				vm.filters[type] = '';
+				return;
+			}
+			vm.filters[type] = vm.filters[type].filter(filter => filter !== name);
+		};
 
+		vm.clearFilters = () => {
+			vm.filters.categories = [];
+			vm.filters.locations = '';
+		};
 
-		// add locations for use with filter
-		dataService.getLocations()
-			.then((locations) => {
-				vm.locations = locations;
-			});
+		const locationSearch = $location.search();
+		if (locationSearch && locationSearch.q) {
+			vm.restaurantFilter = locationSearch.q; // eslint-disable-line no-param-reassign
+		}
 	};
 
-	app.controller('rwApp.RestaurantListCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantListCtrl]);
+	app.controller('rwApp.RestaurantListCtrl', ['$scope', '$location', RestaurantListCtrl]);
 })(angular.module('rwApp'));
