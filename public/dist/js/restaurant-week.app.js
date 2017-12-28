@@ -217,7 +217,7 @@
 				var numberOfMatches = 0;
 				for (var i = 0, len = selectedItems.length; i < len; i += 1) {
 					var category = selectedItems[i];
-					var hasProperty = Object.prototype.hasOwnProperty.call(targetProperty, obj);
+					var hasProperty = Object.prototype.hasOwnProperty.call(obj, targetProperty);
 					if (hasProperty) {
 						if (obj[targetProperty].indexOf(category) > -1) {
 							numberOfMatches += 1;
