@@ -10,13 +10,13 @@
 			templateUrl: constants.urls.templates.restaurant,
 			link: (scope, element, attrs) => {
 				scope.filterCategory = (selectedCategory) => {
-					scope.$parent.filterRestaurants({
+					scope.$parent.$parent.restaurantList.filterRestaurants({
 						categories: [selectedCategory],
 					});
 				};
 
 				scope.filterLocation = (selectedLocation) => {
-					scope.$parent.filterRestaurants({
+					scope.$parent.$parent.restaurantList.filterRestaurants({
 						location: selectedLocation,
 					});
 				};
