@@ -12,13 +12,15 @@
 				let numberOfMatches = 0;
 				for (let i = 0, len = selectedItems.length; i < len; i += 1) {
 					const category = selectedItems[i];
+					const hasProperty = Object.prototype.hasOwnProperty.call(obj, targetProperty);
+					if (hasProperty) {
+						if (obj[targetProperty].indexOf(category) > -1) {
+							numberOfMatches += 1;
 
-					if (obj[targetProperty].indexOf(category) > -1) {
-						numberOfMatches += 1;
-
-						if (numberOfMatches === len) {
-							filtered.push(obj);
-							break;
+							if (numberOfMatches === len) {
+								filtered.push(obj);
+								break;
+							}
 						}
 					}
 				}
