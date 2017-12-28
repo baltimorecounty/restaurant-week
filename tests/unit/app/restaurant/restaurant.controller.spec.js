@@ -1,4 +1,4 @@
-let restaurantListController;
+let restaurantController;
 
 const mockCategories = {
 	categories: [
@@ -51,12 +51,12 @@ const rs = {
 };
 
 
-describe('Restaurant List Controller', () => {
+describe('Restaurant Controller', () => {
 	beforeEach(() => {
 		bard.appModule('rwApp');
 		bard.inject('$controller', '$q', '$rootScope');
 
-		restaurantListController = $controller('rwApp.RestaurantCtrl', {
+		restaurantController = $controller('rwApp.RestaurantCtrl', {
 			'rwApp.dataService': ds,
 			'rwApp.restaurantService': rs,
 			$scope: $rootScope.$new(),
@@ -64,22 +64,22 @@ describe('Restaurant List Controller', () => {
 	});
 
 	it('should exist', () => {
-		expect(restaurantListController).toBeDefined();
+		expect(restaurantController).toBeDefined();
 	});
 
 	it('should have an empty restaurant list', () => {
-		expect(restaurantListController.restaurantList).toBeArray();
-		expect(restaurantListController.restaurantList.length).toEqual(0);
+		expect(restaurantController.restaurantList).toBeArray();
+		expect(restaurantController.restaurantList.length).toEqual(0);
 	});
 
 	it('should have an empty list of categories', () => {
-		expect(restaurantListController.categories).toBeArray();
-		expect(restaurantListController.categories.length).toEqual(0);
+		expect(restaurantController.categories).toBeArray();
+		expect(restaurantController.categories.length).toEqual(0);
 	});
 
 	it('should have an empty list of locations', () => {
-		expect(restaurantListController.locations).toBeArray();
-		expect(restaurantListController.locations.length).toEqual(0);
+		expect(restaurantController.locations).toBeArray();
+		expect(restaurantController.locations.length).toEqual(0);
 	});
 
 	describe('after initilization', () => {
@@ -88,27 +88,27 @@ describe('Restaurant List Controller', () => {
 		});
 
 		it('should have a list of mock restaurants after initialization', () => {
-			expect(restaurantListController.restaurantList.length).toBeGreaterThan(0);
+			expect(restaurantController.restaurantList.length).toBeGreaterThan(0);
 		});
 
 		it(`should return ${mockRestaurants.restaurants.length} mock restaurants`, () => {
-			expect(restaurantListController.restaurantList.length).toEqual(mockRestaurants.restaurants.length); // eslint-disable-line max-len
+			expect(restaurantController.restaurantList.length).toEqual(mockRestaurants.restaurants.length); // eslint-disable-line max-len
 		});
 
 		it('should call the data service to get a list of mock categories', () => {
-			expect(restaurantListController.categories.length).toBeGreaterThan(0);
+			expect(restaurantController.categories.length).toBeGreaterThan(0);
 		});
 
 		it(`should return ${mockCategories.categories.length} mock categories`, () => {
-			expect(restaurantListController.categories.length).toEqual(mockCategories.categories.length);
+			expect(restaurantController.categories.length).toEqual(mockCategories.categories.length);
 		});
 
 		it('should call the data service to get a list of mock locations', () => {
-			expect(restaurantListController.locations.length).toBeGreaterThan(0);
+			expect(restaurantController.locations.length).toBeGreaterThan(0);
 		});
 
 		it(`should return ${mockLocations.locations.length} mock locations`, () => {
-			expect(restaurantListController.locations.length).toEqual(mockLocations.locations.length);
+			expect(restaurantController.locations.length).toEqual(mockLocations.locations.length);
 		});
 	});
 });
