@@ -144,23 +144,6 @@
 'use strict';
 
 (function (app) {
-	var restaurantService = function restaurantService(restaurantProvider) {
-		var getRestaurants = function getRestaurants() {
-			return restaurantProvider.getRestaurants();
-		};
-
-		return {
-			getRestaurants: getRestaurants
-		};
-	};
-
-	restaurantService.$inject = ['rwApp.restaurantMockProvider'];
-
-	app.factory('rwApp.restaurantService', restaurantService);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
 	var dataService = function dataService($http, $q, constants) {
 		var apiRoot = constants.urls.apiRoot;
 
@@ -206,6 +189,23 @@
 'use strict';
 
 (function (app) {
+	var restaurantService = function restaurantService(restaurantProvider) {
+		var getRestaurants = function getRestaurants() {
+			return restaurantProvider.getRestaurants();
+		};
+
+		return {
+			getRestaurants: getRestaurants
+		};
+	};
+
+	restaurantService.$inject = ['rwApp.restaurantMockProvider'];
+
+	app.factory('rwApp.restaurantService', restaurantService);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
 	var objectPropertyFilter = function objectPropertyFilter() {
 		var filterObjects = function filterObjects(objectList, selectedItems, targetProperty) {
 			if (!selectedItems || !selectedItems.length) {
@@ -217,13 +217,15 @@
 				var numberOfMatches = 0;
 				for (var i = 0, len = selectedItems.length; i < len; i += 1) {
 					var category = selectedItems[i];
+					var hasProperty = Object.prototype.hasOwnProperty.call(targetProperty, obj);
+					if (hasProperty) {
+						if (obj[targetProperty].indexOf(category) > -1) {
+							numberOfMatches += 1;
 
-					if (obj[targetProperty].indexOf(category) > -1) {
-						numberOfMatches += 1;
-
-						if (numberOfMatches === len) {
-							filtered.push(obj);
-							break;
+							if (numberOfMatches === len) {
+								filtered.push(obj);
+								break;
+							}
 						}
 					}
 				}
