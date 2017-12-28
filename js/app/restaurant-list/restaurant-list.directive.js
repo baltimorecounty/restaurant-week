@@ -10,6 +10,8 @@
 			},
 			templateUrl: constants.urls.templates.restaurantList,
 			controller: 'rwApp.RestaurantListCtrl',
+			controllerAs: 'restaurantList',
+			bindToController: true,
 		};
 
 		return directive;
