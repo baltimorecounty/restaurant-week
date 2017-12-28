@@ -2,7 +2,7 @@
 
 ((app) => {
 	const RestaurantListCtrl = function RestaurantListCtrl($scope, $location) {
-		const vm = $scope;
+		const vm = this;
 
 		vm.filters = {
 			categories: [],
@@ -31,7 +31,7 @@
 
 		vm.clearFilters = () => {
 			vm.filters.categories = [];
-			vm.filters.locations = '';
+			vm.filters.location = '';
 		};
 
 		const locationSearch = $location.search();
