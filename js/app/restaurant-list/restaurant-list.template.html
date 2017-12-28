@@ -13,7 +13,7 @@
 <restaurant 
 	class="restaurant-item" 
 	restaurant="restaurant" 
-	ng-repeat="restaurant in filteredList = (restaurantList.list | filter:restaurantList.filtermodel | category:restaurantList.filters.categories:'categories' | filter: { town: restaurantList.filters.location } )"></restaurant>
+	ng-repeat="restaurant in filteredList = (restaurantList.list | filter:restaurantList.filtermodel | objectProperty:restaurantList.filters.categories:'categories' | filter: { town: restaurantList.filters.location } )"></restaurant>
 
 <p 
 	class="restaurant-filter-no-results" 
