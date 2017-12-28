@@ -14,13 +14,16 @@
 				restaurant.town = restaurantParts[0] ? restaurantParts[0].trim() : '';
 				restaurant.state = 'Maryland';
 				restaurant.zip = zip;
-
 			});
 		};
 
 		const handleResponseSuccess = (resp, deferred) => {
-			addLocation(resp.data.restaurants);
-			deferred.resolve(resp.data.restaurants);
+			if (resp.data && resp.data.restaurants && resp.data.restaurants.length) {
+				addLocation(resp.data.restaurants);
+				deferred.resolve(resp.data.restaurants);
+			} else {
+				deferred.reject('Did not receive a list of restaurants');
+			}
 			return deferred.promise;
 		};
 
