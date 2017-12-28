@@ -321,6 +321,33 @@
 'use strict';
 
 (function (app) {
+	var RestaurantCtrl = function RestaurantCtrl($scope, dataService, restaurantService) {
+		var vm = this;
+		vm.restaurantList = [];
+		vm.categories = [];
+		vm.locations = [];
+
+		// set the list of restaurants
+		restaurantService.getRestaurants().then(function (list) {
+			vm.restaurantList = list;
+		});
+
+		// add categories for use with filter
+		dataService.getCategories().then(function (categories) {
+			vm.categories = categories;
+		});
+
+		// add locations for use with filter
+		dataService.getLocations().then(function (locations) {
+			vm.locations = locations;
+		});
+	};
+
+	app.controller('rwApp.RestaurantCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantCtrl]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
 	var RestaurantListCtrl = function RestaurantListCtrl($scope, dataService, restaurantService) {
 		var vm = this;
 		vm.restaurantList = [];

@@ -56,7 +56,7 @@ describe('Restaurant List Controller', () => {
 		bard.appModule('rwApp');
 		bard.inject('$controller', '$q', '$rootScope');
 
-		restaurantListController = $controller('rwApp.RestaurantListCtrl', {
+		restaurantListController = $controller('rwApp.RestaurantCtrl', {
 			'rwApp.dataService': ds,
 			'rwApp.restaurantService': rs,
 			$scope: $rootScope.$new(),
