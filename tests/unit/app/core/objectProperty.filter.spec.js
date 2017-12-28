@@ -66,6 +66,11 @@ describe('Object Property Filter', () => {
 		expect(expected).toEqual(actual);
 	});
 
+	it('should not filter any results if there is a bad property passe din', () => {
+		const actual = objectPropertyFilter(mockObjectList, [], 'categoriessss');
+		expect(mockObjectList).toEqual(actual);
+	});
+
 	it('should not filter any results if there aren\'t any selected items are passed in ', () => {
 		const actual = objectPropertyFilter(mockObjectList, [], 'categories');
 		expect(mockObjectList).toEqual(actual);
