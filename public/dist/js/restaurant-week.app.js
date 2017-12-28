@@ -204,7 +204,7 @@
 (function (app) {
 	var categoryFilter = function categoryFilter() {
 		var filterRestaurants = function filterRestaurants(restaurants, selectedItem, targetProperty) {
-			if (!selectedItem.length) {
+			if (!selectedItem || !selectedItem.length) {
 				return restaurants;
 			}
 			var filtered = [];

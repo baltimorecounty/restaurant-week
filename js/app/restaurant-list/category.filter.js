@@ -3,7 +3,7 @@
 ((app) => {
 	const categoryFilter = () => {
 		const filterRestaurants = (restaurants, selectedItem, targetProperty) => {
-			if (!selectedItem.length) {
+			if (!selectedItem || !selectedItem.length) {
 				return restaurants;
 			}
 			const filtered = [];
