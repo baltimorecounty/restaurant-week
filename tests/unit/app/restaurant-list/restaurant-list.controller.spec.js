@@ -1,53 +1,13 @@
 let restaurantListController;
 
-const mockCategories = {
-	categories: [
-		'Category1',
-		'Category2',
-		'Category3',
-	],
+const emptyFilters = {
+	categories: [],
+	location: '',
 };
 
-const mockLocations = {
-	locations: [
-		'Location 1',
-		'Location2',
-		'Location3',
-	],
-};
-
-const mockRestaurants = {
-	restaurants: [
-		{
-			addressLine1: '118 Shawan Road, Suite D',
-			addressLine2: 'Hunt Valley, Maryland 21030',
-			imageUrl: '//www.baltimorecountyrestaurantweek.com/sebin/x/c/logo-barretts.jpg',
-			imageAlt: "Barrett's Grill logo",
-			websiteUrl: 'http://www.barrettsgrill.com/home',
-			websiteUrlTitle: "Link to Barrett's Grill website",
-			name: "Barrett's Grill",
-			phone: ' (410) 527-0999',
-		},
-		{
-			addressLine1: '11 West Aylesbury Road',
-			addressLine2: 'Timonium, Maryland 21093',
-			imageUrl: '//www.baltimorecountyrestaurantweek.com/sebin/m/n/logo-bluestone.gif',
-			imageAlt: 'Bluestone logo',
-			websiteUrl: 'http://www.bluestoneonline.net/',
-			websiteUrlTitle: 'Link to Bluestone website',
-			name: 'BlueStone',
-			phone: ' (410) 561-1100',
-		},
-	],
-};
-
-const ds = {
-	getCategories: () => $q.when(mockCategories.categories),
-	getLocations: () => $q.when(mockLocations.locations),
-};
-
-const rs = {
-	getRestaurants: () => $q.when(mockRestaurants.restaurants),
+const mockFilters = {
+	categories: ['American', 'Steaks'],
+	location: 'Towson',
 };
 
 
@@ -57,8 +17,6 @@ describe('Restaurant List Controller', () => {
 		bard.inject('$controller', '$q', '$rootScope');
 
 		restaurantListController = $controller('rwApp.RestaurantListCtrl', {
-			'rwApp.dataService': ds,
-			'rwApp.restaurantService': rs,
 			$scope: $rootScope.$new(),
 		});
 	});
@@ -67,48 +25,66 @@ describe('Restaurant List Controller', () => {
 		expect(restaurantListController).toBeDefined();
 	});
 
-	it('should have an empty restaurant list', () => {
-		expect(restaurantListController.restaurantList).toBeArray();
-		expect(restaurantListController.restaurantList.length).toEqual(0);
+	it('should contain an empty filters object', () => {
+		expect(restaurantListController.filters.location).toBeEmptyString();
+		expect(restaurantListController.filters.categories).toBeEmptyArray();
 	});
 
-	it('should have an empty list of categories', () => {
-		expect(restaurantListController.categories).toBeArray();
-		expect(restaurantListController.categories.length).toEqual(0);
-	});
-
-	it('should have an empty list of locations', () => {
-		expect(restaurantListController.locations).toBeArray();
-		expect(restaurantListController.locations.length).toEqual(0);
-	});
-
-	describe('after initilization', () => {
+	describe('filters', () => {
 		beforeEach(() => {
-			$rootScope.$apply();
+			restaurantListController.filters = mockFilters;
 		});
 
-		it('should have a list of mock restaurants after initialization', () => {
-			expect(restaurantListController.restaurantList.length).toBeGreaterThan(0);
+		it('should clear all filters when the clearFilters method is called', () => {
+			restaurantListController.clearFilters();
+
+			expect(restaurantListController.filters.location).toBeEmptyString();
+			expect(restaurantListController.filters.categories).toBeEmptyArray();
 		});
 
-		it(`should return ${mockRestaurants.restaurants.length} mock restaurants`, () => {
-			expect(restaurantListController.restaurantList.length).toEqual(mockRestaurants.restaurants.length); // eslint-disable-line max-len
+		it('should clear a specific category when the clearFilter method is called', () => {
+			restaurantListController.clearFilter('American', 'categories');
+			const hasAmericanCategory = restaurantListController.filters.categories.indexOf('American') > -1;
+			expect(hasAmericanCategory).toEqual(false);
 		});
 
-		it('should call the data service to get a list of mock categories', () => {
-			expect(restaurantListController.categories.length).toBeGreaterThan(0);
+		it('should clear a specific location when the clearFilter method is called', () => {
+			restaurantListController.clearFilter('Towson', 'location');
+			expect(restaurantListController.filters.location).toBeEmptyString();
 		});
 
-		it(`should return ${mockCategories.categories.length} mock categories`, () => {
-			expect(restaurantListController.categories.length).toEqual(mockCategories.categories.length);
+		it('should add a category when when the filterRestaurants method is called', () => {
+			restaurantListController.filterRestaurants({
+				categories: ['Fine Dining'],
+			});
+
+			const hasFineDiningCategory = restaurantListController.filters.categories.indexOf('Fine Dining') > -1;
+			expect(hasFineDiningCategory).toEqual(true);
 		});
 
-		it('should call the data service to get a list of mock locations', () => {
-			expect(restaurantListController.locations.length).toBeGreaterThan(0);
-		});
-
-		it(`should return ${mockLocations.locations.length} mock locations`, () => {
-			expect(restaurantListController.locations.length).toEqual(mockLocations.locations.length);
+		it('should change the location when filterRestaurants method is called', () => {
+			restaurantListController.filterRestaurants({
+				location: 'Perry Hall',
+			});
+			expect(restaurantListController.filters.location).toEqual('Perry Hall');
 		});
 	});
+
+	// describe('UI', () => {
+	// 	it('should clear all filters when the clear filter button is selected', () => {
+	// 		expect(false).toEqual(true);
+	// 	});
+
+	// 	it('should clear a single "American" category when the categories "American" tag with an "X" is selected', () => {
+	// 		expect(false).toEqual(true);
+	// 	});
+
+	// 	it('should clear a single "Towson" location when the locations "Towson" tag with an "X" is selected', () => {
+	// 		expect(false).toEqual(true);
+	// 	});
+
+	// 	it('should show the appropriate number of records filtered in a friendly mes', () => {
+	// 		expect(false).toEqual(true);
+	// 	});
+	// });
 });

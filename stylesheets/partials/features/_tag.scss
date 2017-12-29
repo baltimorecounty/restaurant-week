@@ -1,0 +1,40 @@
+.tag-list {
+	margin: 15px auto;
+	padding: 0;
+	list-style-type: none;
+
+	li {
+		display: inline-block;
+		margin-right: 15px;
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+}
+
+.tag-list--inline .tag {
+	margin-right: 10px;
+
+	&:last-child {
+		margin: 0;
+	}
+}
+
+.tag {
+	border: 1px solid $secondary-color;
+	border-radius: 25px;
+	color: $secondary-color;
+	cursor: pointer;
+	display: inline-block;
+	margin-bottom: 5px;
+	padding: 5px 10px;
+
+	transition: border-color .25s ease;
+	transition: color .25s ease;
+
+	&:hover {
+		border-color: $primary-color;
+		color: $primary-color;
+	}
+}

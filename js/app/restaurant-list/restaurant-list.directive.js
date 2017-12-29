@@ -1,7 +1,7 @@
 'use strict';
 
 ((app) => {
-	const restaurantListDirective = ($location, constants) => {
+	const restaurantListDirective = (constants) => {
 		const directive = {
 			restrict: 'E',
 			scope: {
@@ -9,16 +9,13 @@
 				filtermodel: '=',
 			},
 			templateUrl: constants.urls.templates.restaurantList,
-			link: (scope, element, attrs) => {
-				const locationSearch = $location.search();
-				if (locationSearch && locationSearch.q) {
-					scope.restaurantFilter = locationSearch.q; // eslint-disable-line no-param-reassign
-				}
-			},
+			controller: 'rwApp.RestaurantListCtrl',
+			controllerAs: 'restaurantList',
+			bindToController: true,
 		};
 
 		return directive;
 	};
 
-	app.directive('restaurantList', ['$location', 'rwApp.CONSTANTS', restaurantListDirective]);
+	app.directive('restaurantList', ['rwApp.CONSTANTS', restaurantListDirective]);
 })(angular.module('rwApp'));

@@ -23,6 +23,7 @@ module.exports = (config) => {
 			'js/app/**/*.constants.js',
 			'js/app/**/*.model.js',
 			'js/app/**/*.provider.js',
+			'js/app/**/*.filter.js',
 			'js/app/**/*.service.js',
 			'js/app/**/*.directive.js',
 			'js/app/**/*.controller.js',

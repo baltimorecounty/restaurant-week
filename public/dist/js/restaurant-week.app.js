@@ -57,8 +57,24 @@
 
 (function (app) {
 	var restaurantMockProvider = function restaurantMockProvider($http, $q, constants) {
+		var addLocation = function addLocation(restaurants) {
+			restaurants.forEach(function (restaurant) {
+				var restaurantParts = restaurant.addressLine2.split(',');
+				var zip = restaurantParts[1] && restaurantParts[1].indexOf(' ') > -1 ? restaurantParts[1].trim().split(' ')[1] : '';
+
+				restaurant.town = restaurantParts[0] ? restaurantParts[0].trim() : '';
+				restaurant.state = 'Maryland';
+				restaurant.zip = zip;
+			});
+		};
+
 		var handleResponseSuccess = function handleResponseSuccess(resp, deferred) {
-			deferred.resolve(resp.data.restaurants);
+			if (resp.data && resp.data.restaurants && resp.data.restaurants.length) {
+				addLocation(resp.data.restaurants);
+				deferred.resolve(resp.data.restaurants);
+			} else {
+				deferred.reject('Did not receive a list of restaurants');
+			}
 			return deferred.promise;
 		};
 
@@ -190,13 +206,62 @@
 'use strict';
 
 (function (app) {
+	var objectPropertyFilter = function objectPropertyFilter() {
+		var filterObjects = function filterObjects(objectList, selectedItems, targetProperty) {
+			if (!selectedItems || !selectedItems.length) {
+				return objectList;
+			}
+			var filtered = [];
+
+			objectList.forEach(function (obj) {
+				var numberOfMatches = 0;
+				for (var i = 0, len = selectedItems.length; i < len; i += 1) {
+					var category = selectedItems[i];
+					var hasProperty = Object.prototype.hasOwnProperty.call(obj, targetProperty);
+					if (hasProperty) {
+						if (obj[targetProperty].indexOf(category) > -1) {
+							numberOfMatches += 1;
+
+							if (numberOfMatches === len) {
+								filtered.push(obj);
+								break;
+							}
+						}
+					}
+				}
+			});
+
+			return filtered;
+		};
+
+		return filterObjects;
+	};
+
+	app.filter('objectProperty', objectPropertyFilter);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
 	var restaurantDirective = function restaurantDirective(constants) {
 		var directive = {
 			restrict: 'E',
 			scope: {
 				restaurant: '='
 			},
-			templateUrl: constants.urls.templates.restaurant
+			templateUrl: constants.urls.templates.restaurant,
+			link: function link(scope, element, attrs) {
+				scope.filterCategory = function (selectedCategory) {
+					scope.$parent.$parent.restaurantList.filterRestaurants({
+						categories: [selectedCategory]
+					});
+				};
+
+				scope.filterLocation = function (selectedLocation) {
+					scope.$parent.$parent.restaurantList.filterRestaurants({
+						location: selectedLocation
+					});
+				};
+			}
 		};
 
 		return directive;
@@ -207,7 +272,7 @@
 'use strict';
 
 (function (app) {
-	var restaurantListDirective = function restaurantListDirective($location, constants) {
+	var restaurantListDirective = function restaurantListDirective(constants) {
 		var directive = {
 			restrict: 'E',
 			scope: {
@@ -215,23 +280,20 @@
 				filtermodel: '='
 			},
 			templateUrl: constants.urls.templates.restaurantList,
-			link: function link(scope, element, attrs) {
-				var locationSearch = $location.search();
-				if (locationSearch && locationSearch.q) {
-					scope.restaurantFilter = locationSearch.q; // eslint-disable-line no-param-reassign
-				}
-			}
+			controller: 'rwApp.RestaurantListCtrl',
+			controllerAs: 'restaurantList',
+			bindToController: true
 		};
 
 		return directive;
 	};
 
-	app.directive('restaurantList', ['$location', 'rwApp.CONSTANTS', restaurantListDirective]);
+	app.directive('restaurantList', ['rwApp.CONSTANTS', restaurantListDirective]);
 })(angular.module('rwApp'));
 'use strict';
 
 (function (app) {
-	var RestaurantListCtrl = function RestaurantListCtrl($scope, dataService, restaurantService) {
+	var RestaurantCtrl = function RestaurantCtrl($scope, dataService, restaurantService) {
 		var vm = this;
 		vm.restaurantList = [];
 		vm.categories = [];
@@ -253,5 +315,50 @@
 		});
 	};
 
-	app.controller('rwApp.RestaurantListCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantListCtrl]);
+	app.controller('rwApp.RestaurantCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantCtrl]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
+	var RestaurantListCtrl = function RestaurantListCtrl($scope, $location) {
+		var vm = this;
+
+		vm.filters = {
+			categories: [],
+			location: ''
+		};
+
+		vm.filterRestaurants = function (filters) {
+			var categories = filters.categories || vm.filters.categories;
+			vm.filters.location = filters.location || vm.filters.location;
+
+			categories.forEach(function (category) {
+				if (vm.filters.categories.indexOf(category) === -1) {
+					vm.filters.categories.push(category);
+				}
+			});
+		};
+
+		vm.clearFilter = function (name, type) {
+			if (typeof vm.filters[type] === 'string') {
+				vm.filters[type] = '';
+				return;
+			}
+			vm.filters[type] = vm.filters[type].filter(function (filter) {
+				return filter !== name;
+			});
+		};
+
+		vm.clearFilters = function () {
+			vm.filters.categories = [];
+			vm.filters.location = '';
+		};
+
+		var locationSearch = $location.search();
+		if (locationSearch && locationSearch.q) {
+			vm.restaurantFilter = locationSearch.q; // eslint-disable-line no-param-reassign
+		}
+	};
+
+	app.controller('rwApp.RestaurantListCtrl', ['$scope', '$location', RestaurantListCtrl]);
 })(angular.module('rwApp'));
