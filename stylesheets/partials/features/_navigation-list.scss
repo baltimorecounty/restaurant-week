@@ -28,6 +28,12 @@
 	}
 }
 
+@media screen and (max-width: 1024px) {
+	.navigation-list li a {
+		font-size: 1.1em;
+	}
+}
+
 @media screen and (max-width: 968px) {
 	.navigation-list li a i {
 		margin: 0;
