@@ -22,18 +22,18 @@ restaurantWeek.mobileNav = (($) => {
 		const $btn = $(clickEvent.currentTarget);
 		const $navList = $(self.options.navigationListSelector);
 
-		$(self.options.scrollTargetSelector)
-			.toggleClass(disableScrollClass);
-
-		$(self.options.overlayTargetSelector)
-			.toggleClass(activeClass);
-
 		$btn
 			.find('i')
 			.toggleClass('fa-bars')
 			.toggleClass('fa-times');
 
 		$navList.toggleClass('active mobile');
+
+		$(self.options.scrollTargetSelector)
+			.toggleClass(disableScrollClass);
+
+		$(self.options.overlayTargetSelector)
+			.toggleClass(activeClass);
 	};
 
 	return {
