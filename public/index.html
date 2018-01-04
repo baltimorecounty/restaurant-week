@@ -13,7 +13,9 @@
 <body ng-app="rwApp">
 	<header class="page-header">
 		<div class="logo">
-			<img src="http://www.baltimorecountyrestaurantweek.com/sebin/o/g/header-summer15.gif" alt="" />
+			<a href="/index.html" title="Learn more information about Baltimore County Restaurant Week">
+				<img src="http://www.baltimorecountyrestaurantweek.com/sebin/o/g/header-summer15.gif" alt="" />
+			</a>
 		</div>
 		<button class="mobile-nav-btn" type="button">
 			<i class="fa fa-2x fa-bars mobile-nav-icon"></i>
@@ -39,90 +41,70 @@
 			</li>
 		</ul>
 	</header>
-	<!-- DEMO ONLY -->
-	<style>
-		.effect1 {
-			-webkit-filter: grayscale(100%);
-			/* Safari 6.0 - 9.0 */
-			filter: grayscale(100%);
-		}
-
-		.effect2 {
-			-webkit-filter: blur(5px);
-			/* Safari 6.0 - 9.0 */
-			filter: blur(5px);
-		}
-
-		.effect3 {
-			-webkit-filter: hue-rotate(180deg);
-			filter: hue-rotate(180deg);
-		}
-	</style>
-	<!-- END DEMO ONLY -->
 	<div class="hero-unit">
 		<div class="image-section hero-carousel">
 			<!-- can contain a carousel or static image -->
-			<img class="hero-carousel-item" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt="" />
-			<img class="hero-carousel-item effect1" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
-			/>
-			<img class="hero-carousel-item effect2" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
-			/>
-			<img class="hero-carousel-item effect3" src="http://www.powerofageexpo.com/sebin/f/d/homepage-hero-tai-chi-class.jpg" alt=""
-			/>
+			<img class="hero-carousel-item" src="dist/images/carousel/home_carousel.jpg" alt="" />
+			<img class="hero-carousel-item" src="dist/images/carousel/benefits_carousel.jpg" alt="" />
+			<img class="hero-carousel-item" src="dist/images/carousel/participate_carousel.jpg" alt="" />
+			<img class="hero-carousel-item" src="dist/images/carousel/contact_carousel.jpg" alt="" />
 		</div>
 		<div class="notification-banner">
 			<h2 class="title">January 20 - February 4</h2>
 			<h3 class="sub-title">Prix fixe menus $15 - $35</h3>
 		</div>
 	</div>
-	<div ng-controller="rwApp.RestaurantCtrl as restaurantCtrl">
-		<div class="filter-container">
-			<div class="restaurant-filter container bc-container">
-				<h2 class="restaurant-filter-headline">Find a Restaurant</h2>
-				<input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
-				 id="restaurant-list-filter" ng-model="restaurantCtrl.restaurantFilter">
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="restaurant-list-container">
-						<restaurant-list class="restaurant-list" list="restaurantCtrl.restaurantList" filtermodel="restaurantCtrl.restaurantFilter"></restaurant-list>
-					</div>
+	<div class="main-content">
+		<div class="overlay"></div>
+		<div ng-controller="rwApp.RestaurantCtrl as restaurantCtrl">
+			<div class="filter-container">
+				<div class="restaurant-filter container bc-container">
+					<h2 class="restaurant-filter-headline">Find a Restaurant</h2>
+					<input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
+					id="restaurant-list-filter" ng-model="restaurantCtrl.restaurantFilter">
 				</div>
 			</div>
-			<hr class="page-hr" />
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<h2 class="alt-heading">Our Partners</h2>
-					<div class="partner-list">
-						<a class="partner-link" title="Link to the Baltimore County Chamber of Commerce website" href="http://www.baltcountycc.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/z/f/partners-bccc.png" alt="Baltimore County Chamber of Commerce logo"
-							/>
-						</a>
-						<a class="partner-link" title="Link to the Baltimore County Tourism website" href="http://www.enjoybaltimorecounty.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/u/j/partners-baltco.gif" alt="Baltimore County Tourism logo" />
-						</a>
-						<a class="partner-link" title="Visit the Restaurant Reputations website." href="http://restaurantreputations.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/v/v/restaurant_reputations_logo.png" alt="RestaurantReputations.com logo"
-							/>
-						</a>
-						<a class="partner-link" title="View the DuClaw brewing co website." href="https://duclaw.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/b/n/du-claw_logo.png" alt="DuClaw Brewing Co logo" />
-						</a>
-						<a class="partner-link" title="Visit the Citypeek website." href="http://www.citypeek.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/l/a/partners-citypeek.jpg" alt="Citypeek logo" />
-						</a>
-						<a class="partner-link" title="Link to Downtown Diane's website" href="http://www.downtowndiane.net/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/n/f/parners-downtown-diane.png" alt="Downtown Diane logo" />
-						</a>
-						<a class="partner-link" title="Link to The Restaurant Association of Maryland's Dine Out, Maryland website" href="http://www.marylandrestaurants.com/RAM2015/Dining_Guide/RAM2015/Dining_Guide/DG_Search.aspx?hkey=a820cb0a-ac67-4dfa-b753-864fbec904bd">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/h/i/md_restaurant_association.png" alt="Maryland Restaurant Association Logo"
-							/>
-						</a>
-						<a class="partner-link" title="Link to the Lanterna Distributors INC website" href="http://www.lanternawines.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/n/n/lanterna_logo.png" alt="Lanterna Distributors Inc Logo" />
-						</a>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="restaurant-list-container">
+							<restaurant-list class="restaurant-list" list="restaurantCtrl.restaurantList" filtermodel="restaurantCtrl.restaurantFilter"></restaurant-list>
+						</div>
+					</div>
+				</div>
+				<hr class="page-hr" />
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<h2 class="alt-heading">Our Partners</h2>
+						<div class="partner-list">
+							<a class="partner-link" title="Link to the Baltimore County Chamber of Commerce website" href="http://www.baltcountycc.com/">
+								<img src="//www.baltimorecountyrestaurantweek.com/sebin/z/f/partners-bccc.png" alt="Baltimore County Chamber of Commerce logo"
+								/>
+							</a>
+							<a class="partner-link" title="Link to the Baltimore County Tourism website" href="http://www.enjoybaltimorecounty.com/">
+								<img src="//www.baltimorecountyrestaurantweek.com/sebin/u/j/partners-baltco.gif" alt="Baltimore County Tourism logo" />
+							</a>
+							<a class="partner-link" title="Visit the Restaurant Reputations website." href="http://restaurantreputations.com/">
+								<img src="//www.baltimorecountyrestaurantweek.com/sebin/v/v/restaurant_reputations_logo.png" alt="RestaurantReputations.com logo"
+								/>
+							</a>
+							<a class="partner-link" title="View the DuClaw brewing co website." href="https://duclaw.com/">
+								<img src="//www.baltimorecountyrestaurantweek.com/sebin/b/n/du-claw_logo.png" alt="DuClaw Brewing Co logo" />
+							</a>
+							<a class="partner-link" title="Visit the Citypeek website." href="http://www.citypeek.com/">
+								<img src="//www.baltimorecountyrestaurantweek.com/sebin/l/a/partners-citypeek.jpg" alt="Citypeek logo" />
+							</a>
+							<a class="partner-link" title="Link to Downtown Diane's website" href="http://www.downtowndiane.net/">
+								<img src="//www.baltimorecountyrestaurantweek.com/sebin/n/f/parners-downtown-diane.png" alt="Downtown Diane logo" />
+							</a>
+							<a class="partner-link" title="Link to The Restaurant Association of Maryland's Dine Out, Maryland website" href="http://www.marylandrestaurants.com/RAM2015/Dining_Guide/RAM2015/Dining_Guide/DG_Search.aspx?hkey=a820cb0a-ac67-4dfa-b753-864fbec904bd">
+								<img src="//www.baltimorecountyrestaurantweek.com/sebin/h/i/md_restaurant_association.png" alt="Maryland Restaurant Association Logo"
+								/>
+							</a>
+							<a class="partner-link" title="Link to the Lanterna Distributors INC website" href="http://www.lanternawines.com/">
+								<img src="//www.baltimorecountyrestaurantweek.com/sebin/n/n/lanterna_logo.png" alt="Lanterna Distributors Inc Logo" />
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

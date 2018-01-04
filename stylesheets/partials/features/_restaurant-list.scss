@@ -54,8 +54,12 @@
     text-decoration: none;
   }
 }
-
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 1024px) {
+	.restaurant-item {
+		width: 32%;
+	}
+}
+@media screen and (max-width: 900px) {
   .restaurant-item {
     width: 49%;
   }

@@ -4,11 +4,16 @@ namespacer('restaurantWeek');
 
 restaurantWeek.mobileNav = (($) => {
 	const self = {};
+	const activeClass = 'active';
+	const disableScrollClass = 'disable-scroll';
 
 	const init = (options) => {
 		self.options = options || {};
 		self.options.mobileNavButtonSelector = self.options.mobileNavButtonSelector || '.mobile-nav-btn';
 		self.options.navigationListSelector = self.options.navigationListSelector || '.navigation-list';
+		self.options.overlayTargetSelector = self.options.overlayTargetSelector || '.overlay';
+		self.options.scrollTargetSelector = self.options.scrollTargetSelector || 'html';
+
 
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
 	};
@@ -23,6 +28,12 @@ restaurantWeek.mobileNav = (($) => {
 			.toggleClass('fa-times');
 
 		$navList.toggleClass('active mobile');
+
+		$(self.options.scrollTargetSelector)
+			.toggleClass(disableScrollClass);
+
+		$(self.options.overlayTargetSelector)
+			.toggleClass(activeClass);
 	};
 
 	return {
