@@ -15,7 +15,7 @@
 				const image = angular.element(restaurantElm).find('img');
 				const link = angular.element(restaurantElm).find('.headline-link');
 				const restaurant = RestaurantModel({
-					name: angular.element(restaurantElm).find('.restaurant-name').text(),
+					name: angular.element(restaurantElm).find('.restaurant-name').text().trim(),
 					imageUrl: angular.element(image).attr('href'),
 					imageAlt: angular.element(image).attr('alt'),
 					websiteUrl: angular.element(link).attr('href'),
