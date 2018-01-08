@@ -1,0 +1,40 @@
+<seml>
+	<div id="SEContentResults" class="restaurant-list-container">
+		<div class="SEContent" setest="NOT arrayLen(attributes.contents)">No restaurants found.</div>
+		<div class="restaurant-list">
+			<div class="SEContent" seloop="contents" seloopindex="content">
+				<div class="restaurant-item">
+					<selink linktype="EXTERNAL" class="restaurant-website-link" externallink="${content.getwebsite().link}" title="">
+						<secontent name="content.getlogo().value" class="restaurant-logo" label="Logo" xConstraint="maximum" xWidth="180" xHeight="180" xAltText="" xId="" xClass="" datatype="image" />
+					</selink>
+					<selink linktype="EXTERNAL" externallink="${content.getwebsite().link}" title="">
+						<h2 class="restaurant-name">
+							<secontent name="content.get_title().value" label="Title" />
+						</h2>
+					</selink>
+					<div class="restaurant-address">
+						<p class="address-line-1">
+							<secontent name="content.getaddressLine1().value" label="Address Line 1" datatype="string" />
+						</p>
+						<p class="address-line-2">
+							<secontent name="content.getaddressLine2().value" label="Address Line 2" datatype="string" />
+						</p>
+					</div>
+					<p class="restaurant-phone">
+						<secontent name="content.getPhone().value" label="Phone" datatype="string" />
+					</p>
+					<div class="categories">
+						<div class="SECategories" seloop="content.getCategories()" seloopindex="curCategories">
+							<secontent name="curCategories.label" label="Categories" datatype="string" />
+						</div>
+					</div>
+					<div class="menu-link">
+						<selink linktype="EXTERNAL" class="restaurant-menu-link" externallink="${content.getmenuLink().link}" title="">
+							<secontent name="content.getmenuLink().linktext" label="Menu Link" datatype="string" />
+						</selink>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</seml>
