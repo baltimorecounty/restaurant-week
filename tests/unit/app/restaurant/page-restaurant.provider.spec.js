@@ -12,11 +12,19 @@ describe('Restaurant Page Provider', () => {
 		expect(restaurantPageProvider).toBeDefined();
 	});
 
-	it('should provide a list of restaurants based on the page\'s contents', () => {
-		const restaurants = restaurantPageProvider.getRestaurants();
-		const isRestaurantValid = !!restaurants && restaurants.length > 0;
+	describe('restaurant object being returned', () => {
+		let restaurants;
+		let firstRestaurant;
+		beforeEach(() => {
+			restaurants = restaurantPageProvider.getRestaurants();
+			firstRestaurant = restaurants.length ? restaurants[0] : null;
+		});
 
-		expect(isRestaurantValid).toEqual(true);
+		it('the restuarant should have a name and it should be equal "Artful Gourmet Bistro"', () => {
+			const { name } = firstRestaurant;
+			expect(typeof name).toBeString();
+			expect(name).toEqual('Artful Gourmet Bistro');
+		});
 	});
 });
 
