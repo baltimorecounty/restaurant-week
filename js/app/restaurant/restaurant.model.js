@@ -13,8 +13,9 @@
 			self.addressLine1 = restaurant.addressLine1 || '';
 			self.addressLine2 = restaurant.addressLine2 || '';
 			self.phone = restaurant.phone || '';
+			self.categories = restaurant.categories || [];
 
-			return self;
+			return Object.assign({}, self);
 		};
 
 		return Restaurant;
