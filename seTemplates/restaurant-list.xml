@@ -5,7 +5,7 @@
 			<div class="SEContent" seloop="contents" seloopindex="content">
 				<div class="restaurant-item">
 					<selink linktype="EXTERNAL" class="restaurant-website-link" externallink="${content.getwebsite().link}" title="">
-						<secontent name="content.getlogo().value" class="restaurant-logo" label="Logo" xConstraint="maximum" xWidth="180" xHeight="180" xAltText="" xId="" xClass="" datatype="image" />
+						<secontent name="content.getlogo().value" class="restaurant-logo" label="Logo" xConstraint="maximum" xWidth="180" xHeight="180" xAltText="" xId="" xClass="restaurant-logo" datatype="image" />
 					</selink>
 					<selink linktype="EXTERNAL" externallink="${content.getwebsite().link}" title="">
 						<h2 class="restaurant-name">
