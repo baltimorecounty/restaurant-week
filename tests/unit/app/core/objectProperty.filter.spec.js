@@ -27,8 +27,6 @@ describe('Object Property Filter', () => {
 	beforeEach(() => {
 		bard.appModule('rwApp');
 		bard.inject('objectPropertyFilter');
-
-		console.log('test');
 	});
 
 	it('should exist', () => {
