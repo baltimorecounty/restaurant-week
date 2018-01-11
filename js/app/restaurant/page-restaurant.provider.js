@@ -5,7 +5,7 @@
 'use strict';
 
 ((app) => {
-	const restaurantPageProvider = (RestaurantModel) => {
+	const restaurantPageProvider = ($q, RestaurantModel) => {
 		const getCategories = (categoriesContainer) => {
 			const categories = [];
 			const categoryItems = categoriesContainer.find('div');
@@ -18,6 +18,7 @@
 			return categories;
 		};
 		const getRestaurants = () => {
+			const deferred = $q.defer();
 			const list = [];
 			const items = angular.element('.restaurant-list .restaurant-item');
 
@@ -40,7 +41,9 @@
 				list.push(restaurant);
 			});
 
-			return list;
+			deferred.resolve(list);
+
+			return deferred.promise;
 		};
 
 		return {
@@ -49,5 +52,5 @@
 	};
 
 	app
-		.factory('restaurantPageProvider', ['rwApp.RestaurantModel', restaurantPageProvider]);
+		.factory('rwApp.restaurantPageProvider', ['$q', 'rwApp.RestaurantModel', restaurantPageProvider]);
 })(angular.module('rwApp'));

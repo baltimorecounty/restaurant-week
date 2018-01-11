@@ -14,8 +14,8 @@
 	var constants = {
 		urls: {
 			templates: {
-				restaurant: 'dist/templates/restaurant/restaurant.template.html',
-				restaurantList: 'dist/templates/restaurant-list/restaurant-list.template.html'
+				restaurant: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant.template.html',
+				restaurantList: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant-list.template.html'
 			},
 			apiRoot: 'dist/data',
 			restaurantMockData: 'dist/data/restaurants.json'
@@ -30,7 +30,7 @@
 (function (app) {
 	var RestaurantModel = function RestaurantModel() {
 		var Restaurant = function Restaurant(restaurant) {
-			var self = undefined;
+			var self = {};
 
 			self.name = restaurant.name || '';
 			self.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
@@ -40,6 +40,7 @@
 			self.addressLine1 = restaurant.addressLine1 || '';
 			self.addressLine2 = restaurant.addressLine2 || '';
 			self.phone = restaurant.phone || '';
+			self.categories = restaurant.categories || [];
 
 			return self;
 		};
@@ -108,30 +109,45 @@
 'use strict';
 
 (function (app) {
-	var restaurantPageProvider = function restaurantPageProvider(RestaurantModel) {
+	var restaurantPageProvider = function restaurantPageProvider($q, RestaurantModel) {
+		var getCategories = function getCategories(categoriesContainer) {
+			var categories = [];
+			var categoryItems = categoriesContainer.find('div');
+			angular.forEach(categoryItems, function (categoryElm) {
+				var formattedCategory = angular.element(categoryElm).text().trim();
+				if (formattedCategory) {
+					categories.push(formattedCategory);
+				}
+			});
+			return categories;
+		};
 		var getRestaurants = function getRestaurants() {
+			var deferred = $q.defer();
 			var list = [];
-
 			var items = angular.element('.restaurant-list .restaurant-item');
 
 			angular.forEach(items, function (restaurantElm) {
-				var image = angular.element(restaurantElm).find('img');
-				var link = angular.element(restaurantElm).find('.headline-link');
+				var image = angular.element(restaurantElm).find('.restaurant-logo');
+				var link = angular.element(restaurantElm).find('.restaurant-website-link');
+				var categoriesContainer = angular.element(restaurantElm).find('.categories');
 				var restaurant = RestaurantModel({
-					name: angular.element(restaurantElm).find('.restaurant-name').text(),
-					imageUrl: angular.element(image).attr('href'),
+					name: angular.element(restaurantElm).find('.restaurant-name').text().trim(),
+					imageUrl: angular.element(image).attr('src'),
 					imageAlt: angular.element(image).attr('alt'),
 					websiteUrl: angular.element(link).attr('href'),
 					websiteUrlTitle: angular.element(link).attr('title'),
-					addressLine1: angular.element(restaurantElm).find('.restaurant-address1').text(),
-					addressLine2: angular.element(restaurantElm).find('.restaurant-address2').text(),
-					phone: angular.element(restaurantElm).find('.restaurant-phone').text()
+					addressLine1: angular.element(restaurantElm).find('.address-line-1').text().trim(),
+					addressLine2: angular.element(restaurantElm).find('.address-line-2').text().trim(),
+					phone: angular.element(restaurantElm).find('.restaurant-phone').text().trim(),
+					categories: getCategories(categoriesContainer)
 				});
 
 				list.push(restaurant);
 			});
 
-			return list;
+			deferred.resolve(list);
+
+			return deferred.promise;
 		};
 
 		return {
@@ -139,7 +155,7 @@
 		};
 	};
 
-	app.factory('restaurantPageProvider', ['rwApp.RestaurantModel', restaurantPageProvider]);
+	app.factory('rwApp.restaurantPageProvider', ['$q', 'rwApp.RestaurantModel', restaurantPageProvider]);
 })(angular.module('rwApp'));
 'use strict';
 
@@ -199,7 +215,7 @@
 		};
 	};
 
-	restaurantService.$inject = ['rwApp.restaurantMockProvider'];
+	restaurantService.$inject = ['rwApp.restaurantPageProvider'];
 
 	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
@@ -305,14 +321,17 @@
 		});
 
 		// add categories for use with filter
-		dataService.getCategories().then(function (categories) {
-			vm.categories = categories;
-		});
+		// dataService.getCategories()
+		// 	.then((categories) => {
+		// 		vm.categories = categories;
+		// 	});
 
-		// add locations for use with filter
-		dataService.getLocations().then(function (locations) {
-			vm.locations = locations;
-		});
+
+		// // add locations for use with filter
+		// dataService.getLocations()
+		// 	.then((locations) => {
+		// 		vm.locations = locations;
+		// 	});
 	};
 
 	app.controller('rwApp.RestaurantCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantCtrl]);

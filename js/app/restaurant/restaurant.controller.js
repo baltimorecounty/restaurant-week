@@ -15,17 +15,17 @@
 			});
 
 		// add categories for use with filter
-		dataService.getCategories()
-			.then((categories) => {
-				vm.categories = categories;
-			});
+		// dataService.getCategories()
+		// 	.then((categories) => {
+		// 		vm.categories = categories;
+		// 	});
 
 
-		// add locations for use with filter
-		dataService.getLocations()
-			.then((locations) => {
-				vm.locations = locations;
-			});
+		// // add locations for use with filter
+		// dataService.getLocations()
+		// 	.then((locations) => {
+		// 		vm.locations = locations;
+		// 	});
 	};
 
 	app.controller('rwApp.RestaurantCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantCtrl]);

@@ -4,8 +4,8 @@
 	const constants = {
 		urls: {
 			templates: {
-				restaurant: 'dist/templates/restaurant/restaurant.template.html',
-				restaurantList: 'dist/templates/restaurant-list/restaurant-list.template.html',
+				restaurant: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant.template.html',
+				restaurantList: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant-list.template.html',
 			},
 			apiRoot: 'dist/data',
 			restaurantMockData: 'dist/data/restaurants.json',

@@ -3,7 +3,7 @@
 ((app) => {
 	const RestaurantModel = () => {
 		const Restaurant = (restaurant) => {
-			const self = this;
+			const self = {};
 
 			self.name = restaurant.name || '';
 			self.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
@@ -15,7 +15,7 @@
 			self.phone = restaurant.phone || '';
 			self.categories = restaurant.categories || [];
 
-			return Object.assign({}, self);
+			return self;
 		};
 
 		return Restaurant;
