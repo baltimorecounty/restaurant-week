@@ -1,6 +1,6 @@
 /*
-	.SEContent is generated in site executive and wraps around the .restaurant-item element that was originally designed for.
-	Nesting should prevent other .seContent to be styled like a restaurant item
+	.restaurant-item is generated in site executive and wraps around the .restaurant-item element that was originally designed for.
+	Nesting should prevent other .restaurant-item to be styled like a restaurant item
 */
 
 .restaurant-list {
@@ -13,7 +13,7 @@
     flex: auto;
   }
 
-  .SEContent {
+  .restaurant-item {
     margin-bottom: 40px;
     text-align: center;
     width: 24%;
@@ -62,18 +62,18 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .restaurant-list .SEContent {
+  .restaurant-list .restaurant-item {
     width: 32%;
   }
 }
 @media screen and (max-width: 900px) {
-  .restaurant-list .SEContent {
+  .restaurant-list .restaurant-item {
     width: 49%;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .restaurant-list .SEContent {
+  .restaurant-list .restaurant-item {
     width: 100%;
   }
 }
