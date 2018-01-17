@@ -7,6 +7,10 @@ body {
 	padding-bottom: 60px;
 	padding-top: 60px;
 	position: relative;
+
+	&.home {
+		padding-top: 0;
+	}
 }
 
 @media screen and (max-width: $screen-sm) {
