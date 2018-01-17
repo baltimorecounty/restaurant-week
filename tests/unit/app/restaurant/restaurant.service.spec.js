@@ -27,14 +27,13 @@ const mockRestaurantServiceSuccessResponse = {
 };
 
 describe('Restaurant Service', () => {
-	let contants;
 	let endpoint;
 
 	beforeEach(() => {
 		bard.appModule('rwApp');
 		bard.inject('$http', '$httpBackend', '$q', '$rootScope', 'rwApp.restaurantService', 'rwApp.CONSTANTS');
 		constants = CONSTANTS;
-		endpoint = constants.urls.restaurantMockData;
+		endpoint = constants.urls.structuredContent.restaurants;
 	});
 
 	it('should exist', () => {
@@ -42,16 +41,16 @@ describe('Restaurant Service', () => {
 	});
 
 	describe('GetRestaurants', () => {
-		it('should hits the proper endpoint for getting restaurants as defined in the constants file', () => {
-			$httpBackend.when('GET', endpoint).respond(200, mockRestaurantServiceSuccessResponse);
+		// it('should hits the proper endpoint for getting restaurants as defined in the constants file', () => {
+		// $httpBackend.when('GET', endpoint).respond(200, mockRestaurantServiceSuccessResponse);
 
-			restaurantService.getRestaurants()
-				.then((data) => {
-					expect(!!data).toEqual(true);
-				});
+		// restaurantService.getRestaurants()
+		// 	.then((data) => {
+		// 		expect(!!data).toEqual(true);
+		// 	});
 
-			$httpBackend.flush();
-		});
+		// $httpBackend.flush();
+		// });
 
 		it('should report an error if the server fails', () => {
 			$httpBackend.when('GET', endpoint).respond(500, { description: 'You fail' });
