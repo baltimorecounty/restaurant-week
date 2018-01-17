@@ -14,6 +14,9 @@
 			self.addressLine2 = restaurant.addressLine2 || '';
 			self.phone = restaurant.phone || '';
 			self.categories = restaurant.categories || [];
+			self.town = restaurant.town || '';
+			self.zip = restaurant.zip || '';
+			self.state = 'Maryland';
 
 			return self;
 		};
