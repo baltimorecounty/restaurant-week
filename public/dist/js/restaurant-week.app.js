@@ -18,7 +18,10 @@
 				restaurantList: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant-list.template.html'
 			},
 			apiRoot: 'dist/data',
-			restaurantMockData: 'dist/data/restaurants.json'
+			restaurantMockData: 'dist/data/restaurants.json',
+			structuredContent: {
+				restaurants: '//staging.baltimorecountymd.gov/_Restaurant%20Week/RW_Restaurant?format=json'
+			}
 		},
 		dataProvider: 'restaurantMockProvider'
 	};
@@ -41,6 +44,9 @@
 			self.addressLine2 = restaurant.addressLine2 || '';
 			self.phone = restaurant.phone || '';
 			self.categories = restaurant.categories || [];
+			self.town = restaurant.town || '';
+			self.zip = restaurant.zip || '';
+			self.state = 'Maryland';
 
 			return self;
 		};
@@ -110,6 +116,16 @@
 
 (function (app) {
 	var restaurantPageProvider = function restaurantPageProvider($q, RestaurantModel) {
+		var addLocation = function addLocation(restaurants) {
+			restaurants.forEach(function (restaurant) {
+				var restaurantParts = restaurant.addressLine2.split(',');
+				var zip = restaurantParts[1] && restaurantParts[1].indexOf(' ') > -1 ? restaurantParts[1].trim().split(' ')[1] : '';
+
+				restaurant.town = restaurantParts[0] ? restaurantParts[0].trim() : '';
+				restaurant.state = 'Maryland';
+				restaurant.zip = zip;
+			});
+		};
 		var getCategories = function getCategories(categoriesContainer) {
 			var categories = [];
 			var categoryItems = categoriesContainer.find('div');
@@ -145,6 +161,10 @@
 				list.push(restaurant);
 			});
 
+			if (list.length) {
+				addLocation(list);
+			}
+
 			deferred.resolve(list);
 
 			return deferred.promise;
@@ -156,6 +176,77 @@
 	};
 
 	app.factory('rwApp.restaurantPageProvider', ['$q', 'rwApp.RestaurantModel', restaurantPageProvider]);
+})(angular.module('rwApp'));
+/**
+ * Provides data from a json feed provided by Site Executive Structured Content
+ */
+
+'use strict';
+
+(function (app) {
+	var restaurantStructuredContentProvider = function restaurantStructuredContentProvider(constants, RestaurantModel, $http, $q) {
+		var mapRestaurants = function mapRestaurants(structuredContentData) {
+			var mappedRestaurants = [];
+
+			structuredContentData.forEach(function (mappedRestaurant) {
+				var website = mappedRestaurant.website,
+				    logo = mappedRestaurant.logo;
+
+
+				var restaurant = RestaurantModel({
+					name: mappedRestaurant._title, // eslint-disable-line no-underscore-dangle
+					imageUrl: logo.URL || '',
+					imageAlt: logo.ALTTEXT || '',
+					websiteUrl: website.LINK || '',
+					websiteUrlTitle: website.LINKTEXT || '',
+					addressLine1: mappedRestaurant.addressLine1.VALUE || '',
+					addressLine2: mappedRestaurant.addressLine2.VALUE || '',
+					town: mappedRestaurant.town || '',
+					zip: mappedRestaurant.ZipCode || '',
+					phone: mappedRestaurant.Phone.VALUE || '',
+					categories: mappedRestaurant.Categories || []
+				});
+
+				mappedRestaurants.push(restaurant);
+			});
+
+			return mappedRestaurants;
+		};
+
+		var handleResponseSuccess = function handleResponseSuccess(resp, deferred) {
+			if (resp.data && resp.data.CONTENTS && resp.data.CONTENTS.length) {
+				var restaurants = mapRestaurants(resp.data.CONTENTS);
+				deferred.resolve(restaurants);
+			} else {
+				deferred.reject('Did not receive a list of restaurants');
+			}
+			return deferred.promise;
+		};
+
+		var handleResponseFailure = function handleResponseFailure(err, deferred) {
+			deferred.reject(err);
+			return deferred.promise;
+		};
+
+		var getRestaurants = function getRestaurants() {
+			var deferred = $q.defer();
+
+			return $http.get(constants.urls.stucturedContent.restaurants).then(function (resp) {
+				return handleResponseSuccess(resp, deferred);
+			}, function (err) {
+				return handleResponseFailure(err, deferred);
+			} // eslint-disable-line
+			);
+		};
+
+		return {
+			getRestaurants: getRestaurants
+		};
+	};
+
+	restaurantStructuredContentProvider.$inject = ['rwApp.CONSTANTS', 'rwApp.RestaurantModel', '$http', '$q'];
+
+	app.factory('rwApp.restaurantStructuredContentProvider', restaurantStructuredContentProvider);
 })(angular.module('rwApp'));
 'use strict';
 
@@ -314,24 +405,12 @@
 		vm.restaurantList = [];
 		vm.categories = [];
 		vm.locations = [];
+		vm.restaurantFilter = '';
 
 		// set the list of restaurants
 		restaurantService.getRestaurants().then(function (list) {
 			vm.restaurantList = list;
 		});
-
-		// add categories for use with filter
-		// dataService.getCategories()
-		// 	.then((categories) => {
-		// 		vm.categories = categories;
-		// 	});
-
-
-		// // add locations for use with filter
-		// dataService.getLocations()
-		// 	.then((locations) => {
-		// 		vm.locations = locations;
-		// 	});
 	};
 
 	app.controller('rwApp.RestaurantCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantCtrl]);
