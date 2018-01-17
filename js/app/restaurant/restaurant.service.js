@@ -9,7 +9,7 @@
 		};
 	};
 
-	restaurantService.$inject = ['rwApp.restaurantPageProvider'];
+	restaurantService.$inject = ['rwApp.restaurantStructuredContentProvider'];
 
 	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
