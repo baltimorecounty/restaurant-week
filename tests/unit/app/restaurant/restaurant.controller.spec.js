@@ -94,21 +94,5 @@ describe('Restaurant Controller', () => {
 		it(`should return ${mockRestaurants.restaurants.length} mock restaurants`, () => {
 			expect(restaurantController.restaurantList.length).toEqual(mockRestaurants.restaurants.length); // eslint-disable-line max-len
 		});
-
-		it('should call the data service to get a list of mock categories', () => {
-			expect(restaurantController.categories.length).toBeGreaterThan(0);
-		});
-
-		it(`should return ${mockCategories.categories.length} mock categories`, () => {
-			expect(restaurantController.categories.length).toEqual(mockCategories.categories.length);
-		});
-
-		it('should call the data service to get a list of mock locations', () => {
-			expect(restaurantController.locations.length).toBeGreaterThan(0);
-		});
-
-		it(`should return ${mockLocations.locations.length} mock locations`, () => {
-			expect(restaurantController.locations.length).toEqual(mockLocations.locations.length);
-		});
 	});
 });
