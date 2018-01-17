@@ -9,6 +9,9 @@
 			},
 			apiRoot: 'dist/data',
 			restaurantMockData: 'dist/data/restaurants.json',
+			structuredContent: {
+				restaurants: '//staging.baltimorecountymd.gov/_Restaurant%20Week/RW_Restaurant?format=json',
+			},
 		},
 		dataProvider: 'restaurantMockProvider',
 	};
