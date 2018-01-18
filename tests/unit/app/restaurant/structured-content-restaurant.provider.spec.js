@@ -151,14 +151,14 @@ describe('Restaurant Strucutred Content Provider', () => {
 				name: 'Artful Gourmet Bistro',
 				addressLine1: '9433 Common Brook Road #103',
 				addressLine2: 'Owings Mills, Maryland 21117',
-				phone: '4103562606',
+				phone: '410-356-2606',
 				websiteUrl: 'http://www.artfulgourmet.com/',
 				imageUrl: '/sebin/j/g/logo-artful-gourmet.jpg',
 				imageAlt: '',
 				categories: ['Fine Dining'],
 				town: 'Owings Mills',
 				state: 'Maryland',
-				zip: '21117',
+				zip: 21117,
 			},
 		];
 		const mockRestuarant = mockGetRestaurantsResponse[0];
@@ -225,11 +225,22 @@ describe('Restaurant Strucutred Content Provider', () => {
 					expect(imageUrl).toEqual(mockRestuarant.imageUrl);
 				});
 
-				it('should return the zipcode', () => {
-					expect(true).toEqual(false);
+				it(`the restuarant returned should have a town and it should be equal "${mockRestuarant.town}"`, () => {
+					const { town } = barretsGrille;
+					expect(town).toBeString();
+					expect(town).toEqual(mockRestuarant.town);
 				});
-				it('should return the town', () => {
-					expect(true).toEqual(false);
+
+				it(`the restuarant returned should have a zip code and it should be equal "${mockRestuarant.zip}"`, () => {
+					const { zip } = barretsGrille;
+					expect(zip).toBeNumber();
+					expect(zip).toEqual(mockRestuarant.zip);
+				});
+
+				it(`the restuarant returned should have a state logo and it should be equal "${mockRestuarant.state}"`, () => {
+					const { state } = barretsGrille;
+					expect(state).toBeString();
+					expect(state).toEqual(mockRestuarant.state);
 				});
 
 				it('the restuarant returned have an array of categories and it should contain a list of string values', () => {
