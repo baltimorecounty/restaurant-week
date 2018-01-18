@@ -17,7 +17,7 @@
 
 				const restaurant = RestaurantModel({
 					name: mappedRestaurant._title.VALUE, // eslint-disable-line no-underscore-dangle
-					imageUrl: logo.URL || '',
+					imageUrl: constants.urls.structuredContent.imagePath + logo.URL || '',
 					imageAlt: logo.ALTTEXT || '',
 					websiteUrl: website.VALUE.LINK || '',
 					websiteUrlTitle: website.VALUE.LINKTEXT || '',
