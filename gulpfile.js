@@ -47,9 +47,10 @@ gulp.task(
 );
 
 gulp.task('process-app-js', () => {
+	const env = process.env.NODE_ENV;
 	const srcFiles = [
 		'js/app/*.js',
-		'js/app/**/*.constants.js',
+		`js/app/**/*.constants.${env}.js`,
 		'js/app/**/*.model.js',
 		'js/app/**/*.provider.js',
 		'js/app/**/*.service.js',
@@ -146,7 +147,45 @@ gulp.task('move-data', () => {
 	gulp.src('data/**/*').pipe(gulp.dest(`${DIST_FOLDER}/data`));
 });
 
-gulp.task('default', ['clean'], callback =>
+gulp.task('set-dev-node-env', () => process.env.NODE_ENV = 'development'); // eslint-disable-line no-return-assign
+gulp.task('set-stage-node-env', () => process.env.NODE_ENV = 'development'); // eslint-disable-line no-return-assign
+gulp.task('set-prod-node-env', () => process.env.NODE_ENV = 'production'); // eslint-disable-line no-return-assign
+
+gulp.task('default', ['clean', 'set-dev-node-env'], callback =>
+	runSequence(
+		[
+			'move-html',
+			'process-scss',
+			'minify-js',
+			'move-app-directive-templates',
+			'move-vendor-js',
+			'move-images',
+			'move-fonts',
+			'rewrite',
+			'move-data',
+		],
+		'code-coverage',
+		callback,
+	));
+
+gulp.task('build-stage', ['clean', 'set-stage-node-env'], callback =>
+	runSequence(
+		[
+			'move-html',
+			'process-scss',
+			'minify-js',
+			'move-app-directive-templates',
+			'move-vendor-js',
+			'move-images',
+			'move-fonts',
+			'rewrite',
+			'move-data',
+		],
+		'code-coverage',
+		callback,
+	));
+
+gulp.task('build-prod', ['clean', 'set-prod-node-env'], callback =>
 	runSequence(
 		[
 			'move-html',
