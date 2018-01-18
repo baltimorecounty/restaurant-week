@@ -6,6 +6,9 @@
 
 ((app) => {
 	const restaurantStructuredContentProvider = (constants, RestaurantModel, $http, $q) => {
+		const formatCategories = categories => categories.map(category => category.LABEL);
+		const formatPhoneNumber = number => number.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+
 		const mapRestaurants = (structuredContentData) => {
 			const mappedRestaurants = [];
 
@@ -22,8 +25,10 @@
 					addressLine2: mappedRestaurant.addressLine2.VALUE || '',
 					town: mappedRestaurant.town.VALUE || '',
 					zip: mappedRestaurant.ZipCode.VALUE || '',
-					phone: mappedRestaurant.Phone.VALUE || '',
-					categories: mappedRestaurant.Categories || [],
+					phone: mappedRestaurant.Phone.VALUE ? formatPhoneNumber(mappedRestaurant.Phone.VALUE) : '',
+					categories: mappedRestaurant.Categories && mappedRestaurant.Categories.length ?
+						formatCategories(mappedRestaurant.Categories) :
+						[],
 				});
 
 				mappedRestaurants.push(restaurant);
