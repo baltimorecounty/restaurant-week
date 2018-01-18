@@ -3,22 +3,22 @@
 ((app) => {
 	const RestaurantModel = () => {
 		const Restaurant = (restaurant) => {
-			const self = {};
+			const model = {};
 
-			self.name = restaurant.name || '';
-			self.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
-			self.imageAlt = restaurant.imgAlt || '';
-			self.websiteUrl = restaurant.websiteUrl || '';
-			self.websiteUrlTitle = restaurant.websiteUrl || '';
-			self.addressLine1 = restaurant.addressLine1 || '';
-			self.addressLine2 = restaurant.addressLine2 || '';
-			self.phone = restaurant.phone || '';
-			self.categories = restaurant.categories || [];
-			self.town = restaurant.town || '';
-			self.zip = restaurant.zip || '';
-			self.state = 'Maryland';
+			model.name = restaurant.name || '';
+			model.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
+			model.imageAlt = restaurant.imgAlt || '';
+			model.websiteUrl = restaurant.websiteUrl || '';
+			model.websiteUrlTitle = restaurant.websiteUrl || '';
+			model.addressLine1 = restaurant.addressLine1 || '';
+			model.addressLine2 = restaurant.addressLine2 || '';
+			model.phone = restaurant.phone || '';
+			model.categories = restaurant.categories || [];
+			model.town = restaurant.town || '';
+			model.zip = restaurant.zip || '';
+			model.state = 'Maryland';
 
-			return self;
+			return model;
 		};
 
 		return Restaurant;
