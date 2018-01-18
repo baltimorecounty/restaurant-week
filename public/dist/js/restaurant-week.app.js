@@ -75,23 +75,23 @@
 		var mapRestaurants = function mapRestaurants(structuredContentData) {
 			var mappedRestaurants = [];
 
-			structuredContentData.forEach(function (mappedRestaurant) {
-				var website = mappedRestaurant.website,
-				    logo = mappedRestaurant.logo;
+			structuredContentData.forEach(function (restaurantToMap) {
+				var website = restaurantToMap.website,
+				    logo = restaurantToMap.logo;
 
 
 				var restaurant = RestaurantModel({
-					name: mappedRestaurant._title.VALUE, // eslint-disable-line no-underscore-dangle
+					name: restaurantToMap._title.VALUE, // eslint-disable-line no-underscore-dangle
 					imageUrl: constants.urls.structuredContent.imagePath + logo.URL || '',
 					imageAlt: logo.ALTTEXT || '',
 					websiteUrl: website.VALUE.LINK || '',
 					websiteUrlTitle: website.VALUE.LINKTEXT || '',
-					addressLine1: mappedRestaurant.addressLine1.VALUE || '',
-					addressLine2: mappedRestaurant.addressLine2.VALUE || '',
-					town: mappedRestaurant.town.VALUE || '',
-					zip: mappedRestaurant.ZipCode.VALUE || '',
-					phone: mappedRestaurant.Phone.VALUE ? formatPhoneNumber(mappedRestaurant.Phone.VALUE) : '',
-					categories: mappedRestaurant.Categories && mappedRestaurant.Categories.length ? formatCategories(mappedRestaurant.Categories) : []
+					addressLine1: restaurantToMap.addressLine1.VALUE || '',
+					addressLine2: restaurantToMap.addressLine2.VALUE || '',
+					town: restaurantToMap.town.VALUE || '',
+					zip: restaurantToMap.ZipCode.VALUE || '',
+					phone: restaurantToMap.Phone.VALUE ? formatPhoneNumber(restaurantToMap.Phone.VALUE) : '',
+					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ? formatCategories(restaurantToMap.Categories) : []
 				});
 
 				mappedRestaurants.push(restaurant);
@@ -139,23 +139,6 @@
 'use strict';
 
 (function (app) {
-	var restaurantService = function restaurantService(restaurantProvider) {
-		var getRestaurants = function getRestaurants() {
-			return restaurantProvider.getRestaurants();
-		};
-
-		return {
-			getRestaurants: getRestaurants
-		};
-	};
-
-	restaurantService.$inject = ['rwApp.restaurantProvider'];
-
-	app.factory('rwApp.restaurantService', restaurantService);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
 	var dataService = function dataService($http, $q, constants) {
 		var apiRoot = constants.urls.apiRoot;
 
@@ -197,6 +180,23 @@
 	};
 
 	app.factory('rwApp.dataService', ['$http', '$q', 'rwApp.CONSTANTS', dataService]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
+	var restaurantService = function restaurantService(restaurantProvider) {
+		var getRestaurants = function getRestaurants() {
+			return restaurantProvider.getRestaurants();
+		};
+
+		return {
+			getRestaurants: getRestaurants
+		};
+	};
+
+	restaurantService.$inject = ['rwApp.restaurantProvider'];
+
+	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
 'use strict';
 
