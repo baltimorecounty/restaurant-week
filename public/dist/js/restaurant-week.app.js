@@ -100,7 +100,7 @@
 			return mappedRestaurants;
 		};
 
-		var handleresponseonseSuccess = function handleresponseonseSuccess(response, deferred) {
+		var handleResponseSuccess = function handleResponseSuccess(response, deferred) {
 			if (response.data && response.data.CONTENTS && response.data.CONTENTS.length) {
 				var restaurants = mapRestaurants(response.data.CONTENTS);
 				deferred.resolve(restaurants);
@@ -110,7 +110,7 @@
 			return deferred.promise;
 		};
 
-		var handleresponseonseFailure = function handleresponseonseFailure(err, deferred) {
+		var handleResponseFailure = function handleResponseFailure(err, deferred) {
 			deferred.reject(err);
 			return deferred.promise;
 		};
@@ -119,9 +119,9 @@
 			var deferred = $q.defer();
 
 			return $http.get(constants.urls.structuredContent.restaurants).then(function (response) {
-				return handleresponseonseSuccess(response, deferred);
+				return handleResponseSuccess(response, deferred);
 			}, function (err) {
-				return handleresponseonseFailure(err, deferred);
+				return handleResponseFailure(err, deferred);
 			} // eslint-disable-line
 			);
 		};
