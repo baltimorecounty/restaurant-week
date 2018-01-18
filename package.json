@@ -9,8 +9,8 @@
     "watch-tests": "karma start karma.conf.js",
 	"automated-tests": "gulp && mocha tests/automated/*.test.js --timeout 10000",
 	"build": "gulp",
-	"build-stage": "gulp",
-	"build-prod": "gulp"
+	"build-stage": "gulp build-stage",
+	"build-prod": "gulp build-prod"
   },
   "repository": {
     "type": "git",
