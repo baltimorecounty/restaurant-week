@@ -34,7 +34,7 @@
 				"VALUE": "barretts-grill"
 			},
 			"Phone_Number": {
-				"VALUE": "410-527-0999 ext. 123"
+				"VALUE": "410-527-0999"
 			},
 			"website": {
 				"VALUE": {
@@ -207,6 +207,81 @@
 				{
 					"VALUE": "American",
 					"LABEL": "American"
+				},
+				{
+					"VALUE": "Seafood",
+					"LABEL": "Seafood"
+				}
+			],
+			"ACTIVE": true,
+			"_printDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+			}
+		},
+		{
+			"_title": {
+				"VALUE": "Citron Restaurant and Bar"
+			},
+			"_endDate": {
+				"VALUE": ""
+			},
+			"menuLink": {
+				"VALUE": {
+					"ID": "834A00CB51460040E600519F3F78EC06",
+					"LINKTYPE": "INTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "View the Citron Restaurant Week menu.",
+					"LINK": "http://www.baltimorecountyrestaurantweek.com/documents/menus/menu-citron2018.pdf"
+				}
+			},
+			"addressLine1": {
+				"VALUE": "2605 Quarry Lake Drive"
+			},
+			"addressLine2": {
+				"VALUE": ""
+			},
+			"UUID": "2ff43a8e-b0a5-4c51-a63c5096b01a03c1",
+			"town": {
+				"VALUE": "Baltimore"
+			},
+			"_startDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+			},
+			"_urlTitle": {
+				"VALUE": "citron-restaurant-and-bar"
+			},
+			"Phone_Number": {
+				"VALUE": "410-363-0900"
+			},
+			"website": {
+				"VALUE": {
+					"ID": "28E8F9329BAFA7687765BF6A43F8AECA",
+					"LINKTYPE": "EXTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "Visit the Citron Restaurant and Bar website.",
+					"LINK": "http://citronbaltimore.com/"
+				}
+			},
+			"Phone": {
+				"VALUE": ""
+			},
+			"ZipCode": {
+				"VALUE": 21209
+			},
+			"logo": {
+				"NAME": "logo-citron.jpg",
+				"DESCRIPTION": "Citron Restaurant logo",
+				"VALUE": "CF570F557092314B1E33178BC439D063",
+				"ALTTEXT": "Citron Restaurant logo",
+				"HEIGHT": 100,
+				"SIZE": 5232,
+				"URL": "/sebin/j/g/logo-citron.jpg",
+				"WIDTH": 190
+			},
+			"Categories": [
+				{
+					"VALUE": "Fine Dining",
+					"LABEL": "Fine Dining"
 				},
 				{
 					"VALUE": "Seafood",
