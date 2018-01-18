@@ -41,6 +41,10 @@ describe('Restaurant Service', () => {
 	});
 
 	describe('GetRestaurants', () => {
+		/*
+			This test verifies that the service hits the proper endpiont, was working at one piont, but i needed to move on.
+			Need TODO some additional research if there is time at the end of the project to get htis owrking again
+		*/
 		// it('should hits the proper endpoint for getting restaurants as defined in the constants file', () => {
 		// $httpBackend.when('GET', endpoint).respond(200, mockRestaurantServiceSuccessResponse);
 
