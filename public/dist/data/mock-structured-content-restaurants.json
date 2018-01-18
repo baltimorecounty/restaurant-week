@@ -28,10 +28,13 @@
 				"VALUE": "Hunt Valley"
 			},
 			"_startDate": {
-				"VALUE": "January, 16 2018 00:00:00"
+				"VALUE": "January, 18 2018 00:00:00"
 			},
 			"_urlTitle": {
 				"VALUE": "barretts-grill"
+			},
+			"Phone_Number": {
+				"VALUE": "410-527-0999 ext. 123"
 			},
 			"website": {
 				"VALUE": {
@@ -42,11 +45,11 @@
 					"LINK": "http://www.barrettsgrill.com/home"
 				}
 			},
-			"ZipCode": {
-				"VALUE": 21030
-			},
 			"Phone": {
 				"VALUE": 4105270999
+			},
+			"ZipCode": {
+				"VALUE": 21030
 			},
 			"logo": {
 				"NAME": "logo-barretts.jpg",
@@ -60,17 +63,13 @@
 			},
 			"Categories": [
 				{
-					"VALUE": "american",
+					"VALUE": "American",
 					"LABEL": "American"
-				},
-				{
-					"VALUE": "fine_dining",
-					"LABEL": "Fine Dining"
 				}
 			],
 			"ACTIVE": true,
 			"_printDate": {
-				"VALUE": "January, 16 2018 00:00:00"
+				"VALUE": "January, 18 2018 00:00:00"
 			}
 		},
 		{
@@ -100,10 +99,13 @@
 				"VALUE": "Owings Mills"
 			},
 			"_startDate": {
-				"VALUE": "January, 16 2018 00:00:00"
+				"VALUE": "January, 18 2018 00:00:00"
 			},
 			"_urlTitle": {
 				"VALUE": "artful-gourmet-bistro"
+			},
+			"Phone_Number": {
+				"VALUE": "410-356-2606"
 			},
 			"website": {
 				"VALUE": {
@@ -114,11 +116,11 @@
 					"LINK": "http://www.artfulgourmet.com/"
 				}
 			},
-			"ZipCode": {
-				"VALUE": 21117
-			},
 			"Phone": {
 				"VALUE": 4103562606
+			},
+			"ZipCode": {
+				"VALUE": 21117
 			},
 			"logo": {
 				"NAME": "logo-artful-gourmet.jpg",
@@ -132,13 +134,88 @@
 			},
 			"Categories": [
 				{
-					"VALUE": "fine_dining",
+					"VALUE": "Fine Dining",
 					"LABEL": "Fine Dining"
 				}
 			],
 			"ACTIVE": true,
 			"_printDate": {
-				"VALUE": "January, 16 2018 00:00:00"
+				"VALUE": "January, 18 2018 00:00:00"
+			}
+		},
+		{
+			"_title": {
+				"VALUE": "Bonefish Grill"
+			},
+			"_endDate": {
+				"VALUE": ""
+			},
+			"menuLink": {
+				"VALUE": {
+					"ID": "2D1444DB3289B7892A4F688E04CF3AB9",
+					"LINKTYPE": "INTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "View the Restaurant Week menu for Bonefish Owings Mills",
+					"LINK": "http://www.baltimorecountyrestaurantweek.com/documents/menus/menu-bonefish.pdf"
+				}
+			},
+			"addressLine1": {
+				"VALUE": "10906 Boulevard Circle"
+			},
+			"addressLine2": {
+				"VALUE": ""
+			},
+			"UUID": "d0215e35-0488-4679-80e847d7cb5efecf",
+			"town": {
+				"VALUE": "Owings Mills"
+			},
+			"_startDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+			},
+			"_urlTitle": {
+				"VALUE": "bonefish-grill"
+			},
+			"Phone_Number": {
+				"VALUE": "410-654-5500"
+			},
+			"website": {
+				"VALUE": {
+					"ID": "E841F6F87B16CE04F04C06ECEE2D7EC9",
+					"LINKTYPE": "EXTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "Visit the Bonefish Grill Owings Mills website.",
+					"LINK": "https://www.bonefishgrill.com/locations/md/owings-mills"
+				}
+			},
+			"Phone": {
+				"VALUE": 4106545500
+			},
+			"ZipCode": {
+				"VALUE": 21117
+			},
+			"logo": {
+				"NAME": "logo-bonefish-grill.jpg",
+				"DESCRIPTION": "Bonefish Grill Logo",
+				"VALUE": "4C91CEB651306B1C6B8C5B9E0FE9853A",
+				"ALTTEXT": "Bonefish Grill Logo",
+				"HEIGHT": 100,
+				"SIZE": 13300,
+				"URL": "/sebin/n/g/logo-bonefish-grill.jpg",
+				"WIDTH": 190
+			},
+			"Categories": [
+				{
+					"VALUE": "American",
+					"LABEL": "American"
+				},
+				{
+					"VALUE": "Seafood",
+					"LABEL": "Seafood"
+				}
+			],
+			"ACTIVE": true,
+			"_printDate": {
+				"VALUE": "January, 18 2018 00:00:00"
 			}
 		}
 	],

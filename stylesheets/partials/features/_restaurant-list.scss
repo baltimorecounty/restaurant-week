@@ -42,7 +42,8 @@
 
     .restaurant-name {
       color: $primary-color;
-      font-family: $default-headline-font;
+	  font-family: $default-headline-font;
+	  font-size: 1.8em;
       font-weight: 700;
       transition: color 0.2s ease;
 

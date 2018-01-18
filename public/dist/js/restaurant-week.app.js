@@ -64,7 +64,9 @@
 (function (app) {
 	var restaurantProvider = function restaurantProvider(constants, RestaurantModel, $http, $q) {
 		var formatCategories = function formatCategories(categories) {
-			return categories.map(function (category) {
+			return categories.filter(function (category) {
+				return !!category;
+			}).map(function (category) {
 				return category.LABEL;
 			});
 		};
@@ -90,7 +92,7 @@
 					addressLine2: restaurantToMap.addressLine2.VALUE || '',
 					town: restaurantToMap.town.VALUE || '',
 					zip: restaurantToMap.ZipCode.VALUE || '',
-					phone: restaurantToMap.Phone.VALUE ? formatPhoneNumber(restaurantToMap.Phone.VALUE) : '',
+					phone: restaurantToMap.Phone_Number.VALUE || '',
 					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ? formatCategories(restaurantToMap.Categories) : []
 				});
 
