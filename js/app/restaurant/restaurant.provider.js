@@ -5,7 +5,7 @@
 'use strict';
 
 ((app) => {
-	const restaurantStructuredContentProvider = (constants, RestaurantModel, $http, $q) => {
+	const restaurantProvider = (constants, RestaurantModel, $http, $q) => {
 		const formatCategories = categories => categories.map(category => category.LABEL);
 		const formatPhoneNumber = number => number.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
 
@@ -69,12 +69,12 @@
 	};
 
 
-	restaurantStructuredContentProvider.$inject = [
+	restaurantProvider.$inject = [
 		'rwApp.CONSTANTS',
 		'rwApp.RestaurantModel',
 		'$http',
 		'$q',
 	];
 
-	app.factory('rwApp.restaurantStructuredContentProvider', restaurantStructuredContentProvider);
+	app.factory('rwApp.restaurantProvider', restaurantProvider);
 })(angular.module('rwApp'));

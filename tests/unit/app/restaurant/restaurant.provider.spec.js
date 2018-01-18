@@ -2,12 +2,12 @@ describe('Restaurant Strucutred Content Provider', () => {
 	let endpoint;
 	beforeEach(() => {
 		bard.appModule('rwApp');
-		bard.inject(['rwApp.restaurantStructuredContentProvider', 'rwApp.CONSTANTS', '$http', '$httpBackend', '$q', '$rootScope']);
+		bard.inject(['rwApp.restaurantProvider', 'rwApp.CONSTANTS', '$http', '$httpBackend', '$q', '$rootScope']);
 		endpoint = CONSTANTS.urls.structuredContent.restaurants;
 	});
 
 	it('should exist', () => {
-		expect(restaurantStructuredContentProvider).toBeDefined();
+		expect(restaurantProvider).toBeDefined();
 	});
 
 	describe('restaurant object being returned', () => {
@@ -173,13 +173,13 @@ describe('Restaurant Strucutred Content Provider', () => {
 
 			describe('Mapped Response', () => {
 				beforeEach(() => {
-					list = restaurantStructuredContentProvider
+					list = restaurantProvider
 						.mapRestaurants(structuredContentResponse);
 					barretsGrille = list[1];
 				});
 
 				it('should return an empty array if there are no records', () => {
-					const list = restaurantStructuredContentProvider
+					const list = restaurantProvider
 						.mapRestaurants([]);
 
 					expect(list).toBeEmptyArray();
