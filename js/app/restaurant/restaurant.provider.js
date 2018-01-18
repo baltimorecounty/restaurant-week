@@ -37,7 +37,7 @@
 			return mappedRestaurants;
 		};
 
-		const handleresponseonseSuccess = (response, deferred) => {
+		const handleResponseSuccess = (response, deferred) => {
 			if (response.data && response.data.CONTENTS && response.data.CONTENTS.length) {
 				const restaurants = mapRestaurants(response.data.CONTENTS);
 				deferred.resolve(restaurants);
@@ -47,7 +47,7 @@
 			return deferred.promise;
 		};
 
-		const handleresponseonseFailure = (err, deferred) => {
+		const handleResponseFailure = (err, deferred) => {
 			deferred.reject(err);
 			return deferred.promise;
 		};
@@ -57,8 +57,8 @@
 
 			return $http.get(constants.urls.structuredContent.restaurants)
 				.then(
-					response => handleresponseonseSuccess(response, deferred),
-					err => handleresponseonseFailure(err, deferred) // eslint-disable-line
+					response => handleResponseSuccess(response, deferred),
+					err => handleResponseFailure(err, deferred) // eslint-disable-line
 				);
 		};
 
