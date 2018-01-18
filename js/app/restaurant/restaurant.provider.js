@@ -37,9 +37,9 @@
 			return mappedRestaurants;
 		};
 
-		const handleResponseSuccess = (resp, deferred) => {
-			if (resp.data && resp.data.CONTENTS && resp.data.CONTENTS.length) {
-				const restaurants = mapRestaurants(resp.data.CONTENTS);
+		const handleresponseonseSuccess = (response, deferred) => {
+			if (response.data && response.data.CONTENTS && response.data.CONTENTS.length) {
+				const restaurants = mapRestaurants(response.data.CONTENTS);
 				deferred.resolve(restaurants);
 			} else {
 				deferred.reject('Did not receive a list of restaurants');
@@ -47,7 +47,7 @@
 			return deferred.promise;
 		};
 
-		const handleResponseFailure = (err, deferred) => {
+		const handleresponseonseFailure = (err, deferred) => {
 			deferred.reject(err);
 			return deferred.promise;
 		};
@@ -57,8 +57,8 @@
 
 			return $http.get(constants.urls.structuredContent.restaurants)
 				.then(
-					resp => handleResponseSuccess(resp, deferred),
-					err => handleResponseFailure(err, deferred) // eslint-disable-line
+					response => handleresponseonseSuccess(response, deferred),
+					err => handleresponseonseFailure(err, deferred) // eslint-disable-line
 				);
 		};
 
