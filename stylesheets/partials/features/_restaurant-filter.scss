@@ -1,13 +1,12 @@
-.filter-container {
+.restaurant-filter-container {
 	background: $gray-lightest;
+	margin-bottom: 30px;
 }
 .restaurant-filter {
-	margin-bottom: 30px;
 	padding: 20px;
 	flex: 0 1 100%;
 	display: flex;
 	align-items: center;
-
 
 	.filter-input {
 		padding: 10px;
@@ -17,7 +16,7 @@
 .restaurant-filter-headline {
 	border-right: 1px solid $gray-light;
 	font-family: $default-headline-font;
-	font-size: 1.9em;
+	font-size: 1.7em;
 	font-weight: 900;
 	padding: 0 40px 0 0;
 	margin: 0 40px 0 0;
