@@ -139,6 +139,23 @@
 'use strict';
 
 (function (app) {
+	var restaurantService = function restaurantService(restaurantProvider) {
+		var getRestaurants = function getRestaurants() {
+			return restaurantProvider.getRestaurants();
+		};
+
+		return {
+			getRestaurants: getRestaurants
+		};
+	};
+
+	restaurantService.$inject = ['rwApp.restaurantProvider'];
+
+	app.factory('rwApp.restaurantService', restaurantService);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
 	var dataService = function dataService($http, $q, constants) {
 		var apiRoot = constants.urls.apiRoot;
 
@@ -180,23 +197,6 @@
 	};
 
 	app.factory('rwApp.dataService', ['$http', '$q', 'rwApp.CONSTANTS', dataService]);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
-	var restaurantService = function restaurantService(restaurantProvider) {
-		var getRestaurants = function getRestaurants() {
-			return restaurantProvider.getRestaurants();
-		};
-
-		return {
-			getRestaurants: getRestaurants
-		};
-	};
-
-	restaurantService.$inject = ['rwApp.restaurantProvider'];
-
-	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
 'use strict';
 
