@@ -148,7 +148,7 @@ gulp.task('move-data', () => {
 });
 
 gulp.task('set-dev-node-env', () => process.env.NODE_ENV = 'development'); // eslint-disable-line no-return-assign
-gulp.task('set-stage-node-env', () => process.env.NODE_ENV = 'development'); // eslint-disable-line no-return-assign
+gulp.task('set-stage-node-env', () => process.env.NODE_ENV = 'staging'); // eslint-disable-line no-return-assign
 gulp.task('set-prod-node-env', () => process.env.NODE_ENV = 'production'); // eslint-disable-line no-return-assign
 
 gulp.task('default', ['clean', 'set-dev-node-env'], callback =>
