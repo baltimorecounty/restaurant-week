@@ -64,7 +64,9 @@
 (function (app) {
 	var restaurantProvider = function restaurantProvider(constants, RestaurantModel, $http, $q) {
 		var formatCategories = function formatCategories(categories) {
-			return categories.map(function (category) {
+			return categories.filter(function (category) {
+				return !!category;
+			}).map(function (category) {
 				return category.LABEL;
 			});
 		};
@@ -139,23 +141,6 @@
 'use strict';
 
 (function (app) {
-	var restaurantService = function restaurantService(restaurantProvider) {
-		var getRestaurants = function getRestaurants() {
-			return restaurantProvider.getRestaurants();
-		};
-
-		return {
-			getRestaurants: getRestaurants
-		};
-	};
-
-	restaurantService.$inject = ['rwApp.restaurantProvider'];
-
-	app.factory('rwApp.restaurantService', restaurantService);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
 	var dataService = function dataService($http, $q, constants) {
 		var apiRoot = constants.urls.apiRoot;
 
@@ -201,6 +186,23 @@
 'use strict';
 
 (function (app) {
+	var restaurantService = function restaurantService(restaurantProvider) {
+		var getRestaurants = function getRestaurants() {
+			return restaurantProvider.getRestaurants();
+		};
+
+		return {
+			getRestaurants: getRestaurants
+		};
+	};
+
+	restaurantService.$inject = ['rwApp.restaurantProvider'];
+
+	app.factory('rwApp.restaurantService', restaurantService);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
 	var objectPropertyFilter = function objectPropertyFilter() {
 		var filterObjects = function filterObjects(objectList, selectedItems, targetProperty) {
 			if (!selectedItems || !selectedItems.length) {
@@ -237,6 +239,27 @@
 'use strict';
 
 (function (app) {
+	var restaurantListDirective = function restaurantListDirective(constants) {
+		var directive = {
+			restrict: 'E',
+			scope: {
+				list: '=',
+				filtermodel: '='
+			},
+			templateUrl: constants.urls.templates.restaurantList,
+			controller: 'rwApp.RestaurantListCtrl',
+			controllerAs: 'restaurantList',
+			bindToController: true
+		};
+
+		return directive;
+	};
+
+	app.directive('restaurantList', ['rwApp.CONSTANTS', restaurantListDirective]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
 	var restaurantDirective = function restaurantDirective(constants) {
 		var directive = {
 			restrict: 'E',
@@ -263,47 +286,6 @@
 	};
 
 	app.directive('restaurant', ['rwApp.CONSTANTS', restaurantDirective]);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
-	var restaurantListDirective = function restaurantListDirective(constants) {
-		var directive = {
-			restrict: 'E',
-			scope: {
-				list: '=',
-				filtermodel: '='
-			},
-			templateUrl: constants.urls.templates.restaurantList,
-			controller: 'rwApp.RestaurantListCtrl',
-			controllerAs: 'restaurantList',
-			bindToController: true
-		};
-
-		return directive;
-	};
-
-	app.directive('restaurantList', ['rwApp.CONSTANTS', restaurantListDirective]);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
-	var RestaurantCtrl = function RestaurantCtrl($scope, dataService, restaurantService) {
-		var vm = this;
-		vm.restaurantList = [];
-		vm.categories = [];
-		vm.locations = [];
-		vm.restaurantFilter = '';
-		vm.isLoading = true;
-
-		// set the list of restaurants
-		restaurantService.getRestaurants().then(function (list) {
-			vm.restaurantList = list;
-			vm.isLoading = false;
-		});
-	};
-
-	app.controller('rwApp.RestaurantCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantCtrl]);
 })(angular.module('rwApp'));
 'use strict';
 
@@ -349,4 +331,24 @@
 	};
 
 	app.controller('rwApp.RestaurantListCtrl', ['$scope', '$location', RestaurantListCtrl]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
+	var RestaurantCtrl = function RestaurantCtrl($scope, dataService, restaurantService) {
+		var vm = this;
+		vm.restaurantList = [];
+		vm.categories = [];
+		vm.locations = [];
+		vm.restaurantFilter = '';
+		vm.isLoading = true;
+
+		// set the list of restaurants
+		restaurantService.getRestaurants().then(function (list) {
+			vm.restaurantList = list;
+			vm.isLoading = false;
+		});
+	};
+
+	app.controller('rwApp.RestaurantCtrl', ['$scope', 'rwApp.dataService', 'rwApp.restaurantService', RestaurantCtrl]);
 })(angular.module('rwApp'));
