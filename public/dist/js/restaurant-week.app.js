@@ -14,26 +14,13 @@
 	var constants = {
 		urls: {
 			templates: {
-				restaurant: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant.template.html',
-				restaurantList: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant-list.template.html'
-			},
-			apiRoot: 'dist/data',
-			restaurantMockData: 'dist/data/restaurants.json',
-			structuredContent: {
-				restaurants: '//staging.baltimorecountymd.gov/_Restaurant%20Week/RW_Restaurant?format=json'
-			}
-		}
-	};
-
-	var localConstants = {
-		urls: {
-			templates: {
-				restaurant: '/dist/restaurant/templates/restaurant.template.html',
-				restaurantList: '/dist/restaurant-list/restaurant-list.template.html'
+				restaurant: '/dist/templates/restaurant/restaurant.template.html',
+				restaurantList: '/dist/templates/restaurant-list/restaurant-list.template.html'
 			},
 			apiRoot: 'dist/data',
 			structuredContent: {
-				restaurants: '/dist/data/mock-structured-content-restaurants.json'
+				restaurants: '/dist/data/mock-structured-content-restaurants.json',
+				imagePath: 'http://staging.baltimorecountymd.gov'
 			}
 		}
 	};
@@ -95,7 +82,7 @@
 
 				var restaurant = RestaurantModel({
 					name: mappedRestaurant._title.VALUE, // eslint-disable-line no-underscore-dangle
-					imageUrl: logo.URL || '',
+					imageUrl: constants.urls.structuredContent.imagePath + logo.URL || '',
 					imageAlt: logo.ALTTEXT || '',
 					websiteUrl: website.VALUE.LINK || '',
 					websiteUrlTitle: website.VALUE.LINKTEXT || '',
@@ -152,6 +139,23 @@
 'use strict';
 
 (function (app) {
+	var restaurantService = function restaurantService(restaurantProvider) {
+		var getRestaurants = function getRestaurants() {
+			return restaurantProvider.getRestaurants();
+		};
+
+		return {
+			getRestaurants: getRestaurants
+		};
+	};
+
+	restaurantService.$inject = ['rwApp.restaurantProvider'];
+
+	app.factory('rwApp.restaurantService', restaurantService);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
 	var dataService = function dataService($http, $q, constants) {
 		var apiRoot = constants.urls.apiRoot;
 
@@ -193,23 +197,6 @@
 	};
 
 	app.factory('rwApp.dataService', ['$http', '$q', 'rwApp.CONSTANTS', dataService]);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
-	var restaurantService = function restaurantService(restaurantProvider) {
-		var getRestaurants = function getRestaurants() {
-			return restaurantProvider.getRestaurants();
-		};
-
-		return {
-			getRestaurants: getRestaurants
-		};
-	};
-
-	restaurantService.$inject = ['rwApp.restaurantProvider'];
-
-	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
 'use strict';
 
