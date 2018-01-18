@@ -7,12 +7,14 @@
 		vm.categories = [];
 		vm.locations = [];
 		vm.restaurantFilter = '';
+		vm.isLoading = true;
 
 
 		// set the list of restaurants
 		restaurantService.getRestaurants()
 			.then((list) => {
 				vm.restaurantList = list;
+				vm.isLoading = false;
 			});
 	};
 
