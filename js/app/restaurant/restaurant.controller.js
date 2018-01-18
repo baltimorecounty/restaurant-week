@@ -6,25 +6,15 @@
 		vm.restaurantList = [];
 		vm.categories = [];
 		vm.locations = [];
+		vm.restaurantFilter = '';
+		vm.isLoading = true;
 
 
 		// set the list of restaurants
 		restaurantService.getRestaurants()
 			.then((list) => {
 				vm.restaurantList = list;
-			});
-
-		// add categories for use with filter
-		dataService.getCategories()
-			.then((categories) => {
-				vm.categories = categories;
-			});
-
-
-		// add locations for use with filter
-		dataService.getLocations()
-			.then((locations) => {
-				vm.locations = locations;
+				vm.isLoading = false;
 			});
 	};
 

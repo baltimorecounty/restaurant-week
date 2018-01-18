@@ -1,0 +1,146 @@
+{
+	"FEATUREDITEMS": [],
+	"CONTENTS": [
+		{
+			"_title": {
+				"VALUE": "Barrett's Grill"
+			},
+			"_endDate": {
+				"VALUE": ""
+			},
+			"menuLink": {
+				"VALUE": {
+					"ID": "",
+					"LINKTYPE": "",
+					"PARAM": "",
+					"LINKTEXT": "",
+					"LINK": ""
+				}
+			},
+			"addressLine1": {
+				"VALUE": "118 Shawan Road, Suite D"
+			},
+			"addressLine2": {
+				"VALUE": "Hunt Valley, Maryland 21030"
+			},
+			"UUID": "c1a01db6-df83-4b8d-86fca43d5ef71a73",
+			"town": {
+				"VALUE": "Hunt Valley"
+			},
+			"_startDate": {
+				"VALUE": "January, 16 2018 00:00:00"
+			},
+			"_urlTitle": {
+				"VALUE": "barretts-grill"
+			},
+			"website": {
+				"VALUE": {
+					"ID": "EA731A8FA3DFC291488A661B3C991DAF",
+					"LINKTYPE": "EXTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "View more information about Barrett's Grill on their website",
+					"LINK": "http://www.barrettsgrill.com/home"
+				}
+			},
+			"ZipCode": {
+				"VALUE": 21030
+			},
+			"Phone": {
+				"VALUE": 4105270999
+			},
+			"logo": {
+				"NAME": "logo-barretts.jpg",
+				"DESCRIPTION": "Barrett's Grill logo",
+				"VALUE": "C9C7828723CC3149E62781790F0860A0",
+				"ALTTEXT": "Barrett's Grill logo",
+				"HEIGHT": 100,
+				"SIZE": 5891,
+				"URL": "/sebin/x/d/logo-barretts.jpg",
+				"WIDTH": 190
+			},
+			"Categories": [
+				{
+					"VALUE": "american",
+					"LABEL": "American"
+				},
+				{
+					"VALUE": "fine_dining",
+					"LABEL": "Fine Dining"
+				}
+			],
+			"ACTIVE": true,
+			"_printDate": {
+				"VALUE": "January, 16 2018 00:00:00"
+			}
+		},
+		{
+			"_title": {
+				"VALUE": "Artful Gourmet Bistro"
+			},
+			"_endDate": {
+				"VALUE": ""
+			},
+			"menuLink": {
+				"VALUE": {
+					"ID": "",
+					"LINKTYPE": "",
+					"PARAM": "",
+					"LINKTEXT": "",
+					"LINK": ""
+				}
+			},
+			"addressLine1": {
+				"VALUE": "9433 Common Brook Road #103"
+			},
+			"addressLine2": {
+				"VALUE": "Owings Mills, Maryland 21117"
+			},
+			"UUID": "44bcc20a-3dfb-484c-aa6ede5040befd88",
+			"town": {
+				"VALUE": "Owings Mills"
+			},
+			"_startDate": {
+				"VALUE": "January, 16 2018 00:00:00"
+			},
+			"_urlTitle": {
+				"VALUE": "artful-gourmet-bistro"
+			},
+			"website": {
+				"VALUE": {
+					"ID": "D65603DF550E7FEA2CF237C31DEE3C68",
+					"LINKTYPE": "EXTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "View more information about the Arful Gourmet Bistro by visiting their website",
+					"LINK": "http://www.artfulgourmet.com/"
+				}
+			},
+			"ZipCode": {
+				"VALUE": 21117
+			},
+			"Phone": {
+				"VALUE": 4103562606
+			},
+			"logo": {
+				"NAME": "logo-artful-gourmet.jpg",
+				"DESCRIPTION": "Artful Gourmet Bistro Logo",
+				"VALUE": "F53A69188085EFE1DA36466C1D985DFA",
+				"ALTTEXT": "Artful Gourmet Bistro Logo",
+				"HEIGHT": 100,
+				"SIZE": 6287,
+				"URL": "/sebin/j/g/logo-artful-gourmet.jpg",
+				"WIDTH": 190
+			},
+			"Categories": [
+				{
+					"VALUE": "fine_dining",
+					"LABEL": "Fine Dining"
+				}
+			],
+			"ACTIVE": true,
+			"_printDate": {
+				"VALUE": "January, 16 2018 00:00:00"
+			}
+		}
+	],
+	"NONFEATUREDITEMS": []
+}

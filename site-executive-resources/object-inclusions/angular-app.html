@@ -1,0 +1,28 @@
+<div ng-app="rwApp">
+	<div ng-controller="rwApp.RestaurantCtrl as restaurantCtrl">
+		<div class="filter-container">
+			<div class="restaurant-filter container bc-container">
+				<h2 class="restaurant-filter-headline">Find a Restaurant</h2>
+				<input 
+					class="filter-input" 
+					placeholder="Search for restaurant name, location, category and more..." 
+					type="text" 
+					name="restaurant-list-filter"
+					id="restaurant-list-filter" 
+					ng-model="restaurantCtrl.restaurantFilter" />
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="restaurant-list-container">
+						<restaurant-list 
+							class="restaurant-list" 
+							list="restaurantCtrl.restaurantList" 
+							filtermodel="restaurantCtrl.restaurantFilter"></restaurant-list>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

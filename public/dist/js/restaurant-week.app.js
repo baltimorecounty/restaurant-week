@@ -14,13 +14,15 @@
 	var constants = {
 		urls: {
 			templates: {
-				restaurant: 'dist/templates/restaurant/restaurant.template.html',
-				restaurantList: 'dist/templates/restaurant-list/restaurant-list.template.html'
+				restaurant: '/dist/templates/restaurant/restaurant.template.html',
+				restaurantList: '/dist/templates/restaurant-list/restaurant-list.template.html'
 			},
 			apiRoot: 'dist/data',
-			restaurantMockData: 'dist/data/restaurants.json'
-		},
-		dataProvider: 'restaurantMockProvider'
+			structuredContent: {
+				restaurants: '/dist/data/mock-structured-content-restaurants.json',
+				imagePath: 'http://staging.baltimorecountymd.gov'
+			}
+		}
 	};
 
 	app.constant('rwApp.CONSTANTS', constants);
@@ -30,18 +32,22 @@
 (function (app) {
 	var RestaurantModel = function RestaurantModel() {
 		var Restaurant = function Restaurant(restaurant) {
-			var self = undefined;
+			var model = {};
 
-			self.name = restaurant.name || '';
-			self.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
-			self.imageAlt = restaurant.imgAlt || '';
-			self.websiteUrl = restaurant.websiteUrl || '';
-			self.websiteUrlTitle = restaurant.websiteUrl || '';
-			self.addressLine1 = restaurant.addressLine1 || '';
-			self.addressLine2 = restaurant.addressLine2 || '';
-			self.phone = restaurant.phone || '';
+			model.name = restaurant.name || '';
+			model.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
+			model.imageAlt = restaurant.imgAlt || '';
+			model.websiteUrl = restaurant.websiteUrl || '';
+			model.websiteUrlTitle = restaurant.websiteUrl || '';
+			model.addressLine1 = restaurant.addressLine1 || '';
+			model.addressLine2 = restaurant.addressLine2 || '';
+			model.phone = restaurant.phone || '';
+			model.categories = restaurant.categories || [];
+			model.town = restaurant.town || '';
+			model.zip = restaurant.zip || '';
+			model.state = 'Maryland';
 
-			return self;
+			return model;
 		};
 
 		return Restaurant;
@@ -50,28 +56,54 @@
 	app.factory('rwApp.RestaurantModel', RestaurantModel);
 })(angular.module('rwApp'));
 /**
- * Provides data from a json file that was generated from the previous site
+ * Provides data from a json feed provided by Site Executive Structured Content
  */
 
 'use strict';
 
 (function (app) {
-	var restaurantMockProvider = function restaurantMockProvider($http, $q, constants) {
-		var addLocation = function addLocation(restaurants) {
-			restaurants.forEach(function (restaurant) {
-				var restaurantParts = restaurant.addressLine2.split(',');
-				var zip = restaurantParts[1] && restaurantParts[1].indexOf(' ') > -1 ? restaurantParts[1].trim().split(' ')[1] : '';
-
-				restaurant.town = restaurantParts[0] ? restaurantParts[0].trim() : '';
-				restaurant.state = 'Maryland';
-				restaurant.zip = zip;
+	var restaurantProvider = function restaurantProvider(constants, RestaurantModel, $http, $q) {
+		var formatCategories = function formatCategories(categories) {
+			return categories.map(function (category) {
+				return category.LABEL;
 			});
 		};
+		var formatPhoneNumber = function formatPhoneNumber(number) {
+			return number.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+		};
 
-		var handleResponseSuccess = function handleResponseSuccess(resp, deferred) {
-			if (resp.data && resp.data.restaurants && resp.data.restaurants.length) {
-				addLocation(resp.data.restaurants);
-				deferred.resolve(resp.data.restaurants);
+		var mapRestaurants = function mapRestaurants(structuredContentData) {
+			var mappedRestaurants = [];
+
+			structuredContentData.forEach(function (restaurantToMap) {
+				var website = restaurantToMap.website,
+				    logo = restaurantToMap.logo;
+
+
+				var restaurant = RestaurantModel({
+					name: restaurantToMap._title.VALUE, // eslint-disable-line no-underscore-dangle
+					imageUrl: constants.urls.structuredContent.imagePath + logo.URL || '',
+					imageAlt: logo.ALTTEXT || '',
+					websiteUrl: website.VALUE.LINK || '',
+					websiteUrlTitle: website.VALUE.LINKTEXT || '',
+					addressLine1: restaurantToMap.addressLine1.VALUE || '',
+					addressLine2: restaurantToMap.addressLine2.VALUE || '',
+					town: restaurantToMap.town.VALUE || '',
+					zip: restaurantToMap.ZipCode.VALUE || '',
+					phone: restaurantToMap.Phone.VALUE ? formatPhoneNumber(restaurantToMap.Phone.VALUE) : '',
+					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ? formatCategories(restaurantToMap.Categories) : []
+				});
+
+				mappedRestaurants.push(restaurant);
+			});
+
+			return mappedRestaurants;
+		};
+
+		var handleResponseSuccess = function handleResponseSuccess(response, deferred) {
+			if (response.data && response.data.CONTENTS && response.data.CONTENTS.length) {
+				var restaurants = mapRestaurants(response.data.CONTENTS);
+				deferred.resolve(restaurants);
 			} else {
 				deferred.reject('Did not receive a list of restaurants');
 			}
@@ -86,8 +118,8 @@
 		var getRestaurants = function getRestaurants() {
 			var deferred = $q.defer();
 
-			return $http.get(constants.urls.restaurantMockData).then(function (resp) {
-				return handleResponseSuccess(resp, deferred);
+			return $http.get(constants.urls.structuredContent.restaurants).then(function (response) {
+				return handleResponseSuccess(response, deferred);
 			}, function (err) {
 				return handleResponseFailure(err, deferred);
 			} // eslint-disable-line
@@ -95,51 +127,14 @@
 		};
 
 		return {
-			getRestaurants: getRestaurants
+			getRestaurants: getRestaurants,
+			mapRestaurants: mapRestaurants
 		};
 	};
 
-	app.factory('rwApp.restaurantMockProvider', ['$http', '$q', 'rwApp.CONSTANTS', restaurantMockProvider]);
-})(angular.module('rwApp'));
-/**
- * Returns Data from the html that is loaded on the page
- */
+	restaurantProvider.$inject = ['rwApp.CONSTANTS', 'rwApp.RestaurantModel', '$http', '$q'];
 
-'use strict';
-
-(function (app) {
-	var restaurantPageProvider = function restaurantPageProvider(RestaurantModel) {
-		var getRestaurants = function getRestaurants() {
-			var list = [];
-
-			var items = angular.element('.restaurant-list .restaurant-item');
-
-			angular.forEach(items, function (restaurantElm) {
-				var image = angular.element(restaurantElm).find('img');
-				var link = angular.element(restaurantElm).find('.headline-link');
-				var restaurant = RestaurantModel({
-					name: angular.element(restaurantElm).find('.restaurant-name').text(),
-					imageUrl: angular.element(image).attr('href'),
-					imageAlt: angular.element(image).attr('alt'),
-					websiteUrl: angular.element(link).attr('href'),
-					websiteUrlTitle: angular.element(link).attr('title'),
-					addressLine1: angular.element(restaurantElm).find('.restaurant-address1').text(),
-					addressLine2: angular.element(restaurantElm).find('.restaurant-address2').text(),
-					phone: angular.element(restaurantElm).find('.restaurant-phone').text()
-				});
-
-				list.push(restaurant);
-			});
-
-			return list;
-		};
-
-		return {
-			getRestaurants: getRestaurants
-		};
-	};
-
-	app.factory('restaurantPageProvider', ['rwApp.RestaurantModel', restaurantPageProvider]);
+	app.factory('rwApp.restaurantProvider', restaurantProvider);
 })(angular.module('rwApp'));
 'use strict';
 
@@ -199,7 +194,7 @@
 		};
 	};
 
-	restaurantService.$inject = ['rwApp.restaurantMockProvider'];
+	restaurantService.$inject = ['rwApp.restaurantProvider'];
 
 	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
@@ -298,20 +293,13 @@
 		vm.restaurantList = [];
 		vm.categories = [];
 		vm.locations = [];
+		vm.restaurantFilter = '';
+		vm.isLoading = true;
 
 		// set the list of restaurants
 		restaurantService.getRestaurants().then(function (list) {
 			vm.restaurantList = list;
-		});
-
-		// add categories for use with filter
-		dataService.getCategories().then(function (categories) {
-			vm.categories = categories;
-		});
-
-		// add locations for use with filter
-		dataService.getLocations().then(function (locations) {
-			vm.locations = locations;
+			vm.isLoading = false;
 		});
 	};
 

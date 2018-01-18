@@ -1,3 +1,8 @@
+/*
+	.restaurant-item is generated in site executive and wraps around the .restaurant-item element that was originally designed for.
+	Nesting should prevent other .restaurant-item to be styled like a restaurant item
+*/
+
 .restaurant-list {
   display: flex;
   flex-flow: row wrap;
@@ -7,66 +12,68 @@
     content: "";
     flex: auto;
   }
+
+  .restaurant-item {
+    margin-bottom: 40px;
+    text-align: center;
+    width: 24%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h2,
+    p {
+      margin: 0;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .restaurant-image-wrapper {
+      display: block;
+      height: 125px;
+    }
+
+    .restaurant-name {
+      color: $primary-color;
+      font-family: $default-headline-font;
+      font-weight: 700;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+
+    .headline-link {
+      color: $black;
+      text-decoration: none;
+    }
+  }
 }
 .restaurant-filter-message {
   flex: 0 0 100%;
 }
-.restaurant-item {
-  margin-bottom: 40px;
-  text-align: center;
-  width: 24%;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  h2,
-  p {
-    margin: 0;
-  }
-
-  p {
-    font-size: 18px;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  .restaurant-image-wrapper {
-    display: block;
-    height: 125px;
-  }
-
-  .restaurant-name {
-    color: $primary-color;
-    font-family: $default-headline-font;
-    font-weight: 700;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: $secondary-color;
-    }
-  }
-
-  .headline-link {
-    color: $black;
-    text-decoration: none;
-  }
-}
 @media screen and (max-width: 1024px) {
-	.restaurant-item {
-		width: 32%;
-	}
+  .restaurant-list .restaurant-item {
+    width: 32%;
+  }
 }
 @media screen and (max-width: 900px) {
-  .restaurant-item {
+  .restaurant-list .restaurant-item {
     width: 49%;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .restaurant-item {
+  .restaurant-list .restaurant-item {
     width: 100%;
   }
 }
