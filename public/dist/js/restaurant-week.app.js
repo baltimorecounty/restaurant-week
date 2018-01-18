@@ -75,7 +75,7 @@
 'use strict';
 
 (function (app) {
-	var restaurantStructuredContentProvider = function restaurantStructuredContentProvider(constants, RestaurantModel, $http, $q) {
+	var restaurantProvider = function restaurantProvider(constants, RestaurantModel, $http, $q) {
 		var formatCategories = function formatCategories(categories) {
 			return categories.map(function (category) {
 				return category.LABEL;
@@ -145,9 +145,9 @@
 		};
 	};
 
-	restaurantStructuredContentProvider.$inject = ['rwApp.CONSTANTS', 'rwApp.RestaurantModel', '$http', '$q'];
+	restaurantProvider.$inject = ['rwApp.CONSTANTS', 'rwApp.RestaurantModel', '$http', '$q'];
 
-	app.factory('rwApp.restaurantStructuredContentProvider', restaurantStructuredContentProvider);
+	app.factory('rwApp.restaurantProvider', restaurantProvider);
 })(angular.module('rwApp'));
 'use strict';
 
@@ -207,7 +207,7 @@
 		};
 	};
 
-	restaurantService.$inject = ['rwApp.restaurantStructuredContentProvider'];
+	restaurantService.$inject = ['rwApp.restaurantProvider'];
 
 	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
