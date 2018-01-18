@@ -12,22 +12,22 @@
 		const mapRestaurants = (structuredContentData) => {
 			const mappedRestaurants = [];
 
-			structuredContentData.forEach((mappedRestaurant) => {
-				const { website, logo } = mappedRestaurant;
+			structuredContentData.forEach((restaurantToMap) => {
+				const { website, logo } = restaurantToMap;
 
 				const restaurant = RestaurantModel({
-					name: mappedRestaurant._title.VALUE, // eslint-disable-line no-underscore-dangle
+					name: restaurantToMap._title.VALUE, // eslint-disable-line no-underscore-dangle
 					imageUrl: constants.urls.structuredContent.imagePath + logo.URL || '',
 					imageAlt: logo.ALTTEXT || '',
 					websiteUrl: website.VALUE.LINK || '',
 					websiteUrlTitle: website.VALUE.LINKTEXT || '',
-					addressLine1: mappedRestaurant.addressLine1.VALUE || '',
-					addressLine2: mappedRestaurant.addressLine2.VALUE || '',
-					town: mappedRestaurant.town.VALUE || '',
-					zip: mappedRestaurant.ZipCode.VALUE || '',
-					phone: mappedRestaurant.Phone.VALUE ? formatPhoneNumber(mappedRestaurant.Phone.VALUE) : '',
-					categories: mappedRestaurant.Categories && mappedRestaurant.Categories.length ?
-						formatCategories(mappedRestaurant.Categories) :
+					addressLine1: restaurantToMap.addressLine1.VALUE || '',
+					addressLine2: restaurantToMap.addressLine2.VALUE || '',
+					town: restaurantToMap.town.VALUE || '',
+					zip: restaurantToMap.ZipCode.VALUE || '',
+					phone: restaurantToMap.Phone.VALUE ? formatPhoneNumber(restaurantToMap.Phone.VALUE) : '',
+					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ?
+						formatCategories(restaurantToMap.Categories) :
 						[],
 				});
 
