@@ -32,22 +32,22 @@
 (function (app) {
 	var RestaurantModel = function RestaurantModel() {
 		var Restaurant = function Restaurant(restaurant) {
-			var self = {};
+			var model = {};
 
-			self.name = restaurant.name || '';
-			self.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
-			self.imageAlt = restaurant.imgAlt || '';
-			self.websiteUrl = restaurant.websiteUrl || '';
-			self.websiteUrlTitle = restaurant.websiteUrl || '';
-			self.addressLine1 = restaurant.addressLine1 || '';
-			self.addressLine2 = restaurant.addressLine2 || '';
-			self.phone = restaurant.phone || '';
-			self.categories = restaurant.categories || [];
-			self.town = restaurant.town || '';
-			self.zip = restaurant.zip || '';
-			self.state = 'Maryland';
+			model.name = restaurant.name || '';
+			model.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
+			model.imageAlt = restaurant.imgAlt || '';
+			model.websiteUrl = restaurant.websiteUrl || '';
+			model.websiteUrlTitle = restaurant.websiteUrl || '';
+			model.addressLine1 = restaurant.addressLine1 || '';
+			model.addressLine2 = restaurant.addressLine2 || '';
+			model.phone = restaurant.phone || '';
+			model.categories = restaurant.categories || [];
+			model.town = restaurant.town || '';
+			model.zip = restaurant.zip || '';
+			model.state = 'Maryland';
 
-			return self;
+			return model;
 		};
 
 		return Restaurant;
@@ -100,9 +100,9 @@
 			return mappedRestaurants;
 		};
 
-		var handleResponseSuccess = function handleResponseSuccess(resp, deferred) {
-			if (resp.data && resp.data.CONTENTS && resp.data.CONTENTS.length) {
-				var restaurants = mapRestaurants(resp.data.CONTENTS);
+		var handleresponseonseSuccess = function handleresponseonseSuccess(response, deferred) {
+			if (response.data && response.data.CONTENTS && response.data.CONTENTS.length) {
+				var restaurants = mapRestaurants(response.data.CONTENTS);
 				deferred.resolve(restaurants);
 			} else {
 				deferred.reject('Did not receive a list of restaurants');
@@ -110,7 +110,7 @@
 			return deferred.promise;
 		};
 
-		var handleResponseFailure = function handleResponseFailure(err, deferred) {
+		var handleresponseonseFailure = function handleresponseonseFailure(err, deferred) {
 			deferred.reject(err);
 			return deferred.promise;
 		};
@@ -118,10 +118,10 @@
 		var getRestaurants = function getRestaurants() {
 			var deferred = $q.defer();
 
-			return $http.get(constants.urls.structuredContent.restaurants).then(function (resp) {
-				return handleResponseSuccess(resp, deferred);
+			return $http.get(constants.urls.structuredContent.restaurants).then(function (response) {
+				return handleresponseonseSuccess(response, deferred);
 			}, function (err) {
-				return handleResponseFailure(err, deferred);
+				return handleresponseonseFailure(err, deferred);
 			} // eslint-disable-line
 			);
 		};
@@ -135,6 +135,23 @@
 	restaurantProvider.$inject = ['rwApp.CONSTANTS', 'rwApp.RestaurantModel', '$http', '$q'];
 
 	app.factory('rwApp.restaurantProvider', restaurantProvider);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
+	var restaurantService = function restaurantService(restaurantProvider) {
+		var getRestaurants = function getRestaurants() {
+			return restaurantProvider.getRestaurants();
+		};
+
+		return {
+			getRestaurants: getRestaurants
+		};
+	};
+
+	restaurantService.$inject = ['rwApp.restaurantProvider'];
+
+	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
 'use strict';
 
@@ -180,23 +197,6 @@
 	};
 
 	app.factory('rwApp.dataService', ['$http', '$q', 'rwApp.CONSTANTS', dataService]);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
-	var restaurantService = function restaurantService(restaurantProvider) {
-		var getRestaurants = function getRestaurants() {
-			return restaurantProvider.getRestaurants();
-		};
-
-		return {
-			getRestaurants: getRestaurants
-		};
-	};
-
-	restaurantService.$inject = ['rwApp.restaurantProvider'];
-
-	app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
 'use strict';
 
