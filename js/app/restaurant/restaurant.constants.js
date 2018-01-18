@@ -13,8 +13,21 @@
 				restaurants: '//staging.baltimorecountymd.gov/_Restaurant%20Week/RW_Restaurant?format=json',
 			},
 		},
-		dataProvider: 'restaurantMockProvider',
 	};
+
+	const localConstants = {
+		urls: {
+			templates: {
+				restaurant: '/dist/restaurant/templates/restaurant.template.html',
+				restaurantList: '/dist/restaurant-list/restaurant-list.template.html',
+			},
+			apiRoot: 'dist/data',
+			structuredContent: {
+				restaurants: '/dist/data/mock-structured-content-restaurants.json',
+			},
+		},
+	};
+
 
 	app.constant('rwApp.CONSTANTS', constants);
 })(angular.module('rwApp'));
