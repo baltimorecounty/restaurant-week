@@ -6,7 +6,9 @@
 
 ((app) => {
 	const restaurantProvider = (constants, RestaurantModel, $http, $q) => {
-		const formatCategories = categories => categories.map(category => category.LABEL);
+		const formatCategories = categories => categories
+			.filter(category => !!category)
+			.map(category => category.LABEL);
 		const formatPhoneNumber = number => number.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
 
 		const mapRestaurants = (structuredContentData) => {
