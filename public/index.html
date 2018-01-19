@@ -9,9 +9,8 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/restaurant-week.min.css">
 </head>
-
 <body ng-app="rwApp">
-	<div class="container">
+	<div class="container page-header-container">
 		<div class="row">
 			<div class="col-xs-12">
 				<header class="page-header">
@@ -69,8 +68,15 @@
 						<div class="col-xs-12">
 							<div class="bc-container restaurant-filter">
 								<h2 class="restaurant-filter-headline">Find a Restaurant</h2>
-								<input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
-								id="restaurant-list-filter" ng-model="restaurantCtrl.restaurantFilter">
+								<div class="restaurant-filter-input">
+									<input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
+										id="restaurant-list-filter" ng-model="restaurantCtrl.restaurantFilter">
+									<i 
+										class="fa fa-times clear-filter-btn" 
+										aria-hidden="true"
+										ng-show="restaurantCtrl.restaurantFilter"
+										ng-click="restaurantCtrl.clearRestaurantFilter()"></i>
+								</div>
 							</div>
 						</div>
 					</div>
