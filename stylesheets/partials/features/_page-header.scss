@@ -15,6 +15,13 @@
 	}
   }
   @media screen and (max-width: 968px) {
+	.page-header-container.container,
+	.page-header-container .row,
+	.page-header-container .col-xs-12 {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+	}
 	header {
 	  position: relative;
 	}
@@ -27,7 +34,7 @@
 	  font-size: 22px;
 	  position: absolute;
 	  margin: auto;
-	  bottom: -594px;
+	  bottom: -583px;
 	  left: 0;
 	  text-align: center;
 	  width: 100%;
