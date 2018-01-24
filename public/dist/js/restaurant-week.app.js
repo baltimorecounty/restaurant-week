@@ -298,6 +298,10 @@
 		vm.restaurantFilter = '';
 		vm.isLoading = true;
 
+		vm.clearRestaurantFilter = function () {
+			vm.restaurantFilter = '';
+		};
+
 		// set the list of restaurants
 		restaurantService.getRestaurants().then(function (list) {
 			vm.restaurantList = list;

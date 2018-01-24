@@ -9,6 +9,9 @@
 		vm.restaurantFilter = '';
 		vm.isLoading = true;
 
+		vm.clearRestaurantFilter = () => {
+			vm.restaurantFilter = '';
+		};
 
 		// set the list of restaurants
 		restaurantService.getRestaurants()

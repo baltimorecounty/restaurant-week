@@ -1,23 +1,35 @@
-.filter-container {
+.restaurant-filter-container {
 	background: $gray-lightest;
+	margin-bottom: 30px;
 }
 .restaurant-filter {
-	margin-bottom: 30px;
 	padding: 20px;
 	flex: 0 1 100%;
 	display: flex;
 	align-items: center;
-
-
+	
 	.filter-input {
+		display: block;
 		padding: 10px;
-		width: 73%;
+		width: 100%;
+	}
+}
+.restaurant-filter-input {
+	position: relative;
+	width: 73%;
+
+	.clear-filter-btn {
+		cursor: pointer;
+		font-size: 1.25em;
+		position: absolute;
+		right: 15px;
+		top: 13px;
 	}
 }
 .restaurant-filter-headline {
 	border-right: 1px solid $gray-light;
 	font-family: $default-headline-font;
-	font-size: 1.9em;
+	font-size: 1.7em;
 	font-weight: 900;
 	padding: 0 40px 0 0;
 	margin: 0 40px 0 0;
@@ -29,10 +41,9 @@
 @media screen and (max-width: 768px) {
 	.restaurant-filter {
 		display: block;
-
-		.filter-input {
-			width: 100%;
-		}
+	}
+	.restaurant-filter-input {
+		width: 100%;
 	}
 	.restaurant-filter-headline {
 		border: none;

@@ -1,14 +1,16 @@
-<p 
-	class="restaurant-filter-message" 
-	ng-show="filteredList.length < restaurantList.list.length">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants <span ng-show="restaurantList.filtermodel.length">for the search term "{{restaurantList.filtermodel}}"</span></p>
-
-<p 
-	class="restaurant-filter-message tag-list--inline" 
-	ng-show="restaurantList.filters.categories.length">Categories <span ng-repeat="category in restaurantList.filters.categories" class="tag" ng-click="restaurantList.clearFilter(category, 'categories')">{{category}} <i class="fa fa-times"></i></i></span></p>
-
-<p 
-	class="restaurant-filter-message tag-list--inline" 
-	ng-show="restaurantList.filters.location.length">Location <span class="tag" ng-click="restaurantList.clearFilter(location, 'location')">{{restaurantList.filters.location}} <i class="fa fa-times"></i></i></span></p>
+<div class="restaurant-filter-message-container">
+	<p 
+		class="restaurant-filter-message" 
+		ng-show="restaurantList.filtermodel">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants <span ng-show="restaurantList.filtermodel.length">for the search term "{{restaurantList.filtermodel}}"</span></p>
+	
+	<p 
+		class="restaurant-filter-message tag-list--inline" 
+		ng-show="restaurantList.filters.categories.length">Categories <span ng-repeat="category in restaurantList.filters.categories" class="tag" ng-click="restaurantList.clearFilter(category, 'categories')">{{category}} <i class="fa fa-times"></i></i></span></p>
+	
+	<p 
+		class="restaurant-filter-message tag-list--inline" 
+		ng-show="restaurantList.filters.location.length">Location <span class="tag" ng-click="restaurantList.clearFilter(location, 'location')">{{restaurantList.filters.location}} <i class="fa fa-times"></i></i></span></p>
+</div>
 
 <restaurant 
 	class="restaurant-item" 

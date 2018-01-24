@@ -58,8 +58,19 @@
     }
   }
 }
-.restaurant-filter-message {
+.restaurant-filter-message-container {
   flex: 0 0 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.restaurant-filter-message {
+	margin: 0 15px 15px 0;
+}
+.restaurant-filter-message:first-child {
+	flex: 0 0 100%;
+	margin: 0 0 15px 0;
 }
 
 @media screen and (max-width: 1024px) {
