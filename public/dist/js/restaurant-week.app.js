@@ -46,6 +46,8 @@
 			model.town = restaurant.town || '';
 			model.zip = restaurant.zip || '';
 			model.state = 'Maryland';
+			model.menuLink = restaurant.menuLink || '';
+			model.reservationsLink = restaurant.reservationsLink || '';
 
 			return model;
 		};
@@ -93,7 +95,9 @@
 					town: restaurantToMap.town.VALUE || '',
 					zip: restaurantToMap.ZipCode.VALUE || '',
 					phone: restaurantToMap.Phone_Number.VALUE || '',
-					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ? formatCategories(restaurantToMap.Categories) : []
+					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ? formatCategories(restaurantToMap.Categories) : [],
+					menuLink: restaurantToMap.menuLink.VALUE.LINK || '',
+					reservationsLink: restaurantToMap.reservations_link.VALUE.LINK || ''
 				});
 
 				mappedRestaurants.push(restaurant);
