@@ -1,9 +1,9 @@
-.location-link {
-	color: $primary-color;
+a {
+	color: $secondary-color;
 	cursor: pointer;
 	transition: color .25s ease;
 
 	&:hover {
-		color: $secondary-color;
+		color: $primary-color;
 	}
 }
