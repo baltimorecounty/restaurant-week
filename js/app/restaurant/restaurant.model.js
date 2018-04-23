@@ -17,6 +17,8 @@
 			model.town = restaurant.town || '';
 			model.zip = restaurant.zip || '';
 			model.state = 'Maryland';
+			model.menuLink = restaurant.menuLink || '';
+			model.reservationsLink = restaurant.reservationsLink || '';
 
 			return model;
 		};
