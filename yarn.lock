@@ -3953,6 +3953,10 @@ karma-coveralls@^1.1.2:
     coveralls "~2.11.2"
     glob "~5.0.0"
 
+karma-firefox-launcher@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/karma-firefox-launcher/-/karma-firefox-launcher-1.1.0.tgz#2c47030452f04531eb7d13d4fc7669630bb93339"
+
 karma-jasmine-jquery-2@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/karma-jasmine-jquery-2/-/karma-jasmine-jquery-2-0.1.1.tgz#ffac2dbcb5cf596a933143fe23d7cb7ebeccd048"
