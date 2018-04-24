@@ -2,76 +2,83 @@
 	"FEATUREDITEMS": [],
 	"CONTENTS": [
 		{
-			"_title": {
-				"VALUE": "Barrett's Grill"
-			},
-			"_endDate": {
-				"VALUE": ""
-			},
-			"menuLink": {
-				"VALUE": {
-					"ID": "",
-					"LINKTYPE": "",
-					"PARAM": "",
-					"LINKTEXT": "",
-					"LINK": ""
-				}
-			},
-			"addressLine1": {
-				"VALUE": "118 Shawan Road, Suite D"
-			},
-			"addressLine2": {
-				"VALUE": "Hunt Valley, Maryland 21030"
-			},
-			"UUID": "c1a01db6-df83-4b8d-86fca43d5ef71a73",
-			"town": {
-				"VALUE": "Hunt Valley"
-			},
-			"_startDate": {
-				"VALUE": "January, 18 2018 00:00:00"
-			},
-			"_urlTitle": {
-				"VALUE": "barretts-grill"
-			},
-			"Phone_Number": {
-				"VALUE": "410-527-0999"
-			},
-			"website": {
-				"VALUE": {
-					"ID": "EA731A8FA3DFC291488A661B3C991DAF",
-					"LINKTYPE": "EXTERNAL",
-					"PARAM": "",
-					"LINKTEXT": "View more information about Barrett's Grill on their website",
-					"LINK": "http://www.barrettsgrill.com/home"
-				}
-			},
-			"Phone": {
-				"VALUE": 4105270999
-			},
-			"ZipCode": {
-				"VALUE": 21030
-			},
-			"logo": {
-				"NAME": "logo-barretts.jpg",
-				"DESCRIPTION": "Barrett's Grill logo",
-				"VALUE": "C9C7828723CC3149E62781790F0860A0",
-				"ALTTEXT": "Barrett's Grill logo",
-				"HEIGHT": 100,
-				"SIZE": 5891,
-				"URL": "/sebin/x/d/logo-barretts.jpg",
-				"WIDTH": 190
-			},
-			"Categories": [
-				{
-					"VALUE": "American",
-					"LABEL": "American"
-				}
-			],
-			"ACTIVE": true,
-			"_printDate": {
-				"VALUE": "January, 18 2018 00:00:00"
-			}
-		},
+            "_title": {
+                "VALUE": "Barrett's Grill"
+            },
+            "_endDate": {
+                "VALUE": ""
+            },
+            "menuLink": {
+                "VALUE": {
+                    "ID": "DCF6B5EF7B2C6D9C5EF41E2D040B049B",
+                    "LINKTYPE": "INTERNAL",
+                    "PARAM": "",
+                    "LINKTEXT": "View Barrett's Grill Menu",
+                    "LINK": "http://www.baltimorecountyrestaurantweek.com/documents/menus/menu-barrets.pdf"
+                }
+            },
+            "addressLine1": {
+                "VALUE": "118 Shawan Road, Suite D"
+            },
+            "addressLine2": {
+                "VALUE": ""
+            },
+            "UUID": "19fb1c2c-9a0a-4d85-90efa65453cab06b",
+            "town": {
+                "VALUE": "Hunt Valley, Maryland"
+            },
+            "_startDate": {
+                "VALUE": "April, 23 2018 00:00:00"
+            },
+            "_urlTitle": {
+                "VALUE": "barretts-grill"
+            },
+            "reservations_link": {
+                "VALUE": {
+                    "ID": "2A2453AEFC7C31CB4759135AF85E46E5",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "?page=1",
+                    "LINKTEXT": "Reserve a Table at Barrett's Grill",
+                    "LINK": "https://www.opentable.com/barretts-grill?page=1"
+                }
+            },
+            "Phone_Number": {
+                "VALUE": "(410) 527-0999"
+            },
+            "website": {
+                "VALUE": {
+                    "ID": "EA731A8FA3DFC291488A661B3C991DAF",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "",
+                    "LINKTEXT": "View more information about Barrett's Grill on their website",
+                    "LINK": "http://www.barrettsgrill.com/home"
+                }
+            },
+            "Phone": {
+                "VALUE": ""
+            },
+            "ZipCode": {
+                "VALUE": 21030
+            },
+            "logo": {
+                "NAME": "logo-barretts.jpg",
+                "DESCRIPTION": "Barrett's Grill logo",
+                "VALUE": "5955411432E908A905F96404E467E19A",
+                "ALTTEXT": "Barrett's Grill logo",
+                "HEIGHT": 100,
+                "SIZE": 5891,
+                "URL": "/sebin/x/e/logo-barretts.jpg",
+                "WIDTH": 190
+            },
+            "Categories": [{
+                "VALUE": "American",
+                "LABEL": "American"
+            }],
+            "ACTIVE": true,
+            "_printDate": {
+                "VALUE": "April, 23 2018 00:00:00"
+            }
+        },
 		{
 			"_title": {
 				"VALUE": "Artful Gourmet Bistro"
@@ -85,7 +92,7 @@
 					"LINKTYPE": "",
 					"PARAM": "",
 					"LINKTEXT": "",
-					"LINK": ""
+					"LINK": "http://www.artfulgourmet.com/"
 				}
 			},
 			"addressLine1": {
@@ -141,7 +148,16 @@
 			"ACTIVE": true,
 			"_printDate": {
 				"VALUE": "January, 18 2018 00:00:00"
-			}
+            },
+            "reservations_link": {
+                "VALUE": {
+                    "ID": "2A2453AEFC7C31CB4759135AF85E46E5",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "?page=1",
+                    "LINKTEXT": "Reserve a Table at Barrett's Grill",
+                    "LINK": ""
+                }
+            }
 		},
 		{
 			"_title": {
@@ -216,7 +232,16 @@
 			"ACTIVE": true,
 			"_printDate": {
 				"VALUE": "January, 18 2018 00:00:00"
-			}
+            },
+            "reservations_link": {
+                "VALUE": {
+                    "ID": "2A2453AEFC7C31CB4759135AF85E46E5",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "?page=1",
+                    "LINKTEXT": "Reserve a Table at Barrett's Grill",
+                    "LINK": ""
+                }
+            }
 		},
 		{
 			"_title": {
@@ -291,7 +316,16 @@
 			"ACTIVE": true,
 			"_printDate": {
 				"VALUE": "January, 18 2018 00:00:00"
-			}
+            },
+            "reservations_link": {
+                "VALUE": {
+                    "ID": "2A2453AEFC7C31CB4759135AF85E46E5",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "?page=1",
+                    "LINKTEXT": "Reserve a Table at Barrett's Grill",
+                    "LINK": ""
+                }
+            }
 		}
 	],
 	"NONFEATUREDITEMS": []

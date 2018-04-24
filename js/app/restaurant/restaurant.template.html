@@ -10,7 +10,13 @@
 		<p ng-show="restaurant.town && restaurant.zip">
 			<span class="location-filter-btn" ng-click="filterLocation(restaurant.town)">{{restaurant.town}}</span>, {{restaurant.state}} {{restaurant.zip}}</p>
 	</div>
-	<p class="restaurant-phone">{{restaurant.phone}}</p>
+    <p class="restaurant-phone">{{restaurant.phone}}</p>
+    <ul class="cta-list inline-list">
+        <li ng-if="restaurant.menuLink">
+            <a href="{{restaurant.menuLink}}">Menu</a></li>
+        <li ng-if="restaurant.reservationsLink">
+            <a href="{{restaurant.reservationsLink}}">Reservations</a></li>
+    </ul>
 	<div class="categories">
 		<ul class="tag-list">
 			<li ng-repeat="category in restaurant.categories">

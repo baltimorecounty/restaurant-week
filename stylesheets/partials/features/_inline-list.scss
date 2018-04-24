@@ -1,0 +1,19 @@
+.inline-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px auto;
+
+    li {
+        border-right: 1px solid $gray-light;
+        display: inline-block;
+        padding: 2.5px 10px;
+
+        a {
+            display: block;
+        }
+
+        &:last-child {
+            border: none;
+        }
+    }
+}

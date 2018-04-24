@@ -31,6 +31,8 @@
 					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ?
 						formatCategories(restaurantToMap.Categories) :
 						[],
+					menuLink: restaurantToMap.menuLink.VALUE.LINK || '',
+					reservationsLink: restaurantToMap.reservations_link.VALUE.LINK || '',
 				});
 
 				mappedRestaurants.push(restaurant);
