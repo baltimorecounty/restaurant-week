@@ -1,2 +1,4 @@
-.vscode
 node_modules
+**/lcov.info
+.vscode
+yarn-error.log
