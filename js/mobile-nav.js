@@ -16,63 +16,61 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 
 
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
-    };
+	};
 
-    const isActive = () => {
-        return $(self.options.navigationListSelector).hasClass('active');
-    };
-    
-    const toggleNavIcons = ($btn) => {
-        $btn
-            .find('i')
-            .toggleClass('fa-bars')
-            .toggleClass('fa-times');
-    };
+	const isActive = () => $(self.options.navigationListSelector).hasClass('active');
 
-    const toggleNavVisibility = ($navList) => {
-        $navList.toggleClass('active mobile');
-    };
+	const toggleNavIcons = ($btn) => {
+		$btn
+			.find('i')
+			.toggleClass('fa-bars')
+			.toggleClass('fa-times');
+	};
 
-    const togglePageOverlay = () => {
-        $(self.options.overlayTargetSelector)
-            .toggleClass(activeClass);
-    };
+	const toggleNavVisibility = ($navList) => {
+		$navList.toggleClass('active mobile');
+	};
 
-    const togglePageScroll = () => {
-        $(self.options.scrollTargetSelector)
-            .toggleClass(disableScrollClass);
-    };
+	const togglePageOverlay = () => {
+		$(self.options.overlayTargetSelector)
+			.toggleClass(activeClass);
+	};
 
-    const toggleNav = () => {
-        const $btn = $(self.options.mobileNavButtonSelector);
-        const $navList = $(self.options.navigationListSelector);
-        
-        toggleNavIcons($btn);
+	const togglePageScroll = () => {
+		$(self.options.scrollTargetSelector)
+			.toggleClass(disableScrollClass);
+	};
 
-        toggleNavVisibility($navList);
+	const toggleNav = () => {
+		const $btn = $(self.options.mobileNavButtonSelector);
+		const $navList = $(self.options.navigationListSelector);
 
-        togglePageScroll();
+		toggleNavIcons($btn);
 
-        togglePageOverlay();
-    };
+		toggleNavVisibility($navList);
 
-    const onMobileNavClick = toggleNav;
-    
-    const handleWindowResize = () => {
-        if (window.innerWidth >= 968 && isActive()) {
-            toggleNav();
-        }
-    };
+		togglePageScroll();
 
-    onWindowResize(handleWindowResize);
+		togglePageOverlay();
+	};
+
+	const onMobileNavClick = toggleNav;
+
+	const handleWindowResize = () => {
+		if (window.innerWidth >= 968 && isActive()) {
+			toggleNav();
+		}
+	};
+
+	onWindowResize(handleWindowResize);
 
 	return {
 		/* test-code */
 		onMobileNavClick,
 		/* end-test-code */
-        init,
-        isActive,
-        toggleNav
+		init,
+		isActive,
+		toggleNav,
 	};
 })(jQuery, restaurantWeek.windowResize);
 
