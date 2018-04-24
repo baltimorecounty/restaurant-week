@@ -27,6 +27,7 @@ module.exports = (config) => {
 			'js/app/**/*.service.js',
 			'js/app/**/*.directive.js',
 			'js/app/**/*.controller.js',
+			'js/utility/*.js',
 			'js/*.js',
 			'tests/unit/*.spec.js',
 			'tests/unit/app/*.spec.js',
