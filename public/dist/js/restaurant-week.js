@@ -122,40 +122,102 @@ function namespacer(t) {
 
 namespacer('restaurantWeek');
 
-restaurantWeek.mobileNav = function ($) {
-	var self = {};
-	var activeClass = 'active';
-	var disableScrollClass = 'disable-scroll';
+restaurantWeek.debounce = function () {
+	return function (fn, time) {
+		var timeout = void 0;
 
-	var init = function init(options) {
-		self.options = options || {};
-		self.options.mobileNavButtonSelector = self.options.mobileNavButtonSelector || '.mobile-nav-btn';
-		self.options.navigationListSelector = self.options.navigationListSelector || '.navigation-list';
-		self.options.overlayTargetSelector = self.options.overlayTargetSelector || '.overlay';
-		self.options.scrollTargetSelector = self.options.scrollTargetSelector || 'html';
+		return function innerDebounce() {
+			var _this = this,
+			    _arguments = arguments;
 
-		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
+			var functionCall = function functionCall() {
+				return fn.apply(_this, _arguments);
+			}; // eslint-disable-line
+
+			clearTimeout(timeout);
+			timeout = setTimeout(functionCall, time);
+		};
 	};
+}();
+'use strict';
 
-	var onMobileNavClick = function onMobileNavClick(clickEvent) {
-		var $btn = $(clickEvent.currentTarget);
-		var $navList = $(self.options.navigationListSelector);
+namespacer('restaurantWeek');
 
-		$btn.find('i').toggleClass('fa-bars').toggleClass('fa-times');
-
-		$navList.toggleClass('active mobile');
-
-		$(self.options.scrollTargetSelector).toggleClass(disableScrollClass);
-
-		$(self.options.overlayTargetSelector).toggleClass(activeClass);
+restaurantWeek.windowResize = function (debounce) {
+	return function (fn) {
+		window.addEventListener('resize', debounce(fn, 250));
 	};
+}(restaurantWeek.debounce);
+'use strict';
 
-	return {
-		init: init
-	};
-}(jQuery);
+namespacer('restaurantWeek');
+
+restaurantWeek.mobileNav = function ($, onWindowResize) {
+    var self = {};
+    var activeClass = 'active';
+    var disableScrollClass = 'disable-scroll';
+
+    var init = function init(options) {
+        self.options = options || {};
+        self.options.mobileNavButtonSelector = self.options.mobileNavButtonSelector || '.mobile-nav-btn';
+        self.options.navigationListSelector = self.options.navigationListSelector || '.navigation-list';
+        self.options.overlayTargetSelector = self.options.overlayTargetSelector || '.overlay';
+        self.options.scrollTargetSelector = self.options.scrollTargetSelector || 'html';
+
+        $(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
+    };
+
+    var isActive = function isActive() {
+        return $(self.options.navigationListSelector).hasClass('active');
+    };
+
+    var toggleNavIcons = function toggleNavIcons($btn) {
+        $btn.find('i').toggleClass('fa-bars').toggleClass('fa-times');
+    };
+
+    var toggleNavVisibility = function toggleNavVisibility($navList) {
+        $navList.toggleClass('active mobile');
+    };
+
+    var togglePageOverlay = function togglePageOverlay() {
+        $(self.options.overlayTargetSelector).toggleClass(activeClass);
+    };
+
+    var togglePageScroll = function togglePageScroll() {
+        $(self.options.scrollTargetSelector).toggleClass(disableScrollClass);
+    };
+
+    var toggleNav = function toggleNav() {
+        var $btn = $(self.options.mobileNavButtonSelector);
+        var $navList = $(self.options.navigationListSelector);
+
+        toggleNavIcons($btn);
+
+        toggleNavVisibility($navList);
+
+        togglePageScroll();
+
+        togglePageOverlay();
+    };
+
+    var onMobileNavClick = toggleNav;
+
+    var handleWindowResize = function handleWindowResize() {
+        if (window.innerWidth >= 968 && isActive()) {
+            toggleNav();
+        }
+    };
+
+    onWindowResize(handleWindowResize);
+
+    return {
+        init: init,
+        isActive: isActive,
+        toggleNav: toggleNav
+    };
+}(jQuery, restaurantWeek.windowResize);
 
 // On Document Ready
 $(document).ready(function () {
-	restaurantWeek.mobileNav.init();
+    restaurantWeek.mobileNav.init();
 });

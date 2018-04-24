@@ -83,7 +83,12 @@ gulp.task('move-app-directive-templates', () => {
 
 gulp.task('process-master-js', () =>
 	gulp
-		.src(['tests/lib/bc-utils.min.js', 'js/*.js', '!js/app/*', '!js/home-page.js'])
+		.src([
+			'tests/lib/bc-utils.min.js',
+			'js/utility/*.js',
+			'js/*.js',
+			'!js/app/*',
+			'!js/home-page.js'])
 		.pipe(babel({
 			presets: ['es2015'],
 		}))
