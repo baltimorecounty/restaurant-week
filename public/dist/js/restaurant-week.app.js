@@ -275,7 +275,7 @@
 			restrict: 'E',
 			scope: {
 				list: '=',
-				filtermodel: '='
+				filterModel: '='
 			},
 			templateUrl: constants.urls.templates.restaurantList,
 			controller: 'rwApp.RestaurantListCtrl',
