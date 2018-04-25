@@ -153,71 +153,71 @@ restaurantWeek.windowResize = function (debounce) {
 namespacer('restaurantWeek');
 
 restaurantWeek.mobileNav = function ($, onWindowResize) {
-    var self = {};
-    var activeClass = 'active';
-    var disableScrollClass = 'disable-scroll';
+	var self = {};
+	var activeClass = 'active';
+	var disableScrollClass = 'disable-scroll';
 
-    var init = function init(options) {
-        self.options = options || {};
-        self.options.mobileNavButtonSelector = self.options.mobileNavButtonSelector || '.mobile-nav-btn';
-        self.options.navigationListSelector = self.options.navigationListSelector || '.navigation-list';
-        self.options.overlayTargetSelector = self.options.overlayTargetSelector || '.overlay';
-        self.options.scrollTargetSelector = self.options.scrollTargetSelector || 'html';
+	var init = function init(options) {
+		self.options = options || {};
+		self.options.mobileNavButtonSelector = self.options.mobileNavButtonSelector || '.mobile-nav-btn';
+		self.options.navigationListSelector = self.options.navigationListSelector || '.navigation-list';
+		self.options.overlayTargetSelector = self.options.overlayTargetSelector || '.overlay';
+		self.options.scrollTargetSelector = self.options.scrollTargetSelector || 'html';
 
-        $(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
-    };
+		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
+	};
 
-    var isActive = function isActive() {
-        return $(self.options.navigationListSelector).hasClass('active');
-    };
+	var isActive = function isActive() {
+		return $(self.options.navigationListSelector).hasClass('active');
+	};
 
-    var toggleNavIcons = function toggleNavIcons($btn) {
-        $btn.find('i').toggleClass('fa-bars').toggleClass('fa-times');
-    };
+	var toggleNavIcons = function toggleNavIcons($btn) {
+		$btn.find('i').toggleClass('fa-bars').toggleClass('fa-times');
+	};
 
-    var toggleNavVisibility = function toggleNavVisibility($navList) {
-        $navList.toggleClass('active mobile');
-    };
+	var toggleNavVisibility = function toggleNavVisibility($navList) {
+		$navList.toggleClass('active mobile');
+	};
 
-    var togglePageOverlay = function togglePageOverlay() {
-        $(self.options.overlayTargetSelector).toggleClass(activeClass);
-    };
+	var togglePageOverlay = function togglePageOverlay() {
+		$(self.options.overlayTargetSelector).toggleClass(activeClass);
+	};
 
-    var togglePageScroll = function togglePageScroll() {
-        $(self.options.scrollTargetSelector).toggleClass(disableScrollClass);
-    };
+	var togglePageScroll = function togglePageScroll() {
+		$(self.options.scrollTargetSelector).toggleClass(disableScrollClass);
+	};
 
-    var toggleNav = function toggleNav() {
-        var $btn = $(self.options.mobileNavButtonSelector);
-        var $navList = $(self.options.navigationListSelector);
+	var toggleNav = function toggleNav() {
+		var $btn = $(self.options.mobileNavButtonSelector);
+		var $navList = $(self.options.navigationListSelector);
 
-        toggleNavIcons($btn);
+		toggleNavIcons($btn);
 
-        toggleNavVisibility($navList);
+		toggleNavVisibility($navList);
 
-        togglePageScroll();
+		togglePageScroll();
 
-        togglePageOverlay();
-    };
+		togglePageOverlay();
+	};
 
-    var onMobileNavClick = toggleNav;
+	var onMobileNavClick = toggleNav;
 
-    var handleWindowResize = function handleWindowResize() {
-        if (window.innerWidth >= 968 && isActive()) {
-            toggleNav();
-        }
-    };
+	var handleWindowResize = function handleWindowResize() {
+		if (window.innerWidth >= 968 && isActive()) {
+			toggleNav();
+		}
+	};
 
-    onWindowResize(handleWindowResize);
+	onWindowResize(handleWindowResize);
 
-    return {
-        init: init,
-        isActive: isActive,
-        toggleNav: toggleNav
-    };
+	return {
+		init: init,
+		isActive: isActive,
+		toggleNav: toggleNav
+	};
 }(jQuery, restaurantWeek.windowResize);
 
 // On Document Ready
 $(document).ready(function () {
-    restaurantWeek.mobileNav.init();
+	restaurantWeek.mobileNav.init();
 });
