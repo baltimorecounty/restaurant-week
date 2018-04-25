@@ -2,7 +2,7 @@ describe('Restaurant Strucutred Content Provider', () => {
 	let endpoint;
 	beforeEach(() => {
 		bard.appModule('rwApp');
-		bard.inject(['rwApp.restaurantProvider', 'rwApp.CONSTANTS', '$http', '$httpBackend', '$q', '$rootScope']);
+		bard.inject(['$http', '$httpBackend', '$q', '$rootScope', 'rwApp.restaurantProvider', 'rwApp.CONSTANTS']);
 		endpoint = CONSTANTS.urls.structuredContent.restaurants;
 	});
 
@@ -56,7 +56,7 @@ describe('Restaurant Strucutred Content Provider', () => {
 			ZipCode: {
 				VALUE: 21030,
 			},
-			Phone: {
+			Phone_Number: {
 				VALUE: 4105270999,
 			},
 			logo: {
@@ -79,6 +79,15 @@ describe('Restaurant Strucutred Content Provider', () => {
 			ACTIVE: true,
 			_printDate: {
 				VALUE: 'January, 16 2018 00:00:00',
+			},
+			reservations_link: {
+				VALUE: {
+					ID: '2A2453AEFC7C31CB4759135AF85E46E5',
+					LINKTYPE: 'EXTERNAL',
+					PARAM: '?page=1',
+					LINKTEXT: "Reserve a Table at Barrett's Grill",
+					LINK: '',
+				},
 			},
 		}, {
 			_title: {
@@ -124,7 +133,7 @@ describe('Restaurant Strucutred Content Provider', () => {
 			ZipCode: {
 				VALUE: 21117,
 			},
-			Phone: {
+			Phone_Number: {
 				VALUE: 4103562606,
 			},
 			logo: {
@@ -145,6 +154,15 @@ describe('Restaurant Strucutred Content Provider', () => {
 			_printDate: {
 				VALUE: 'January, 16 2018 00:00:00',
 			},
+			reservations_link: {
+				VALUE: {
+					ID: '2A2453AEFC7C31CB4759135AF85E46E5',
+					LINKTYPE: 'EXTERNAL',
+					PARAM: '?page=1',
+					LINKTEXT: "Reserve a Table at Barrett's Grill",
+					LINK: '',
+				},
+			},
 		}];
 		const mockGetRestaurantsResponse = [
 			{
@@ -163,91 +181,90 @@ describe('Restaurant Strucutred Content Provider', () => {
 		];
 		const mockRestuarant = mockGetRestaurantsResponse[0];
 
-		beforeEach(() => {
-
-		});
-
 		describe('GetRestaurants', () => {
-			let list = [];
-			let barretsGrille;
-
 			describe('Mapped Response', () => {
-				beforeEach(() => {
-					list = restaurantProvider
-						.mapRestaurants(structuredContentResponse);
-					barretsGrille = list[1];
-				});
-
 				it('should return an empty array if there are no records', () => {
-					const list = restaurantProvider
+					const emptyList = restaurantProvider
 						.mapRestaurants([]);
 
-					expect(list).toBeEmptyArray();
+					expect(emptyList).toBeEmptyArray();
 				});
 
-				it('should return two records from the mock object', () => {
-					expect(list.length).toEqual(2);
-				});
+				describe('Mocked Response', () => {
+					let list = [];
+					let barretsGrille;
 
-				it(`the restuarant returned should have a name and it should be equal "${mockRestuarant.name}"`, () => {
-					const { name } = barretsGrille;
-					expect(name).toBeString();
-					expect(name).toEqual(mockRestuarant.name);
-				});
+					beforeEach(() => {
+						list = restaurantProvider
+							.mapRestaurants(structuredContentResponse);
+						barretsGrille = list[1];
+					});
 
-				it(`the restuarant returned should have a address line 1 and it should be equal "${mockRestuarant.addressLine1}"`, () => {
-					const { addressLine1 } = barretsGrille;
-					expect(addressLine1).toBeString();
-					expect(addressLine1).toEqual(mockRestuarant.addressLine1);
-				});
+					it('should return two records from the mock object', () => {
+						expect(list.length).toEqual(2);
+					});
 
-				it(`the restuarant returned should have a address line 2 and it should be equal "${mockRestuarant.addressLine2}"`, () => {
-					const { addressLine2 } = barretsGrille;
-					expect(addressLine2).toBeString();
-					expect(addressLine2).toEqual(mockRestuarant.addressLine2);
-				});
+					it(`the restuarant returned should have a name and it should be equal "${mockRestuarant.name}"`, () => {
+                    	const { name } = barretsGrille;
+                    	expect(name).toBeString();
+                    	expect(name).toEqual(mockRestuarant.name);
+					});
 
-				it(`the restuarant returned should have a phone number and it should be equal "${mockRestuarant.phone}"`, () => {
-					const { phone } = barretsGrille;
-					expect(phone).toBeString();
-					expect(phone).toEqual(mockRestuarant.phone);
-				});
+					it(`the restuarant returned should have a address line 1 and it should be equal "${mockRestuarant.addressLine1}"`, () => {
+                    	const { addressLine1 } = barretsGrille;
+                    	expect(addressLine1).toBeString();
+                    	expect(addressLine1).toEqual(mockRestuarant.addressLine1);
+					});
 
-				it(`the restuarant returned should have a link to their website and it should be equal "${mockRestuarant.websiteUrl}"`, () => {
-					const { websiteUrl } = barretsGrille;
-					expect(websiteUrl).toBeString();
-					expect(websiteUrl).toEqual(mockRestuarant.websiteUrl);
-				});
+					it(`the restuarant returned should have a address line 2 and it should be equal "${mockRestuarant.addressLine2}"`, () => {
+                    	const { addressLine2 } = barretsGrille;
+                    	expect(addressLine2).toBeString();
+                    	expect(addressLine2).toEqual(mockRestuarant.addressLine2);
+					});
 
-				it(`the restuarant returned should have an image of their logo and it should be equal "${mockRestuarant.imageUrl}"`, () => {
-					const { imageUrl } = barretsGrille;
-					expect(imageUrl).toBeString();
-					expect(imageUrl).toEqual(mockRestuarant.imageUrl);
-				});
+					it(`the restuarant returned should have a phone number and it should be equal "${mockRestuarant.phone}"`, () => {
+                    	const { phone } = barretsGrille;
+                    	expect(phone).toBeString();
+                    	expect(phone).toEqual(mockRestuarant.phone);
+					});
 
-				it(`the restuarant returned should have a town and it should be equal "${mockRestuarant.town}"`, () => {
-					const { town } = barretsGrille;
-					expect(town).toBeString();
-					expect(town).toEqual(mockRestuarant.town);
-				});
+					it(`the restuarant returned should have a link to their website and it should be equal "${mockRestuarant.websiteUrl}"`, () => {
+                    	const { websiteUrl } = barretsGrille;
+                    	expect(websiteUrl).toBeString();
+                    	expect(websiteUrl).toEqual(mockRestuarant.websiteUrl);
+					});
 
-				it(`the restuarant returned should have a zip code and it should be equal "${mockRestuarant.zip}"`, () => {
-					const { zip } = barretsGrille;
-					expect(zip).toBeNumber();
-					expect(zip).toEqual(mockRestuarant.zip);
-				});
+					it(`the restuarant returned should have an image of their logo and it should be equal "${mockRestuarant.imageUrl}"`, () => {
+                    	const { imageUrl } = barretsGrille;
+						expect(imageUrl).toBeString();
+						const doesImageUrlMatch = imageUrl.indexOf(mockRestuarant.imageUrl) > -1;
+                    	expect(doesImageUrlMatch).toEqual(true);
+					});
 
-				it(`the restuarant returned should have a state logo and it should be equal "${mockRestuarant.state}"`, () => {
-					const { state } = barretsGrille;
-					expect(state).toBeString();
-					expect(state).toEqual(mockRestuarant.state);
-				});
+					it(`the restuarant returned should have a town and it should be equal "${mockRestuarant.town}"`, () => {
+                    	const { town } = barretsGrille;
+                    	expect(town).toBeString();
+                    	expect(town).toEqual(mockRestuarant.town);
+					});
 
-				it('the restuarant returned have an array of categories and it should contain a list of string values', () => {
-					const { categories } = barretsGrille;
-					expect(categories).toBeArray();
-					expect(categories).toBeArrayOfStrings();
-					expect(categories.length).toEqual(mockRestuarant.categories.length);
+					it(`the restuarant returned should have a zip code and it should be equal "${mockRestuarant.zip}"`, () => {
+                    	const { zip } = barretsGrille;
+                    	expect(zip).toBeNumber();
+                    	expect(zip).toEqual(mockRestuarant.zip);
+					});
+
+					it(`the restuarant returned should have a state logo and it should be equal "${mockRestuarant.state}"`, () => {
+                    	const { state } = barretsGrille;
+                    	expect(state).toBeString();
+                    	expect(state).toEqual(mockRestuarant.state);
+					});
+
+					it('the restuarant returned have an array of categories and it should contain a list of string values', () => {
+                    	const { categories } = barretsGrille;
+                    	expect(categories).toBeArray();
+                    	expect(categories).toBeArrayOfStrings();
+                    	expect(categories.length).toEqual(mockRestuarant.categories.length);
+					});
 				});
 			});
 		});
