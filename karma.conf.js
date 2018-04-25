@@ -20,13 +20,14 @@ module.exports = (config) => {
 			'node_modules/jquery/dist/jquery.min.js',
 			'https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js',
 			'js/app/*.js',
-			'js/app/**/*.constants.js',
+			'js/app/**/*constants.development.js',
 			'js/app/**/*.model.js',
 			'js/app/**/*.provider.js',
 			'js/app/**/*.filter.js',
 			'js/app/**/*.service.js',
 			'js/app/**/*.directive.js',
 			'js/app/**/*.controller.js',
+			'js/app/core/*.js',
 			'js/utility/*.js',
 			'js/*.js',
 			'tests/unit/*.spec.js',
@@ -41,6 +42,16 @@ module.exports = (config) => {
 				pattern: 'tests/fixtures/app/**/*.html',
 				included: false,
 				served: true,
+			},
+			{
+				pattern: 'js/app/**/*constants.staging.js',
+				included: false,
+				served: false,
+			},
+			{
+				pattern: 'js/app/**/*constants.production.js',
+				included: false,
+				served: false,
 			},
 		],
 
@@ -85,7 +96,7 @@ module.exports = (config) => {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['Firefox'],
+		browsers: ['Chrome'],
 
 		// Continuous Integration mode
 		// if true, Karma captures browsers, runs the tests and exits
@@ -98,7 +109,7 @@ module.exports = (config) => {
 		plugins: [
 			'karma-jasmine-jquery',
 			'karma-mocha-reporter',
-			'karma-firefox-launcher',
+			'karma-chrome-launcher',
 			'karma-jasmine',
 			'karma-coverage',
 			'karma-coveralls',
