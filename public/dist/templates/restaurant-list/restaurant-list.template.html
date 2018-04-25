@@ -1,8 +1,8 @@
 <div class="restaurant-filter-message-container">
     <div class="container">
         <div class="col-xs-12">
-            <p class="restaurant-filter-message" ng-show="restaurantList.filtermodel">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants
-                <span ng-show="restaurantList.filtermodel.length">for the search term "{{restaurantList.filtermodel}}"</span>
+            <p class="restaurant-filter-message" ng-show="restaurantList.filterModel">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants
+                <span ng-show="restaurantList.filterModel.length">for the search term "{{restaurantList.filterModel}}"</span>
             </p>
             <p class="restaurant-filter-message tag-list--inline" ng-show="restaurantList.filters.categories.length">
                 <strong>Category:</strong>
@@ -24,7 +24,7 @@
 </div>
 
 <div class="restaurant-list">
-    <restaurant class="restaurant-item" restaurant="restaurant" ng-repeat="restaurant in filteredList = (restaurantList.list | filter:restaurantList.filtermodel | objectProperty:restaurantList.filters.categories:'categories' | filter: { town: restaurantList.filters.location } )"></restaurant>
+    <restaurant class="restaurant-item" restaurant="restaurant" ng-repeat="restaurant in filteredList = (restaurantList.list | filter:restaurantList.filterModel | objectProperty:restaurantList.filters.categories:'categories' | filter: { town: restaurantList.filters.location } )"></restaurant>
 </div>
 
 
