@@ -6,6 +6,14 @@ module.exports = (config) => {
 		// base path that will be used to resolve all patterns (eg. files, exclude)
 		basePath: '',
 
+		captureTimeout: 60000,
+
+		browserDisconnectTimeout: 10000,
+
+		browserDisconnectTolerance: 1,
+
+		browserNoActivityTimeout: 60000,
+
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
 		frameworks: ['jasmine-jquery', 'jasmine', 'jasmine-matchers', 'chai', 'sinon', 'chai-sinon'],
@@ -15,10 +23,10 @@ module.exports = (config) => {
 			'node_modules/angular/angular.min.js',
 			'node_modules/angular-mocks/angular-mocks.js',
 			'node_modules/bardjs/dist/bard.js',
-			'http://sinonjs.org/releases/sinon-1.9.0.js',
-			'tests/lib/bc-utils.min.js',
 			'node_modules/jquery/dist/jquery.min.js',
-			'https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js',
+			'tests/lib/sinon-1.9.0.js',
+			'tests/lib/bc-utils.min.js',
+			'tests/lib/slick.min.js',
 			'js/app/*.js',
 			'js/app/**/*constants.development.js',
 			'js/app/**/*.model.js',
@@ -96,7 +104,7 @@ module.exports = (config) => {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['Firefox'],
+		browsers: ['Chrome'],
 
 		// Continuous Integration mode
 		// if true, Karma captures browsers, runs the tests and exits
@@ -109,7 +117,7 @@ module.exports = (config) => {
 		plugins: [
 			'karma-jasmine-jquery',
 			'karma-mocha-reporter',
-			'karma-firefox-launcher',
+			'karma-chrome-launcher',
 			'karma-jasmine',
 			'karma-coverage',
 			'karma-coveralls',
