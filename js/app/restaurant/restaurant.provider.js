@@ -12,12 +12,11 @@
 		const formatPhoneNumber = number => number.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
 
 		const mapRestaurants = (structuredContentData) => {
-			const mappedRestaurants = [];
+			if (!structuredContentData || !structuredContentData.length) return structuredContentData;
 
-			structuredContentData.forEach((restaurantToMap) => {
+			return structuredContentData.map((restaurantToMap) => {
 				const { website, logo } = restaurantToMap;
-
-				const restaurant = RestaurantModel({
+				const restaurantModel = RestaurantModel({
 					name: restaurantToMap._title.VALUE, // eslint-disable-line no-underscore-dangle
 					imageUrl: constants.urls.structuredContent.imagePath + logo.URL || '',
 					imageAlt: logo.ALTTEXT || '',
@@ -27,7 +26,7 @@
 					addressLine2: restaurantToMap.addressLine2.VALUE || '',
 					town: restaurantToMap.town.VALUE || '',
 					zip: restaurantToMap.ZipCode.VALUE || '',
-					phone: restaurantToMap.Phone_Number.VALUE || '',
+					phone: formatPhoneNumber(restaurantToMap.Phone_Number.VALUE) || '',
 					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ?
 						formatCategories(restaurantToMap.Categories) :
 						[],
@@ -35,10 +34,8 @@
 					reservationsLink: restaurantToMap.reservations_link.VALUE.LINK || '',
 				});
 
-				mappedRestaurants.push(restaurant);
+				return restaurantModel;
 			});
-
-			return mappedRestaurants;
 		};
 
 		const handleResponseSuccess = (response, deferred) => {

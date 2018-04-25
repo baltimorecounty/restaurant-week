@@ -14,28 +14,28 @@ describe('Homepage Scripts', () => {
 		});
 
 		it('should exist', (done) => {
-			setTimeout(() => {
+			$(document).ready(() => {
 				const heroUnitExists = $(selectors.heroCarouselSelector).length > 0;
 				expect(heroUnitExists).toEqual(true);
 				done();
-			}, 500);
+			});
 		});
 
 		it('should contain 1 or more items', (done) => {
-			setTimeout(() => {
+			$(document).ready(() => {
 				const items = $(selectors.heroCarouselSelector).find(selectors.heroUnitItemSelector);
 				expect(items.length).toBeGreaterThanOrEqualTo(1);
 				done();
-			}, 500);
+			});
 		});
 
 		it(`should give the hero carousel a class of ${selectors.slickInitSelector}`, (done) => {
-			setTimeout(() => {
+			$(document).ready(() => {
 				restaurantWeek.homePage.init();
 				const isInitialized = $(selectors.heroCarouselSelector).hasClass(selectors.slickInitSelector);
 				expect(isInitialized).toEqual(true);
 				done();
-			}, 1000);
+			});
 		});
 	});
 });

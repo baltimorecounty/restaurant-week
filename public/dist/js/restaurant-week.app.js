@@ -77,14 +77,13 @@
 		};
 
 		var mapRestaurants = function mapRestaurants(structuredContentData) {
-			var mappedRestaurants = [];
+			if (!structuredContentData || !structuredContentData.length) return structuredContentData;
 
-			structuredContentData.forEach(function (restaurantToMap) {
+			return structuredContentData.map(function (restaurantToMap) {
 				var website = restaurantToMap.website,
 				    logo = restaurantToMap.logo;
 
-
-				var restaurant = RestaurantModel({
+				var restaurantModel = RestaurantModel({
 					name: restaurantToMap._title.VALUE, // eslint-disable-line no-underscore-dangle
 					imageUrl: constants.urls.structuredContent.imagePath + logo.URL || '',
 					imageAlt: logo.ALTTEXT || '',
@@ -94,16 +93,14 @@
 					addressLine2: restaurantToMap.addressLine2.VALUE || '',
 					town: restaurantToMap.town.VALUE || '',
 					zip: restaurantToMap.ZipCode.VALUE || '',
-					phone: restaurantToMap.Phone_Number.VALUE || '',
+					phone: formatPhoneNumber(restaurantToMap.Phone_Number.VALUE) || '',
 					categories: restaurantToMap.Categories && restaurantToMap.Categories.length ? formatCategories(restaurantToMap.Categories) : [],
 					menuLink: restaurantToMap.menuLink.VALUE.LINK || '',
 					reservationsLink: restaurantToMap.reservations_link.VALUE.LINK || ''
 				});
 
-				mappedRestaurants.push(restaurant);
+				return restaurantModel;
 			});
-
-			return mappedRestaurants;
 		};
 
 		var handleResponseSuccess = function handleResponseSuccess(response, deferred) {

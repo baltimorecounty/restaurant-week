@@ -6,6 +6,14 @@ module.exports = (config) => {
 		// base path that will be used to resolve all patterns (eg. files, exclude)
 		basePath: '',
 
+		captureTimeout: 60000,
+
+		browserDisconnectTimeout: 10000,
+
+		browserDisconnectTolerance: 1,
+
+		browserNoActivityTimeout: 60000,
+
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
 		frameworks: ['jasmine-jquery', 'jasmine', 'jasmine-matchers', 'chai', 'sinon', 'chai-sinon'],
@@ -15,18 +23,19 @@ module.exports = (config) => {
 			'node_modules/angular/angular.min.js',
 			'node_modules/angular-mocks/angular-mocks.js',
 			'node_modules/bardjs/dist/bard.js',
-			'http://sinonjs.org/releases/sinon-1.9.0.js',
-			'tests/lib/bc-utils.min.js',
 			'node_modules/jquery/dist/jquery.min.js',
-			'https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js',
+			'tests/lib/sinon-1.9.0.js',
+			'tests/lib/bc-utils.min.js',
+			'tests/lib/slick.min.js',
 			'js/app/*.js',
-			'js/app/**/*.constants.js',
+			'js/app/**/*constants.development.js',
 			'js/app/**/*.model.js',
 			'js/app/**/*.provider.js',
 			'js/app/**/*.filter.js',
 			'js/app/**/*.service.js',
 			'js/app/**/*.directive.js',
 			'js/app/**/*.controller.js',
+			'js/app/core/*.js',
 			'js/utility/*.js',
 			'js/*.js',
 			'tests/unit/*.spec.js',
@@ -41,6 +50,16 @@ module.exports = (config) => {
 				pattern: 'tests/fixtures/app/**/*.html',
 				included: false,
 				served: true,
+			},
+			{
+				pattern: 'js/app/**/*constants.staging.js',
+				included: false,
+				served: false,
+			},
+			{
+				pattern: 'js/app/**/*constants.production.js',
+				included: false,
+				served: false,
 			},
 		],
 

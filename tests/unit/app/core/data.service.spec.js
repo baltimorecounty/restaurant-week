@@ -6,7 +6,7 @@ describe('Data Service', () => {
 		bard.appModule('rwApp');
 		bard.inject('$http', '$httpBackend', '$q', '$rootScope', 'rwApp.dataService', 'rwApp.CONSTANTS');
 		constants = CONSTANTS;
-		apiRoot = constants.urls.apiRoot;
+		({ apiRoot } = constants.urls);
 	});
 
 	it('should exist', () => {
