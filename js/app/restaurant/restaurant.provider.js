@@ -12,7 +12,7 @@
 		const formatPhoneNumber = number => number.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
 
 		const mapRestaurants = (structuredContentData) => {
-			if (structuredContentData && !structuredContentData.length) return structuredContentData;
+			if (!structuredContentData || !structuredContentData.length) return structuredContentData;
 
 			return structuredContentData.map((restaurantToMap) => {
 				const { website, logo } = restaurantToMap;
