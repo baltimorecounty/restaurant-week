@@ -7,6 +7,8 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  max-width: $screen-lg;
+  margin: auto;
 
   &:after {
     content: "";
@@ -60,18 +62,18 @@
   }
 }
 .restaurant-filter-message-container {
-  flex: 0 0 100%;
+    padding: 15px;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+    p {
+        display: inline-block;
+
+        &:first-child span {
+            padding: 5px 0;
+        }
+    }
 }
 .restaurant-filter-message {
 	margin: 0 15px 15px 0;
-}
-.restaurant-filter-message:first-child {
-	flex: 0 0 100%;
-	margin: 0 0 15px 0;
 }
 
 @media screen and (max-width: 1024px) {

@@ -3,7 +3,7 @@
 	margin-bottom: 30px;
 }
 .restaurant-filter {
-	padding: 20px;
+	padding: 20px 0;
 	flex: 0 1 100%;
 	display: flex;
 	align-items: center;
@@ -35,7 +35,11 @@
 	margin: 0 40px 0 0;
 }
 .restaurant-filter-no-results {
-	padding: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    max-width: $screen-lg;
+    margin: auto;
+	padding: 15px 30px;
 }
 
 @media screen and (max-width: 768px) {

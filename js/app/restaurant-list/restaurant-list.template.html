@@ -1,22 +1,31 @@
 <div class="restaurant-filter-message-container">
-	<p 
-		class="restaurant-filter-message" 
-		ng-show="restaurantList.filtermodel">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants <span ng-show="restaurantList.filtermodel.length">for the search term "{{restaurantList.filtermodel}}"</span></p>
-	
-	<p 
-		class="restaurant-filter-message tag-list--inline" 
-		ng-show="restaurantList.filters.categories.length">Categories <span ng-repeat="category in restaurantList.filters.categories" class="tag" ng-click="restaurantList.clearFilter(category, 'categories')">{{category}} <i class="fa fa-times"></i></i></span></p>
-	
-	<p 
-		class="restaurant-filter-message tag-list--inline" 
-		ng-show="restaurantList.filters.location.length">Location <span class="tag" ng-click="restaurantList.clearFilter(location, 'location')">{{restaurantList.filters.location}} <i class="fa fa-times"></i></i></span></p>
+    <div class="container">
+        <div class="col-xs-12">
+            <p class="restaurant-filter-message" ng-show="restaurantList.filterModel">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants
+                <span ng-show="restaurantList.filterModel.length">for the search term "{{restaurantList.filterModel}}"</span>
+            </p>
+            <p class="restaurant-filter-message tag-list--inline" ng-show="restaurantList.filters.categories.length">
+                <strong>Category:</strong>
+                <span ng-repeat="category in restaurantList.filters.categories" class="tag" ng-click="restaurantList.clearFilter(category, 'categories')">{{category}}
+                    <i class="fa fa-times"></i>
+                    </i>
+                </span>
+            </p>
+
+            <p class="restaurant-filter-message tag-list--inline" ng-show="restaurantList.filters.location.length">
+                <strong>Location:</strong>
+                <span class="tag" ng-click="restaurantList.clearFilter(location, 'location')">{{restaurantList.filters.location}}
+                    <i class="fa fa-times"></i>
+                    </i>
+                </span>
+            </p>
+        </div>
+    </div>
 </div>
 
-<restaurant 
-	class="restaurant-item" 
-	restaurant="restaurant" 
-	ng-repeat="restaurant in filteredList = (restaurantList.list | filter:restaurantList.filtermodel | objectProperty:restaurantList.filters.categories:'categories' | filter: { town: restaurantList.filters.location } )"></restaurant>
+<div class="restaurant-list">
+    <restaurant class="restaurant-item" restaurant="restaurant" ng-repeat="restaurant in filteredList = (restaurantList.list | filter:restaurantList.filterModel | objectProperty:restaurantList.filters.categories:'categories' | filter: { town: restaurantList.filters.location } )"></restaurant>
+</div>
 
-<p 
-	class="restaurant-filter-no-results" 
-	ng-show="!filteredList.length">Sorry, no restaurants match your search criteria. Please change your selections and try again.</p>
+
+<p class="restaurant-filter-no-results" ng-show="!filteredList.length">Sorry, no restaurants match your search criteria. Please change your selections and try again.</p>
