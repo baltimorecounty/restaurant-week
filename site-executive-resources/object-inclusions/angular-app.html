@@ -1,66 +1,37 @@
 <div ng-app="rwApp">
-		<div ng-controller="rwApp.RestaurantCtrl as restaurantCtrl">
-				<div class="restaurant-filter-container">
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="bc-container restaurant-filter">
-									<h2 class="restaurant-filter-headline">Find a Restaurant</h2>
-									<input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
-									id="restaurant-list-filter" ng-model="restaurantCtrl.restaurantFilter">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid restaurant-list-container">
-					<div class="row">
-						<div class="col-xs-12">
-							<div 
-								class="loading-container text-center"
-								ng-show="restaurantCtrl.isLoading">
-								<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-								<span class="sr-only">Loading...</span>
-							</div>
-							<restaurant-list 
-								class="restaurant-list" 
-								list="restaurantCtrl.restaurantList" 
-								filtermodel="restaurantCtrl.restaurantFilter"></restaurant-list>
-						</div>
-					</div>
-				</div>
-				<hr class="page-hr" />
-				<div class="text-center">
-					<h2 class="alt-heading">Our Partners</h2>
-					<div class="partner-list">
-						<a class="partner-link" title="Link to the Baltimore County Chamber of Commerce website" href="http://www.baltcountycc.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/z/f/partners-bccc.png" alt="Baltimore County Chamber of Commerce logo"
-							/>
-						</a>
-						<a class="partner-link" title="Link to the Baltimore County Tourism website" href="http://www.enjoybaltimorecounty.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/u/j/partners-baltco.gif" alt="Baltimore County Tourism logo" />
-						</a>
-						<a class="partner-link" title="Visit the Restaurant Reputations website." href="http://restaurantreputations.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/v/v/restaurant_reputations_logo.png" alt="RestaurantReputations.com logo"
-							/>
-						</a>
-						<a class="partner-link" title="View the DuClaw brewing co website." href="https://duclaw.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/b/n/du-claw_logo.png" alt="DuClaw Brewing Co logo" />
-						</a>
-						<a class="partner-link" title="Visit the Citypeek website." href="http://www.citypeek.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/l/a/partners-citypeek.jpg" alt="Citypeek logo" />
-						</a>
-						<a class="partner-link" title="Link to Downtown Diane's website" href="http://www.downtowndiane.net/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/n/f/parners-downtown-diane.png" alt="Downtown Diane logo" />
-						</a>
-						<a class="partner-link" title="Link to The Restaurant Association of Maryland's Dine Out, Maryland website" href="http://www.marylandrestaurants.com/RAM2015/Dining_Guide/RAM2015/Dining_Guide/DG_Search.aspx?hkey=a820cb0a-ac67-4dfa-b753-864fbec904bd">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/h/i/md_restaurant_association.png" alt="Maryland Restaurant Association Logo"
-							/>
-						</a>
-						<a class="partner-link" title="Link to the Lanterna Distributors INC website" href="http://www.lanternawines.com/">
-							<img src="//www.baltimorecountyrestaurantweek.com/sebin/n/n/lanterna_logo.png" alt="Lanterna Distributors Inc Logo" />
-						</a>
-					</div>
-				</div>
-			</div>
+    <div ng-controller="rwApp.RestaurantCtrl as restaurantCtrl">
+        <div class="restaurant-filter-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="bc-container restaurant-filter">
+                            <h2 class="restaurant-filter-headline">Find a Restaurant</h2>
+                            <div class="restaurant-filter-input">
+                                <input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
+                                    id="restaurant-list-filter" ng-model="restaurantCtrl.restaurantFilter">
+                                <i 
+                                    class="fa fa-times clear-filter-btn" 
+                                    aria-hidden="true"
+                                    ng-show="restaurantCtrl.restaurantFilter"
+                                    ng-click="restaurantCtrl.clearRestaurantFilter()"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid restaurant-list-container">
+                <div class="col-xs-12">
+                    <div 
+                        class="loading-container text-center"
+                        ng-show="restaurantCtrl.isLoading">
+                        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <restaurant-list 
+                        list="restaurantCtrl.restaurantList" 
+                        filter-model="restaurantCtrl.restaurantFilter"></restaurant-list>
+                </div>
+            </div>
+        </div>
 </div>
