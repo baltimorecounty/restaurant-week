@@ -1,15 +1,26 @@
 'use strict';
 
-((app) => {
-	const restaurantService = (restaurantProvider) => {
-		const getRestaurants = () => restaurantProvider.getRestaurants();
-
-		return {
-			getRestaurants,
+(app => {
+    const restaurantService = restaurantProvider => {
+        const sortByName = (a, b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
 		};
-	};
 
-	restaurantService.$inject = ['rwApp.restaurantProvider'];
+		const sortRestaurants = (restaurants) => restaurants.sort(sortByName);
 
-	app.factory('rwApp.restaurantService', restaurantService);
+        const getRestaurants = () =>
+			restaurantProvider
+				.getRestaurants()
+				.then(sortRestaurants);
+
+        return {
+            getRestaurants
+        };
+    };
+
+    restaurantService.$inject = ['rwApp.restaurantProvider'];
+
+    app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
