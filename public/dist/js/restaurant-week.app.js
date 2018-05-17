@@ -14,14 +14,13 @@
 	var constants = {
 		urls: {
 			templates: {
-				restaurant: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant.template.html',
-				restaurantList: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant-list.template.html'
+				restaurant: '/dist/templates/restaurant/restaurant.template.html',
+				restaurantList: '/dist/templates/restaurant-list/restaurant-list.template.html'
 			},
 			apiRoot: 'dist/data',
-			restaurantMockData: 'dist/data/restaurants.json',
 			structuredContent: {
-				restaurants: '//staging.baltimorecountymd.gov/_Restaurant%20Week/RW_Restaurant?format=json',
-				imagePath: ''
+				restaurants: '/dist/data/mock-structured-content-restaurants.json',
+				imagePath: 'http://staging.baltimorecountymd.gov'
 			}
 		}
 	};
@@ -143,33 +142,6 @@
 'use strict';
 
 (function (app) {
-    var restaurantService = function restaurantService(restaurantProvider) {
-        var sortByName = function sortByName(a, b) {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-        };
-
-        var sortRestaurants = function sortRestaurants(restaurants) {
-            return restaurants.sort(sortByName);
-        };
-
-        var getRestaurants = function getRestaurants() {
-            return restaurantProvider.getRestaurants().then(sortRestaurants);
-        };
-
-        return {
-            getRestaurants: getRestaurants
-        };
-    };
-
-    restaurantService.$inject = ['rwApp.restaurantProvider'];
-
-    app.factory('rwApp.restaurantService', restaurantService);
-})(angular.module('rwApp'));
-'use strict';
-
-(function (app) {
 	var dataService = function dataService($http, $q, constants) {
 		var apiRoot = constants.urls.apiRoot;
 
@@ -211,6 +183,33 @@
 	};
 
 	app.factory('rwApp.dataService', ['$http', '$q', 'rwApp.CONSTANTS', dataService]);
+})(angular.module('rwApp'));
+'use strict';
+
+(function (app) {
+    var restaurantService = function restaurantService(restaurantProvider) {
+        var sortByName = function sortByName(a, b) {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+        };
+
+        var sortRestaurants = function sortRestaurants(restaurants) {
+            return restaurants.sort(sortByName);
+        };
+
+        var getRestaurants = function getRestaurants() {
+            return restaurantProvider.getRestaurants().then(sortRestaurants);
+        };
+
+        return {
+            getRestaurants: getRestaurants
+        };
+    };
+
+    restaurantService.$inject = ['rwApp.restaurantProvider'];
+
+    app.factory('rwApp.restaurantService', restaurantService);
 })(angular.module('rwApp'));
 'use strict';
 
