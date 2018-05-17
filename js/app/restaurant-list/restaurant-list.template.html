@@ -1,7 +1,7 @@
 <div class="restaurant-filter-message-container">
     <div class="container">
         <div class="col-xs-12">
-            <p class="restaurant-filter-message" ng-show="restaurantList.filterModel">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants
+            <p class="restaurant-filter-message" ng-show="restaurantList.filterModel || restaurantList.filters.location.length || restaurantList.filters.categories.length">Showing {{filteredList.length}} of {{restaurantList.list.length}} restaurants
                 <span ng-show="restaurantList.filterModel.length">for the search term "{{restaurantList.filterModel}}"</span>
             </p>
             <p class="restaurant-filter-message tag-list--inline" ng-show="restaurantList.filters.categories.length">
