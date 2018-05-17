@@ -71,8 +71,8 @@
 								<div class="restaurant-filter-input">
 									<input class="filter-input" placeholder="Search for restaurant name, location, category and more..." type="text" name="restaurant-list-filter"
 										id="restaurant-list-filter" ng-model="restaurantCtrl.restaurantFilter">
-									<i 
-										class="fa fa-times clear-filter-btn" 
+									<i
+										class="fa fa-times clear-filter-btn"
 										aria-hidden="true"
 										ng-show="restaurantCtrl.restaurantFilter"
 										ng-click="restaurantCtrl.clearRestaurantFilter()"></i>
@@ -84,14 +84,15 @@
 			</div>
 			<div class="container-fluid restaurant-list-container">
 					<div class="col-xs-12">
-						<div 
+						<div
 							class="loading-container text-center"
 							ng-show="restaurantCtrl.isLoading">
 							<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 							<span class="sr-only">Loading...</span>
 						</div>
-						<restaurant-list 
-							list="restaurantCtrl.restaurantList" 
+						<restaurant-list
+							ng-show="!restaurantCtrl.isLoading"
+							list="restaurantCtrl.restaurantList"
 							filter-model="restaurantCtrl.restaurantFilter"></restaurant-list>
 					</div>
 				</div>
