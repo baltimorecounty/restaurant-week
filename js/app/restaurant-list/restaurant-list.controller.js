@@ -13,7 +13,6 @@
 			const categories = filters.categories || vm.filters.categories;
 			vm.filters.location = filters.location || vm.filters.location;
 
-
 			categories.forEach((category) => {
 				if (vm.filters.categories.indexOf(category) === -1) {
 					vm.filters.categories.push(category);
