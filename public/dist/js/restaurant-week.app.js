@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-	angular.module('rwApp', []).config(function ($locationProvider) {
+	angular.module('rwApp', ['ngAria']).config(function ($locationProvider) {
 		$locationProvider.html5Mode({
 			enabled: true,
 			requireBase: false
@@ -14,13 +14,12 @@
 	var constants = {
 		urls: {
 			templates: {
-				restaurant: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant.template.html',
-				restaurantList: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant-list.template.html'
+				restaurant: '/_TEST/_templates/restaurant/restaurant.template.html',
+				restaurantList: '/_TEST/_templates/restaurant-list/restaurant-list.template.html'
 			},
 			apiRoot: 'dist/data',
-			restaurantMockData: 'dist/data/restaurants.json',
 			structuredContent: {
-				restaurants: '//staging.baltimorecountymd.gov/_Restaurant%20Week/RW_Restaurant?format=json',
+				restaurants: '/_TEST/RW_Restaurant?format=json',
 				imagePath: ''
 			}
 		}
@@ -37,7 +36,7 @@
 
 			model.name = restaurant.name || '';
 			model.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
-			model.imageAlt = restaurant.imgAlt || '';
+			model.imageAlt = restaurant.imageAlt || '';
 			model.websiteUrl = restaurant.websiteUrl || '';
 			model.websiteUrlTitle = restaurant.websiteUrl || '';
 			model.addressLine1 = restaurant.addressLine1 || '';
@@ -99,7 +98,6 @@
 					menuLink: restaurantToMap.menuLink.VALUE.LINK || '',
 					reservationsLink: restaurantToMap.reservations_link.VALUE.LINK || ''
 				});
-
 				return restaurantModel;
 			});
 		};
