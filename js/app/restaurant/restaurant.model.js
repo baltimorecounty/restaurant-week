@@ -7,7 +7,7 @@
 
 			model.name = restaurant.name || '';
 			model.imageUrl = restaurant.imageUrl || 'defaultimageurl.png';
-			model.imageAlt = restaurant.imgAlt || '';
+			model.imageAlt = restaurant.imageAlt || '';
 			model.websiteUrl = restaurant.websiteUrl || '';
 			model.websiteUrlTitle = restaurant.websiteUrl || '';
 			model.addressLine1 = restaurant.addressLine1 || '';

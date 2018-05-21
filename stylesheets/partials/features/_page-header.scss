@@ -1,74 +1,71 @@
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 @media screen and (max-width: 1045px) {
-	.header-navigation-list {
-	  font-size: 16px;
-	}
-	.logo img {
-	  margin-left: 15px;
-	}
-  }
-  @media screen and (max-width: 968px) {
-	.page-header-container.container,
-	.page-header-container .row,
-	.page-header-container .col-xs-12 {
-		padding: 0;
-		margin: 0;
-		width: 100%;
-	}
-	header {
-	  position: relative;
-	}
-	.header-navigation-list {
-	  display: none;
-	}
-	.header-navigation-list.mobile.active {
-	  background: $mobile-nav-background-color;
-	  display: block;
-	  font-size: 22px;
-	  position: absolute;
-	  margin: auto;
-	  bottom: -583px;
-	  left: 0;
-	  text-align: center;
-	  width: 100%;
-	  z-index: 999;
-
-	  li {
-		display: block;
-		margin: 30px 15px;
-		text-align: center;
-
-		a {
-		  background: $secondary-color;
-		  color: white;
-		  display: block;
-		  margin: 10px auto;
-		  padding: 15px 10px;
-		}
-	  }
-	  .navigation-list-item.follow-us {
-		a {
-		  background: none;
-		  font-size: 1.4em;
-		  padding: 30px 0;
-		}
-		.link-text {
-		  display: none;
-		}
-	  }
-	}
-  }
-
-
-@media screen and (max-width: 1000px) {
-  .page-header {
-    position: relative;
-  }
+    .header-navigation-list {
+        font-size: 16px;
+    }
+    .logo img {
+        margin-left: 15px;
+    }
 }
+
+@media screen and (max-width: 968px) {
+    .page-header-container.container,
+    .page-header-container .row,
+    .page-header-container .col-xs-12 {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    header {
+        position: relative;
+    }
+    .header-navigation-list {
+        display: none;
+    }
+    .header-navigation-list.mobile.active {
+        background: $mobile-nav-background-color;
+        display: block;
+        font-size: 22px;
+        position: absolute;
+        margin: auto;
+        bottom: -583px;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        z-index: 999;
+        li {
+            display: block;
+            margin: 30px 15px;
+            text-align: center;
+            a {
+                background: $secondary-color;
+                color: white;
+                display: block;
+                margin: 10px auto;
+                padding: 15px 10px;
+            }
+        }
+        .navigation-list-item.follow-us {
+            a {
+                background: none;
+                font-size: 1.4em;
+                padding: 30px 0;
+            }
+            .link-text {
+                display: none;
+            }
+        }
+	}
+
+	.page-header {
+		position: relative;
+	}
+}
+
