@@ -6,6 +6,7 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 	const self = {};
 	const activeClass = 'active';
 	const disableScrollClass = 'disable-scroll';
+	self.isNavVisible = false;
 
 	const init = (options) => {
 		self.options = options || {};
@@ -13,12 +14,38 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 		self.options.navigationListSelector = self.options.navigationListSelector || '.navigation-list';
 		self.options.overlayTargetSelector = self.options.overlayTargetSelector || '.overlay';
 		self.options.scrollTargetSelector = self.options.scrollTargetSelector || 'html';
+		self.options.pageHeaderSelector = self.options.pageHeaderSelector || '.page-header';
+		self.options.heroUnitSelector = self.options.heroUnitSelector || '.hero-unit';
 
 
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
 	};
 
+	const getCssPropertyAsFloat = (selector, cssPropertyName) =>
+		parseFloat($(selector).css(cssPropertyName).replace('px', ''));
+
+	const getHeroBorderHeight = () => getCssPropertyAsFloat(self.options.heroUnitSelector, 'border-top-width');
+
+	const getHeaderHeight = () => {
+		const pageHeaderContainerHeight = $(self.options.pageHeaderSelector).height();
+		const heroBorderHeight = getHeroBorderHeight();
+
+		return pageHeaderContainerHeight + heroBorderHeight;
+	};
+
 	const isActive = () => $(self.options.navigationListSelector).hasClass('active');
+
+	const makeFullScreen = () => {
+		const headerHeight = getHeaderHeight();
+		const windowHeight = window.innerHeight;
+		const navigationListHeight = windowHeight - headerHeight;
+		const headerTop = getCssPropertyAsFloat(self.options.pageHeaderSelector, 'bottom');
+		const newTopPosition = headerTop - navigationListHeight - getHeroBorderHeight();
+
+		$(self.options.navigationListSelector)
+			.css('bottom', `${newTopPosition}px`)
+			.height(`${navigationListHeight}px`);
+	};
 
 	const toggleNavIcons = ($btn) => {
 		$btn
@@ -52,6 +79,12 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 		togglePageScroll();
 
 		togglePageOverlay();
+
+		self.isNavVisible = !self.isNavVisible;
+
+		if (self.isNavVisible) {
+			makeFullScreen();
+		}
 	};
 
 	const onMobileNavClick = toggleNav;
@@ -66,6 +99,7 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 
 	return {
 		/* test-code */
+		getCssPropertyAsFloat,
 		onMobileNavClick,
 		/* end-test-code */
 		init,

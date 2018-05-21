@@ -39,12 +39,12 @@
 	  text-align: center;
 	  width: 100%;
 	  z-index: 999;
-  
+
 	  li {
 		display: block;
 		margin: 30px 15px;
 		text-align: center;
-  
+
 		a {
 		  background: $secondary-color;
 		  color: white;
@@ -65,7 +65,7 @@
 	  }
 	}
   }
-  
+
 
 @media screen and (max-width: 1000px) {
   .page-header {
