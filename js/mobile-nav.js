@@ -7,6 +7,8 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 	const activeClass = 'active';
 	const disableScrollClass = 'disable-scroll';
 	self.isNavVisible = false;
+	self.originalBottomPosition = 0;
+	self.originalNavigationListHeight = 0;
 
 	const init = (options) => {
 		self.options = options || {};
@@ -39,12 +41,20 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 		const headerHeight = getHeaderHeight();
 		const windowHeight = window.innerHeight;
 		const navigationListHeight = windowHeight - headerHeight;
-		const headerTop = getCssPropertyAsFloat(self.options.pageHeaderSelector, 'bottom');
-		const newTopPosition = headerTop - navigationListHeight - getHeroBorderHeight();
+		const headerBottomPosition = getCssPropertyAsFloat(self.options.pageHeaderSelector, 'bottom');
+		const newTopPosition = headerBottomPosition - navigationListHeight - getHeroBorderHeight();
+
+		self.originalBottomPosition = headerBottomPosition;
+		self.originalNavigationListHeight = headerBottomPosition - navigationListHeight;
 
 		$(self.options.navigationListSelector)
 			.css('bottom', `${newTopPosition}px`)
 			.height(`${navigationListHeight}px`);
+	};
+
+	const resetNav = () => {
+		$(self.options.navigationListSelector)
+			.removeAttr('style');
 	};
 
 	const toggleNavIcons = ($btn) => {
@@ -84,6 +94,8 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 
 		if (self.isNavVisible) {
 			makeFullScreen();
+		} else {
+			resetNav();
 		}
 	};
 
