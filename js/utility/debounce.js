@@ -1,13 +1,18 @@
 
 namespacer('restaurantWeek');
 
-restaurantWeek.debounce = (() => (fn, time) => {
+restaurantWeek.debounce = (function (func, wait, immediate) {
 	let timeout;
-
-	return function innerDebounce() {
-		const functionCall = () => fn.apply(this, arguments); // eslint-disable-line
-
+	return function (func, wait, immediate) {
+		let context = this,
+			args = arguments;
+		const later = function () {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		const callNow = immediate && !timeout;
 		clearTimeout(timeout);
-		timeout = setTimeout(functionCall, time);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
 	};
-})();
+}());
