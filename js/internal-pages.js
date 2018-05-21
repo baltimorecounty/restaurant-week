@@ -2,21 +2,25 @@
 
 namespacer('restaurantWeek');
 
-restaurantWeek.internalPages = (($) => {
-	const updateFacebookPlugin = (width, height) => {
-		const fbWidgetSelector = '.fb-page';
+restaurantWeek.internalPages = (($, debounce) => {
+	const fbWidgetSelector = '.fb-page';
 
-		if (!isNaN(width) && !isNaN(height)) {
-			$(fbWidgetSelector).attr('data-width', width).attr('data-height', height);
+	const updateFacebookPlugin = (width) => {
+		if (!isNaN(width)) {
+			$(fbWidgetSelector).attr('data-width', width);
+			FB.XFBML.parse();
 		}
-		FB.XFBML.parse();
-	 };
+	};
 
 	const init = () => {
+		window.addEventListener('resize', debounce(() => {
+			const targetWidth = parseFloat($(fbWidgetSelector).closest('[class^="col"]').css('width'));
 
+			updateFacebookPlugin(targetWidth);
+		}), 250);
 	};
 
 	return {
 		init,
 	};
-})(jQuery);
+})(jQuery, restaurantWeek.debounce);
