@@ -64,5 +64,21 @@ describe('Mobile Navigation', () => {
 			}, 1000);
 		});
 	});
+
+	describe('getCssPropertyAsFloat', () => {
+		it('should return the proper border width as a number', () => {
+			$('.hero-unit').css('border-top', '25px solid blue'); // setup our test
+
+			const actualBorderWidth = restaurantWeek.mobileNav.getCssPropertyAsFloat('.hero-unit', 'border-top-width');
+			expect(actualBorderWidth).toEqual(25);
+		});
+
+		it('should return the proper border width as a number', () => {
+			$('.hero-unit').css('height', '454px'); // setup our test
+
+			const actualHeight = restaurantWeek.mobileNav.getCssPropertyAsFloat('.hero-unit', 'height');
+			expect(actualHeight).toEqual(454);
+		});
+	});
 });
 

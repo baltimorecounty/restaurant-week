@@ -35,7 +35,7 @@
         font-size: 22px;
         position: absolute;
         margin: auto;
-        bottom: -605px;
+        bottom: -583px;
         left: 0;
         text-align: center;
         width: 100%;
@@ -63,10 +63,9 @@
             }
         }
 	}
+
+	.page-header {
+		position: relative;
+	}
 }
 
-@media screen and (max-width: 1000px) {
-    .page-header {
-        position: relative;
-    }
-}
