@@ -7,8 +7,6 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 	const activeClass = 'active';
 	const disableScrollClass = 'disable-scroll';
 	self.isNavVisible = false;
-	self.originalBottomPosition = 0;
-	self.originalNavigationListHeight = 0;
 
 	const init = (options) => {
 		self.options = options || {};
@@ -18,7 +16,6 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 		self.options.scrollTargetSelector = self.options.scrollTargetSelector || 'html';
 		self.options.pageHeaderSelector = self.options.pageHeaderSelector || '.page-header';
 		self.options.heroUnitSelector = self.options.heroUnitSelector || '.hero-unit';
-
 
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
 	};
@@ -43,9 +40,6 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 		const navigationListHeight = windowHeight - headerHeight;
 		const headerBottomPosition = getCssPropertyAsFloat(self.options.pageHeaderSelector, 'bottom');
 		const newTopPosition = headerBottomPosition - navigationListHeight - getHeroBorderHeight();
-
-		self.originalBottomPosition = headerBottomPosition;
-		self.originalNavigationListHeight = headerBottomPosition - navigationListHeight;
 
 		$(self.options.navigationListSelector)
 			.css('bottom', `${newTopPosition}px`)
