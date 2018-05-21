@@ -32,6 +32,7 @@ gulp.task(
 	[
 		'process-master-js',
 		'process-homepage-js',
+		'process-internal-js',
 		'process-app-js',
 		'move-page-specific-js',
 	],
@@ -111,6 +112,20 @@ gulp.task('process-homepage-js', () =>
 			end_comment: 'end-test-code',
 		}))
 		.pipe(concat('restaurant-week.homepage.js'))
+		.pipe(gulp.dest(`${DIST_FOLDER}/js`)));
+
+gulp.task('process-internal-js', () =>
+	gulp
+		.src(['js/internal-pages.js'])
+		.pipe(jshint.reporter(stylish))
+		.pipe(babel({
+			presets: ['es2015'],
+		}))
+		.pipe(stripCode({
+			start_comment: 'test-code',
+			end_comment: 'end-test-code',
+		}))
+		.pipe(concat('restaurant-week.internal.js'))
 		.pipe(gulp.dest(`${DIST_FOLDER}/js`)));
 
 gulp.task('move-page-specific-js', () =>
