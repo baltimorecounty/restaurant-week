@@ -24,6 +24,7 @@ module.exports = (config) => {
 			'node_modules/angular-mocks/angular-mocks.js',
 			'node_modules/bardjs/dist/bard.js',
 			'node_modules/jquery/dist/jquery.min.js',
+			'tests/lib/angular-aria.js',
 			'tests/lib/sinon-1.9.0.js',
 			'tests/lib/bc-utils.min.js',
 			'tests/lib/slick.min.js',
