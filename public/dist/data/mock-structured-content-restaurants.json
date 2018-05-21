@@ -1,0 +1,332 @@
+{
+	"FEATUREDITEMS": [],
+	"CONTENTS": [
+		{
+            "_title": {
+                "VALUE": "Barrett's Grill"
+            },
+            "_endDate": {
+                "VALUE": ""
+            },
+            "menuLink": {
+                "VALUE": {
+                    "ID": "DCF6B5EF7B2C6D9C5EF41E2D040B049B",
+                    "LINKTYPE": "INTERNAL",
+                    "PARAM": "",
+                    "LINKTEXT": "View Barrett's Grill Menu",
+                    "LINK": "http://www.baltimorecountyrestaurantweek.com/documents/menus/menu-barrets.pdf"
+                }
+            },
+            "addressLine1": {
+                "VALUE": "118 Shawan Road, Suite D"
+            },
+            "addressLine2": {
+                "VALUE": ""
+            },
+            "UUID": "19fb1c2c-9a0a-4d85-90efa65453cab06b",
+            "town": {
+                "VALUE": "Hunt Valley, Maryland"
+            },
+            "_startDate": {
+                "VALUE": "April, 23 2018 00:00:00"
+            },
+            "_urlTitle": {
+                "VALUE": "barretts-grill"
+            },
+            "reservations_link": {
+                "VALUE": {
+                    "ID": "2A2453AEFC7C31CB4759135AF85E46E5",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "?page=1",
+                    "LINKTEXT": "Reserve a Table at Barrett's Grill",
+                    "LINK": "https://www.opentable.com/barretts-grill?page=1"
+                }
+            },
+            "Phone_Number": {
+                "VALUE": "(410) 527-0999"
+            },
+            "website": {
+                "VALUE": {
+                    "ID": "EA731A8FA3DFC291488A661B3C991DAF",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "",
+                    "LINKTEXT": "View more information about Barrett's Grill on their website",
+                    "LINK": "http://www.barrettsgrill.com/home"
+                }
+            },
+            "Phone": {
+                "VALUE": ""
+            },
+            "ZipCode": {
+                "VALUE": 21030
+            },
+            "logo": {
+                "NAME": "logo-barretts.jpg",
+                "DESCRIPTION": "Barrett's Grill logo",
+                "VALUE": "5955411432E908A905F96404E467E19A",
+                "ALTTEXT": "Barrett's Grill logo",
+                "HEIGHT": 100,
+                "SIZE": 5891,
+                "URL": "/sebin/x/e/logo-barretts.jpg",
+                "WIDTH": 190
+            },
+            "Categories": [{
+                "VALUE": "American",
+                "LABEL": "American"
+            }],
+            "ACTIVE": true,
+            "_printDate": {
+                "VALUE": "April, 23 2018 00:00:00"
+            }
+        },
+		{
+			"_title": {
+				"VALUE": "Artful Gourmet Bistro"
+			},
+			"_endDate": {
+				"VALUE": ""
+			},
+			"menuLink": {
+				"VALUE": {
+					"ID": "",
+					"LINKTYPE": "",
+					"PARAM": "",
+					"LINKTEXT": "",
+					"LINK": "http://www.artfulgourmet.com/"
+				}
+			},
+			"addressLine1": {
+				"VALUE": "9433 Common Brook Road #103"
+			},
+			"addressLine2": {
+				"VALUE": "Owings Mills, Maryland 21117"
+			},
+			"UUID": "44bcc20a-3dfb-484c-aa6ede5040befd88",
+			"town": {
+				"VALUE": "Owings Mills"
+			},
+			"_startDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+			},
+			"_urlTitle": {
+				"VALUE": "artful-gourmet-bistro"
+			},
+			"Phone_Number": {
+				"VALUE": "410-356-2606"
+			},
+			"website": {
+				"VALUE": {
+					"ID": "D65603DF550E7FEA2CF237C31DEE3C68",
+					"LINKTYPE": "EXTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "View more information about the Arful Gourmet Bistro by visiting their website",
+					"LINK": "http://www.artfulgourmet.com/"
+				}
+			},
+			"Phone": {
+				"VALUE": 4103562606
+			},
+			"ZipCode": {
+				"VALUE": 21117
+			},
+			"logo": {
+				"NAME": "logo-artful-gourmet.jpg",
+				"DESCRIPTION": "Artful Gourmet Bistro Logo",
+				"VALUE": "F53A69188085EFE1DA36466C1D985DFA",
+				"ALTTEXT": "Artful Gourmet Bistro Logo",
+				"HEIGHT": 100,
+				"SIZE": 6287,
+				"URL": "/sebin/j/g/logo-artful-gourmet.jpg",
+				"WIDTH": 190
+			},
+			"Categories": [
+				{
+					"VALUE": "Fine Dining",
+					"LABEL": "Fine Dining"
+				}
+			],
+			"ACTIVE": true,
+			"_printDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+            },
+            "reservations_link": {
+                "VALUE": {
+                    "ID": "2A2453AEFC7C31CB4759135AF85E46E5",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "?page=1",
+                    "LINKTEXT": "Reserve a Table at Barrett's Grill",
+                    "LINK": ""
+                }
+            }
+		},
+		{
+			"_title": {
+				"VALUE": "Bonefish Grill"
+			},
+			"_endDate": {
+				"VALUE": ""
+			},
+			"menuLink": {
+				"VALUE": {
+					"ID": "2D1444DB3289B7892A4F688E04CF3AB9",
+					"LINKTYPE": "INTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "View the Restaurant Week menu for Bonefish Owings Mills",
+					"LINK": "http://www.baltimorecountyrestaurantweek.com/documents/menus/menu-bonefish.pdf"
+				}
+			},
+			"addressLine1": {
+				"VALUE": "10906 Boulevard Circle"
+			},
+			"addressLine2": {
+				"VALUE": ""
+			},
+			"UUID": "d0215e35-0488-4679-80e847d7cb5efecf",
+			"town": {
+				"VALUE": "Owings Mills"
+			},
+			"_startDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+			},
+			"_urlTitle": {
+				"VALUE": "bonefish-grill"
+			},
+			"Phone_Number": {
+				"VALUE": "410-654-5500"
+			},
+			"website": {
+				"VALUE": {
+					"ID": "E841F6F87B16CE04F04C06ECEE2D7EC9",
+					"LINKTYPE": "EXTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "Visit the Bonefish Grill Owings Mills website.",
+					"LINK": "https://www.bonefishgrill.com/locations/md/owings-mills"
+				}
+			},
+			"Phone": {
+				"VALUE": 4106545500
+			},
+			"ZipCode": {
+				"VALUE": 21117
+			},
+			"logo": {
+				"NAME": "logo-bonefish-grill.jpg",
+				"DESCRIPTION": "Bonefish Grill Logo",
+				"VALUE": "4C91CEB651306B1C6B8C5B9E0FE9853A",
+				"ALTTEXT": "Bonefish Grill Logo",
+				"HEIGHT": 100,
+				"SIZE": 13300,
+				"URL": "/sebin/n/g/logo-bonefish-grill.jpg",
+				"WIDTH": 190
+			},
+			"Categories": [
+				{
+					"VALUE": "American",
+					"LABEL": "American"
+				},
+				{
+					"VALUE": "Seafood",
+					"LABEL": "Seafood"
+				}
+			],
+			"ACTIVE": true,
+			"_printDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+            },
+            "reservations_link": {
+                "VALUE": {
+                    "ID": "2A2453AEFC7C31CB4759135AF85E46E5",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "?page=1",
+                    "LINKTEXT": "Reserve a Table at Barrett's Grill",
+                    "LINK": ""
+                }
+            }
+		},
+		{
+			"_title": {
+				"VALUE": "Citron Restaurant and Bar"
+			},
+			"_endDate": {
+				"VALUE": ""
+			},
+			"menuLink": {
+				"VALUE": {
+					"ID": "834A00CB51460040E600519F3F78EC06",
+					"LINKTYPE": "INTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "View the Citron Restaurant Week menu.",
+					"LINK": "http://www.baltimorecountyrestaurantweek.com/documents/menus/menu-citron2018.pdf"
+				}
+			},
+			"addressLine1": {
+				"VALUE": "2605 Quarry Lake Drive"
+			},
+			"addressLine2": {
+				"VALUE": ""
+			},
+			"UUID": "2ff43a8e-b0a5-4c51-a63c5096b01a03c1",
+			"town": {
+				"VALUE": "Baltimore"
+			},
+			"_startDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+			},
+			"_urlTitle": {
+				"VALUE": "citron-restaurant-and-bar"
+			},
+			"Phone_Number": {
+				"VALUE": "410-363-0900"
+			},
+			"website": {
+				"VALUE": {
+					"ID": "28E8F9329BAFA7687765BF6A43F8AECA",
+					"LINKTYPE": "EXTERNAL",
+					"PARAM": "",
+					"LINKTEXT": "Visit the Citron Restaurant and Bar website.",
+					"LINK": "http://citronbaltimore.com/"
+				}
+			},
+			"Phone": {
+				"VALUE": ""
+			},
+			"ZipCode": {
+				"VALUE": 21209
+			},
+			"logo": {
+				"NAME": "logo-citron.jpg",
+				"DESCRIPTION": "Citron Restaurant logo",
+				"VALUE": "CF570F557092314B1E33178BC439D063",
+				"ALTTEXT": "Citron Restaurant logo",
+				"HEIGHT": 100,
+				"SIZE": 5232,
+				"URL": "/sebin/j/g/logo-citron.jpg",
+				"WIDTH": 190
+			},
+			"Categories": [
+				{
+					"VALUE": "Fine Dining",
+					"LABEL": "Fine Dining"
+				},
+				{
+					"VALUE": "Seafood",
+					"LABEL": "Seafood"
+				}
+			],
+			"ACTIVE": true,
+			"_printDate": {
+				"VALUE": "January, 18 2018 00:00:00"
+            },
+            "reservations_link": {
+                "VALUE": {
+                    "ID": "2A2453AEFC7C31CB4759135AF85E46E5",
+                    "LINKTYPE": "EXTERNAL",
+                    "PARAM": "?page=1",
+                    "LINKTEXT": "Reserve a Table at Barrett's Grill",
+                    "LINK": ""
+                }
+            }
+		}
+	],
+	"NONFEATUREDITEMS": []
+}
