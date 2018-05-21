@@ -182,6 +182,7 @@ restaurantWeek.mobileNav = function ($, onWindowResize) {
 	var self = {};
 	var activeClass = 'active';
 	var disableScrollClass = 'disable-scroll';
+	self.isNavVisible = false;
 
 	var init = function init(options) {
 		self.options = options || {};
@@ -189,12 +190,39 @@ restaurantWeek.mobileNav = function ($, onWindowResize) {
 		self.options.navigationListSelector = self.options.navigationListSelector || '.navigation-list';
 		self.options.overlayTargetSelector = self.options.overlayTargetSelector || '.overlay';
 		self.options.scrollTargetSelector = self.options.scrollTargetSelector || 'html';
+		self.options.pageHeaderSelector = self.options.pageHeaderSelector || '.page-header';
+		self.options.heroUnitSelector = self.options.heroUnitSelector || '.hero-unit';
 
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
 	};
 
+	var getCssPropertyAsFloat = function getCssPropertyAsFloat(selector, cssPropertyName) {
+		return parseFloat($(selector).css(cssPropertyName).replace('px', ''));
+	};
+
+	var getHeroBorderHeight = function getHeroBorderHeight() {
+		return getCssPropertyAsFloat(self.options.heroUnitSelector, 'border-top-width');
+	};
+
+	var getHeaderHeight = function getHeaderHeight() {
+		var pageHeaderContainerHeight = $(self.options.pageHeaderSelector).height();
+		var heroBorderHeight = getHeroBorderHeight();
+
+		return pageHeaderContainerHeight + heroBorderHeight;
+	};
+
 	var isActive = function isActive() {
 		return $(self.options.navigationListSelector).hasClass('active');
+	};
+
+	var makeFullScreen = function makeFullScreen() {
+		var headerHeight = getHeaderHeight();
+		var windowHeight = window.innerHeight;
+		var navigationListHeight = windowHeight - headerHeight;
+		var headerTop = getCssPropertyAsFloat(self.options.pageHeaderSelector, 'bottom');
+		var newTopPosition = headerTop - navigationListHeight - getHeroBorderHeight();
+
+		$(self.options.navigationListSelector).css('bottom', newTopPosition + 'px').height(navigationListHeight + 'px');
 	};
 
 	var toggleNavIcons = function toggleNavIcons($btn) {
@@ -224,6 +252,12 @@ restaurantWeek.mobileNav = function ($, onWindowResize) {
 		togglePageScroll();
 
 		togglePageOverlay();
+
+		self.isNavVisible = !self.isNavVisible;
+
+		if (self.isNavVisible) {
+			makeFullScreen();
+		}
 	};
 
 	var onMobileNavClick = toggleNav;

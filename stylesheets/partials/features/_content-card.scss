@@ -25,7 +25,6 @@
   border-radius: 50%;
   box-shadow: 0px 2px 2.5px $gray-lightest;
   box-shadow: rgba($gray-lightest, 0.8) 0 0 10px;
-  max-width: 250px;
 
   position: absolute;
   top: 0;
@@ -34,18 +33,16 @@
   right: 0;
   margin: auto auto auto -125px;
 
-  height: 235px;
-  width: 235px;
-
+  height: 225px;
+  max-width: 225px;
   width: 100%;
 }
 
 .content-card-icon {
-  background: $secondary-color;
-  font-size: 150px;
-  padding: 33.75px 30px;
-  text-align: center;
-  width: 235px;
+	background: #54a7da;
+    font-size: 120px;
+    padding: 44.75px 41px;
+    text-align: center;
 }
 
 .content-card-icon:before {
