@@ -153,12 +153,6 @@ namespacer('restaurantWeek');
 restaurantWeek.internalPages = function ($, debounce) {
 	var fbWidgetSelector = '.fb-page';
 
-	var updateFacebookPluginStyles = function updateFacebookPluginStyles(width) {
-		if (!isNaN(width) && window.FB) {
-			$(fbWidgetSelector).attr('data-width', width);
-			FB.XFBML.parse();
-		}
-	};
 	var getColumnWidth = function getColumnWidth() {
 		return parseFloat($(fbWidgetSelector).closest('[class^="col"]').css('width'));
 	};
@@ -169,12 +163,17 @@ restaurantWeek.internalPages = function ($, debounce) {
 		updateFacebookPluginStyles(targetWidth);
 	};
 
+	var updateFacebookPluginStyles = function updateFacebookPluginStyles(width) {
+		if (!isNaN(width) && window.FB) {
+			$(fbWidgetSelector).attr('data-width', width);
+			FB.XFBML.parse();
+		}
+	};
+
 	var init = function init() {
 		window.addEventListener('resize', function () {
 			debounce(onWindowResize, 250);
 		});
-
-		onWindowResize();
 	};
 
 	return {
