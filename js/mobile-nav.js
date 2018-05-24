@@ -17,7 +17,6 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 		self.options.pageHeaderSelector = self.options.pageHeaderSelector || '.page-header';
 		self.options.heroUnitSelector = self.options.heroUnitSelector || '.hero-unit';
 
-
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
 	};
 
@@ -39,12 +38,17 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 		const headerHeight = getHeaderHeight();
 		const windowHeight = window.innerHeight;
 		const navigationListHeight = windowHeight - headerHeight;
-		const headerTop = getCssPropertyAsFloat(self.options.pageHeaderSelector, 'bottom');
-		const newTopPosition = headerTop - navigationListHeight - getHeroBorderHeight();
+		const headerBottomPosition = getCssPropertyAsFloat(self.options.pageHeaderSelector, 'bottom');
+		const newTopPosition = headerBottomPosition - navigationListHeight - getHeroBorderHeight();
 
 		$(self.options.navigationListSelector)
 			.css('bottom', `${newTopPosition}px`)
 			.height(`${navigationListHeight}px`);
+	};
+
+	const resetNav = () => {
+		$(self.options.navigationListSelector)
+			.removeAttr('style');
 	};
 
 	const toggleNavIcons = ($btn) => {
@@ -84,6 +88,8 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 
 		if (self.isNavVisible) {
 			makeFullScreen();
+		} else {
+			resetNav();
 		}
 	};
 
