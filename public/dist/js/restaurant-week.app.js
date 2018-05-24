@@ -14,14 +14,13 @@
 	var constants = {
 		urls: {
 			templates: {
-				restaurant: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant.template.html',
-				restaurantList: '//staging.baltimorecountymd.gov/_Restaurant Week/app/restaurant-list.template.html'
+				restaurant: '/dist/templates/restaurant/restaurant.template.html',
+				restaurantList: '/dist/templates/restaurant-list/restaurant-list.template.html'
 			},
 			apiRoot: 'dist/data',
-			restaurantMockData: 'dist/data/restaurants.json',
 			structuredContent: {
-				restaurants: '//staging.baltimorecountymd.gov/_Restaurant%20Week/RW_Restaurant?format=json',
-				imagePath: ''
+				restaurants: '/dist/data/mock-structured-content-restaurants.json',
+				imagePath: 'http://staging.baltimorecountymd.gov'
 			}
 		}
 	};
