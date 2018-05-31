@@ -24,7 +24,9 @@ restaurantWeek.internalPages = function ($, debounce) {
 
 	var init = function init() {
 		window.addEventListener('resize', function () {
-			debounce(onWindowResize, 250);
+			debounce(function () {
+				onWindowResize();
+			}, 250);
 		});
 	};
 

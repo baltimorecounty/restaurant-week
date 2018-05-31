@@ -120,22 +120,24 @@ function namespacer(t) {
 }();
 'use strict';
 
+/* eslint-disable */
+
 namespacer('restaurantWeek');
 
 restaurantWeek.debounce = function (func, wait, immediate) {
-	var timeout = void 0;
-	return function (func, wait, immediate) {
-		var context = this,
-		    args = arguments;
-		var later = function later() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
+  var timeout;
+  return function (func, wait, immediate) {
+    var context = this,
+        args = arguments;
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
 }();
 'use strict';
 
@@ -172,7 +174,9 @@ restaurantWeek.internalPages = function ($, debounce) {
 
 	var init = function init() {
 		window.addEventListener('resize', function () {
-			debounce(onWindowResize, 250);
+			debounce(function () {
+				onWindowResize();
+			}, 250);
 		});
 	};
 
