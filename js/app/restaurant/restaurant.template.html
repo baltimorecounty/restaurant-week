@@ -5,6 +5,13 @@
 	<a class="headline-link" href="{{restaurant.websiteUrl}}" title="{{restaurant.websiteUrlTitle}}">
 		<h2 class="restaurant-name">{{restaurant.name}}</h2>
 	</a>
+	<div class="categories">
+		<ul class="tag-list">
+			<li ng-repeat="category in restaurant.categories">
+				<span class="tag" ng-click="filterCategory(category)">{{category}}</span>
+			</li>
+		</ul>
+	</div>
 	<div class="restaurant-address">
 		<p>{{restaurant.addressLine1}}</p>
 		<p ng-show="restaurant.town && restaurant.zip">
@@ -17,11 +24,4 @@
         <li ng-if="restaurant.reservationsLink">
             <a href="{{restaurant.reservationsLink}}" target="_self">Reservations</a></li>
     </ul>
-	<div class="categories">
-		<ul class="tag-list">
-			<li ng-repeat="category in restaurant.categories">
-				<span class="tag" ng-click="filterCategory(category)">{{category}}</span>
-			</li>
-		</ul>
-	</div>
 </div>
