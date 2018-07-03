@@ -145,7 +145,9 @@ namespacer('restaurantWeek');
 
 restaurantWeek.windowResize = function (debounce) {
 	return function (fn) {
-		window.addEventListener('resize', debounce(fn, 250));
+		window.addEventListener('resize', function () {
+			debounce(fn, 250);
+		});
 	};
 }(restaurantWeek.debounce);
 'use strict';
@@ -281,6 +283,7 @@ restaurantWeek.mobileNav = function ($, onWindowResize) {
 	var handleWindowResize = function handleWindowResize() {
 		if (window.innerWidth >= 968 && isActive()) {
 			toggleNav();
+			resetNav();
 		}
 	};
 
