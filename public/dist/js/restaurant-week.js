@@ -209,7 +209,9 @@ restaurantWeek.mobileNav = function ($, onWindowResize) {
 	};
 
 	var getCssPropertyAsFloat = function getCssPropertyAsFloat(selector, cssPropertyName) {
-		return parseFloat($(selector).css(cssPropertyName).replace('px', ''));
+		var valueAsString = $(selector).css(cssPropertyName).trim().toLowerCase();
+
+		return valueAsString.indexOf('px') > -1 ? parseFloat($(selector).css(cssPropertyName).replace('px', '')) : valueAsString === 'auto' ? 0 : valueAsString;
 	};
 
 	var getHeroBorderHeight = function getHeroBorderHeight() {
