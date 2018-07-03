@@ -30,7 +30,7 @@
         display: none;
     }
     .header-navigation-list.mobile.active {
-        background: $mobile-nav-background-color;
+        background: $mobile-background-color;
         display: block;
         font-size: 22px;
         position: absolute;
@@ -45,7 +45,7 @@
             margin: 30px 15px;
             text-align: center;
             a {
-                background: $secondary-color;
+                background: $primary-color;
                 color: white;
                 display: block;
                 margin: 10px auto;
