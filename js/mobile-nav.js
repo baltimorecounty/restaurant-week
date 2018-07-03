@@ -20,8 +20,17 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 		$(document).on('click', self.options.mobileNavButtonSelector, onMobileNavClick);
 	};
 
-	const getCssPropertyAsFloat = (selector, cssPropertyName) =>
-		parseFloat($(selector).css(cssPropertyName).replace('px', ''));
+	const getCssPropertyAsFloat = (selector, cssPropertyName) => {
+		const valueAsString = $(selector).css(cssPropertyName).trim().toLowerCase();
+
+		return valueAsString.indexOf('px') > -1
+			? parseFloat($(selector).css(cssPropertyName).replace('px', ''))
+			: (
+				valueAsString === 'auto'
+					? 0
+					: valueAsString
+			);
+	};
 
 	const getHeroBorderHeight = () => getCssPropertyAsFloat(self.options.heroUnitSelector, 'border-top-width');
 
