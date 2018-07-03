@@ -98,6 +98,7 @@ restaurantWeek.mobileNav = (($, onWindowResize) => {
 	const handleWindowResize = () => {
 		if (window.innerWidth >= 968 && isActive()) {
 			toggleNav();
+			resetNav();
 		}
 	};
 
