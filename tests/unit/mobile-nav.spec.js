@@ -79,6 +79,13 @@ describe('Mobile Navigation', () => {
 			const actualHeight = restaurantWeek.mobileNav.getCssPropertyAsFloat('.hero-unit', 'height');
 			expect(actualHeight).toEqual(454);
 		});
+
+		it('should return 0 if the height is set to auto', () => {
+			$('.hero-unit').css('height', 'auto'); // setup our test
+
+			const actualHeight = restaurantWeek.mobileNav.getCssPropertyAsFloat('.hero-unit', 'height');
+			expect(actualHeight).toEqual(0);
+		});
 	});
 });
 
