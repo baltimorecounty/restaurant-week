@@ -46,7 +46,7 @@ $icon-font-size-sm: $icon-font-size * $icon-step-ratio;
 }
 
 .content-card-icon {
-	background: #54a7da;
+	background: $primary-color;
 	font-size: $icon-font-size;
 	padding: 44.75px 41px;
     text-align: center;

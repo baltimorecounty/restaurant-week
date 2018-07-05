@@ -145,7 +145,9 @@ namespacer('restaurantWeek');
 
 restaurantWeek.windowResize = function (debounce) {
 	return function (fn) {
-		window.addEventListener('resize', debounce(fn, 250));
+		window.addEventListener('resize', function () {
+			debounce(fn, 250);
+		});
 	};
 }(restaurantWeek.debounce);
 'use strict';
@@ -207,7 +209,9 @@ restaurantWeek.mobileNav = function ($, onWindowResize) {
 	};
 
 	var getCssPropertyAsFloat = function getCssPropertyAsFloat(selector, cssPropertyName) {
-		return parseFloat($(selector).css(cssPropertyName).replace('px', ''));
+		var valueAsString = $(selector).css(cssPropertyName).trim().toLowerCase();
+
+		return valueAsString.indexOf('px') > -1 ? parseFloat($(selector).css(cssPropertyName).replace('px', '')) : valueAsString === 'auto' ? 0 : valueAsString;
 	};
 
 	var getHeroBorderHeight = function getHeroBorderHeight() {
@@ -281,6 +285,7 @@ restaurantWeek.mobileNav = function ($, onWindowResize) {
 	var handleWindowResize = function handleWindowResize() {
 		if (window.innerWidth >= 968 && isActive()) {
 			toggleNav();
+			resetNav();
 		}
 	};
 
