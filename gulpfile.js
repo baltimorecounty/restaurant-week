@@ -48,10 +48,9 @@ gulp.task(
 );
 
 gulp.task('process-app-js', () => {
-	const env = process.env.NODE_ENV;
 	const srcFiles = [
 		'js/app/*.js',
-		`js/app/**/*.constants.${env}.js`,
+		'js/app/**/*.constants.js',
 		'js/app/**/*.model.js',
 		'js/app/**/*.provider.js',
 		'js/app/**/*.service.js',
